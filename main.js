@@ -52,9 +52,13 @@ Animation.prototype.isDone = function () {
     return (this.elapsedTime >= this.totalTime);
 }
 
-function Background(game) {
-    Entity.call(this, game, 0, 400);
-    this.radius = 200;
+function Background(game, spriteSheet) {
+    this.spriteSheet = spriteSheet;
+    this.x = 0;
+    this.y = 0;
+    Entity.call(this, game, 0, 0);
+    this.game = game;
+    this.ctx = game.ctx;
 }
 
 Background.prototype = new Entity();
@@ -64,9 +68,8 @@ Background.prototype.update = function () {
 }
 
 Background.prototype.draw = function (ctx) {
-    ctx.fillStyle = "SaddleBrown";
-    ctx.fillRect(0,500,800,300);
-    Entity.prototype.draw.call(this);
+    ctx.drawImage(this.spriteSheet, this.x, this.y);
+    // Entity.prototype.draw.call(this);
 }
 
 function Unicorn(game) {
@@ -76,19 +79,21 @@ function Unicorn(game) {
     this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzLoKick.png"), 0, 0, 285, 315, 0.06, 12, false, false);
     this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);
     this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
+    this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWalkLeft.png"), 0, 0, 144.15, 292, 0.06, 20, false, false);
     this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
     this.jumping = false;
     this.punching = false;
     this.ducking = false;
     this.walkLeft = false;
     this.walkRight = false;
+
     this.speed = 0;
     // this.standing = true;
     this.lowKicking = false;
     this.highKicking = false;
     this.radius = 100;
-    this.ground = 400;
-    Entity.call(this, game, 0, 400);
+    this.ground = 300;
+    Entity.call(this, game, 0, 300);
 }
 
 Unicorn.prototype = new Entity();
@@ -109,6 +114,8 @@ Unicorn.prototype.update = function () {
         this.ducking=true;
     } else if (this.game.d) {
         this.walkRight = true;
+    }else if(this.game.a){
+        this.walkLeft = true;
     }
 
     if (this.jumping) {
@@ -158,6 +165,14 @@ Unicorn.prototype.update = function () {
         this.x = this.x + 1;
         this.y = this.ground;
 
+    }else if (this.walkLeft){
+        console.log("Walking left!");
+        if(this.walkLeftAnimation.isDone()){
+            this.walkLeftAnimation.elapsedTime = 0;
+            this.walkLeft = false;
+        }
+        this.x = this.x - 1;
+        this.y = this.ground;
     }
 
 
@@ -189,8 +204,11 @@ Unicorn.prototype.draw = function (ctx) {
         this.duckingAnimation.d;
         this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
     }else if (this.walkRight){
-        this.walkRightAnimation.d
+        this.walkRightAnimation.d;
         this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x +5, this.y);
+    } else if (this.walkLeft){
+        this.walkLeftAnimation.d;
+        this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x -5, this.y);
     } else {
         console.log("standing still");
         this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
@@ -208,7 +226,9 @@ ASSET_MANAGER.queueDownload("./img/Cruz/CruzPunch.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzLoKick.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzDuck.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/cruzWalkRight.png");
+ASSET_MANAGER.queueDownload("./img/Cruz/CruzWalkLeft.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzHiKick.png");
+ASSET_MANAGER.queueDownload("./img/whiteHouse.jpg");
 
 ASSET_MANAGER.downloadAll(function () {
     console.log("starting up da sheild");
@@ -216,10 +236,10 @@ ASSET_MANAGER.downloadAll(function () {
     var ctx = canvas.getContext('2d');
 
     var gameEngine = new GameEngine();
-    var bg = new Background(gameEngine);
     var unicorn = new Unicorn(gameEngine);
 
-    gameEngine.addEntity(bg);
+    gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
+
     gameEngine.addEntity(unicorn);
 
     gameEngine.init(ctx);
