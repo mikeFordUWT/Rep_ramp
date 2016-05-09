@@ -62,9 +62,13 @@ GameEngine.prototype.startInput = function () {
     var that = this;
 
     this.ctx.canvas.addEventListener("keydown", function (e) {
+        var h = that.o;
+        var keyStrokes = [that.a, that.s, that.d, that.w, that.i, that.o, that.p,that.m, that.lKey];
+
 
         if(String.fromCharCode(e.which).toLowerCase() === 'a'){
             that.a = true;
+            
         }
         if(String.fromCharCode(e.which).toLowerCase() === 's') {
             that.s = true;
@@ -82,7 +86,9 @@ GameEngine.prototype.startInput = function () {
             that.o = true;
         }
         if(String.fromCharCode(e.which).toLowerCase() === 'p') {
+
             that.p = true;
+
         }
         if(String.fromCharCode(e.which).toLowerCase() === 'm') {
             that.m = true;
