@@ -52,7 +52,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
     this.lowKicking = false;
     this.highKicking = false;
     this.blocking = false;
-
+    this.game = game; //todo check that this works
     //health variable
     this.health  = 100;
 
@@ -75,7 +75,7 @@ Fighter.prototype.update = function(){
     if (this.game.w) {
         this.jumping = true;
     }else if(this.game.p){
-        console.log("p pressed")
+        console.log("p pressed");
         this.punching = true;
     } else if(this.game.i) {
         this.lowKicking=true;
@@ -147,7 +147,7 @@ Fighter.prototype.update = function(){
     }
     
     Entity.prototype.update.call(this);
-}
+};
 
 Fighter.prototype.draw = function (ctx) {
     if (this.jumping) {
@@ -182,4 +182,4 @@ Fighter.prototype.draw = function (ctx) {
         this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
     }
     Entity.prototype.draw.call(this);
-}
+};
