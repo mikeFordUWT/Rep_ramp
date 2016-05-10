@@ -51,7 +51,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
     this.walkRight = false;
     this.lowKicking = false;
     this.highKicking = false;
-    this.block = false;
+    this.blocking = false;
 
     //health variable
     this.health  = 100;
