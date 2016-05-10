@@ -170,9 +170,11 @@ Fighter.prototype.draw = function (ctx) {
         this.duckingAnimation.d;
         this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
     }else if (this.walkRight){
+        console.log("walking right");
         this.walkRightAnimation.d;
         this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x +5, this.y);
     } else if (this.walkLeft){
+        console.log("Walking Left");
         this.walkLeftAnimation.d;
         this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x -5, this.y);
     } else {
