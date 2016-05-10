@@ -72,7 +72,7 @@ Background.prototype.draw = function (ctx) {
     // Entity.prototype.draw.call(this);
 }
 
-function Unicorn(game) {
+function TedCruz(game) {
     this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
     this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
     this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
@@ -81,25 +81,31 @@ function Unicorn(game) {
     this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
     this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWalkLeft.png"), 0, 0, 144.15, 292, 0.06, 20, false, false);
     this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
+    
+    //animation booleans
     this.jumping = false;
     this.punching = false;
     this.ducking = false;
     this.walkLeft = false;
     this.walkRight = false;
-
-    this.speed = 0;
-    // this.standing = true;
     this.lowKicking = false;
     this.highKicking = false;
+    
+    //health variable
+    this.health  = 100;
+
+    //speed variable
+    this.speed = 0;
+    
     this.radius = 100;
     this.ground = 300;
     Entity.call(this, game, 0, 300);
 }
 
-Unicorn.prototype = new Entity();
-Unicorn.prototype.constructor = Unicorn;
+TedCruz.prototype = new Entity();
+TedCruz.prototype.constructor = TedCruz;
 
-Unicorn.prototype.update = function () {
+TedCruz.prototype.update = function () {
     //jumping logic
     if (this.game.w) {
         this.jumping = true;
@@ -183,7 +189,7 @@ Unicorn.prototype.update = function () {
     Entity.prototype.update.call(this);
 }
 
-Unicorn.prototype.draw = function (ctx) {
+TedCruz.prototype.draw = function (ctx) {
     if (this.jumping) {
         // this.jumpAnimation.d
         this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x + 17, this.y - 34);
@@ -236,7 +242,7 @@ ASSET_MANAGER.downloadAll(function () {
     var ctx = canvas.getContext('2d');
 
     var gameEngine = new GameEngine();
-    var unicorn = new Unicorn(gameEngine);
+    var unicorn = new TedCruz(gameEngine);
 
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
 
