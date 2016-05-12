@@ -2,8 +2,6 @@
  * Created by Mike on 5/10/16.
  */
 
-
-
 function Fighter(game, fighterName, ASSET_MANAGER) {
     if(fighterName === "tedCruz"){
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
@@ -16,32 +14,32 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
 
     }else if(fighterName ==="hillaryClinton"){
-        this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
-        this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
-        this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
-        this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonLoKick.png"), 0, 0, 285, 315, 0.06, 12, false, false);
-        this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);
-        this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
+        this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStanding.png"), 0, 0, 185, 299, 0.099, 6, true, false);
+        this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonJump.png"), 0, 0, 288, 337, 0.06, 20, false, false);
+        this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonPunch.png"), 0, 0, 312, 297, 0.06, 12, false, false);
+        this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonLoKick.png"), 0, 0, 270, 299, 0.06, 12, false, false);
+        this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);//FIXXXX LATTE
+        this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWalkRight.png"), 0, 0, 262, 326, 0.06, 20, false, false);
         // this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWalkLeft.png"), 0, 0, 144.15, 292, 0.06, 20, false, false);
-        this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
+        this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonHiKick.png"), 0, 0, 344, 322, 0.06, 12, false, false);
     }else if(fighterName === "donaldTrump"){
-        this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
-        this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
-        this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
-        this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpLoKick.png"), 0, 0, 285, 315, 0.06, 12, false, false);
-        this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);
-        this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
-        // this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWalkLeft.png"), 0, 0, 144.15, 292, 0.06, 20, false, false);
-        this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
+        this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStanding.png"), 0, 0, 270, 325, 0.099, 6, true, false);
+        this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpJump.png"), 0, 0, 242, 353, 0.06, 20, false, false);
+        this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunch.png"), 0, 0, 434, 345, 0.06, 12, false, false);
+        this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpLoKick.png"), 0, 0, 429, 341, 0.06, 12, false, false);
+        this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);//FIIIIXXXX LATTE
+        this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkRight.png"), 0, 0, 192, 326, 0.06, 20, false, false);
+        // this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkLeft.png"), 0, 0, 144.15, 292, 0.06, 20, false, false);
+        this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpHiKick.png"), 0, 0, 488, 350, 0.06, 12, false, false);
     }else if(fighterName === "bernieSanders"){
-        this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
-        this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
-        this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
-        this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersLoKick.png"), 0, 0, 285, 315, 0.06, 12, false, false);
-        this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);
-        this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
-        // this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWalkLeft.png"), 0, 0, 144.15, 292, 0.06, 20, false, false);
-        this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
+        this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersStanding.png"), 0, 0, 177, 305, 0.099, 6, true, false);
+        this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersJump.png"), 0, 0, 285, 325, 0.06, 20, false, false);
+        this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersPunch.png"), 0, 0, 369, 426, 0.06, 12, false, false);
+        this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersLoKick.png"), 0, 0, 358, 316, 0.06, 12, false, false);
+        this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false); //FIIIX LATTE
+        this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWalkRight.png"), 0, 0, 182, 313, 0.06, 20, false, false);
+        // this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWalkLeft.png"), 0, 0, 144.15, 292, 0.06, 20, false, false);
+        this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersHiKick.png"), 0, 0, 440, 343, 0.06, 12, false, false);
     }
 
     this.jumping = false;
@@ -52,7 +50,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
     this.lowKicking = false;
     this.highKicking = false;
     this.blocking = false;
-    this.game = game; //todo check that this works
+
     //health variable
     this.health  = 100;
 
@@ -75,7 +73,7 @@ Fighter.prototype.update = function(){
     if (this.game.w) {
         this.jumping = true;
     }else if(this.game.p){
-        console.log("p pressed");
+        console.log("p pressed")
         this.punching = true;
     } else if(this.game.i) {
         this.lowKicking=true;
@@ -94,10 +92,12 @@ Fighter.prototype.update = function(){
             this.jumpAnimation.elapsedTime = 0;
             this.jumping = false;
         }
-        var jumpDistance = this.jumpAnimation.elapsedTime / this.jumpAnimation.totalTime;
-        var totalHeight = 200;
 
-        if (jumpDistance > 0.5)
+        var jumpDistance = this.jumpAnimation.elapsedTime / this.jumpAnimation.totalTime;
+
+        var totalHeight = 175;
+
+        if (jumpDistance < 0.5)
             jumpDistance = 1 - jumpDistance;
 
         //var height = jumpDistance * 2 * totalHeight;
@@ -145,9 +145,9 @@ Fighter.prototype.update = function(){
         this.x = this.x - 1;
         this.y = this.ground;
     }
-    
+
     Entity.prototype.update.call(this);
-};
+}
 
 Fighter.prototype.draw = function (ctx) {
     if (this.jumping) {
@@ -182,4 +182,4 @@ Fighter.prototype.draw = function (ctx) {
         this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
     }
     Entity.prototype.draw.call(this);
-};
+}

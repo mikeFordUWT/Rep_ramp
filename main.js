@@ -81,7 +81,7 @@ function TedCruz(game) {
     this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
     this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWalkLeft.png"), 0, 0, 144.15, 292, 0.06, 20, false, false);
     this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
-    
+
     //animation booleans
     this.jumping = false;
     this.punching = false;
@@ -90,13 +90,13 @@ function TedCruz(game) {
     this.walkRight = false;
     this.lowKicking = false;
     this.highKicking = false;
-    
+
     //health variable
     this.health  = 100;
 
     //speed variable
     this.speed = 0;
-    
+
     this.radius = 100;
     this.ground = 300;
     Entity.call(this, game, 0, 300);
@@ -110,7 +110,7 @@ TedCruz.prototype.update = function () {
     if (this.game.w) {
         this.jumping = true;
     }else if(this.game.p){
-        console.log("p pressed")
+        console.log("p pressed");
         this.punching = true;
     } else if(this.game.i) {
         this.lowKicking=true;
@@ -185,7 +185,6 @@ TedCruz.prototype.update = function () {
     //Punching logic
 
 
-
     Entity.prototype.update.call(this);
 }
 
@@ -234,6 +233,34 @@ ASSET_MANAGER.queueDownload("./img/Cruz/CruzDuck.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/cruzWalkRight.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzWalkLeft.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzHiKick.png");
+
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonStanding.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonJump.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonPunch.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonLoKick.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonDuck.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonWalkRight.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonWalkLeft.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonHiKick.png");
+
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpStanding.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpJump.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpPunch.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpLoKick.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpDuck.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpWalkRight.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpWalkLeft.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpHiKick.png");
+
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersStanding.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersJump.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersPunch.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersLoKick.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersDuck.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersWalkRight.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersWalkLeft.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersHiKick.png");
+
 ASSET_MANAGER.queueDownload("./img/whiteHouse.jpg");
 
 ASSET_MANAGER.downloadAll(function () {
@@ -242,11 +269,13 @@ ASSET_MANAGER.downloadAll(function () {
     var ctx = canvas.getContext('2d');
 
     var gameEngine = new GameEngine();
-    var unicorn = new TedCruz(gameEngine);
+    //var unicorn = new TedCruz(gameEngine);
+    var unicorn2 = new Fighter(gameEngine,"donaldTrump", ASSET_MANAGER);
 
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
 
-    gameEngine.addEntity(unicorn);
+    //gameEngine.addEntity(unicorn);
+    gameEngine.addEntity(unicorn2);
 
     gameEngine.init(ctx);
     gameEngine.start();
