@@ -9,11 +9,11 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 157, jumpingWidth:234,punchingWidth: 295, lowKickingWidth: 285, duckingWidth:  192
             , walkRightWidth: 144, walkingLeftWidth: 144.15, highKickingWidth: 276}
-        this.width = this.widthOptions.standingWidth;
+        // this.width = this.widthOptions.standingWidth;
         //TODO add height array
         this.heightOptions = {standingHeight:292, jumpingHeight: 311, punchingHeight:317, lowKickingHeight:315, duckingHeight:294
             , walkRightHeight: 292, walkLeftHeight:292, highKickingHeight:317};
-        this.height = this.heightOptions.standingHeight;
+        // this.height = this.heightOptions.standingHeight;
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
@@ -27,7 +27,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 185, jumpingWidth:288,punchingWidth: 312, lowKickingWidth: 270, duckingWidth:  192
             , walkRightWidth: 262, walkingLeftWidth: 262, highKickingWidth: 344};
-        this.width = this.widthOptions.standingWidth;
+        // this.width = this.widthOptions.standingWidth;
         //TODO add height array
 
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStanding.png"), 0, 0, 185, 299, 0.099, 6, true, false);
@@ -42,7 +42,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 270, jumpingWidth:242,punchingWidth: 434, lowKickingWidth: 429, duckingWidth:  192
             , walkRightWidth: 192, walkingLeftWidth: 192, highKickingWidth: 488};
-        this.width = this.widthOptions.standingWidth;
+        // this.width = this.widthOptions.standingWidth;
         //TODO add height array
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStanding.png"), 0, 0, 270, 325, 0.099, 6, true, false);
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpJump.png"), 0, 0, 242, 353, 0.06, 20, false, false);
@@ -56,7 +56,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 177, jumpingWidth:285,punchingWidth: 369, lowKickingWidth: 358, duckingWidth:  192
             , walkRightWidth: 182, walkingLeftWidth: 182, highKickingWidth: 440};
-        this.width = this.widthOptions.standingWidth;
+        // this.width = this.widthOptions.standingWidth;
         //TODO add height array
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersStanding.png"), 0, 0, 177, 305, 0.099, 6, true, false);
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersJump.png"), 0, 0, 285, 325, 0.06, 20, false, false);
@@ -114,8 +114,8 @@ Fighter.prototype.update = function(){
     }
 
     if (this.jumping) {
-        this.width = this.widthOptions.jumpingWidth;
-        this.height = this.heightOptions.jumpingHeight;
+        // this.width = this.widthOptions.jumpingWidth;
+        // this.height = this.heightOptions.jumpingHeight;
         if (this.jumpAnimation.isDone()) {
             this.jumpAnimation.elapsedTime = 0;
             this.jumping = false;
@@ -132,7 +132,7 @@ Fighter.prototype.update = function(){
         var height = totalHeight*(-4 * (jumpDistance * jumpDistance - jumpDistance));
         this.y = this.ground - height;
     } else if(this.punching){
-        this.width = this.widthOptions.punchingWidth;
+        // this.width = this.widthOptions.punchingWidth;
         if(this.punchingAnimation.isDone()){
             console.log("low punch done");
             this.punchingAnimation.elapsedTime = 0;
@@ -141,28 +141,28 @@ Fighter.prototype.update = function(){
         }
     } else if(this.lowKicking){
         //Sets the width for the bounding box
-        this.width = this.widthOptions.lowKickingWidth;
+        // this.width = this.widthOptions.lowKickingWidth;
         if(this.lowKickingAnimation.isDone()){
             console.log("low kick done");
             this.lowKickingAnimation.elapsedTime = 0;
             this.lowKicking = false;
         }
     } else if(this.ducking) {
-        this.width = this.widthOptions.duckingWidth;
+        // this.width = this.widthOptions.duckingWidth;
         if(this.duckingAnimation.isDone()) {
             console.log("ducking is done");
             this.duckingAnimation.elapsedTime=0;
             this.ducking=false;
         }
     } else if(this.highKicking) {
-        this.width = this.widthOptions.highKickingWidth;
+        // this.width = this.widthOptions.highKickingWidth;
         if(this.highKickAnimation.isDone()) {
             console.log("high kicking is done");
             this.highKickAnimation.elapsedTime=0;
             this.highKicking=false;
         }
     } else if(this.walkRight){
-        this.width = this.widthOptions.walkRightWidth;
+        // this.width = this.widthOptions.walkRightWidth;
         console.log("Walking");
         if(this.walkRightAnimation.isDone()){
             this.walkRightAnimation.elapsedTime = 0;
@@ -172,7 +172,7 @@ Fighter.prototype.update = function(){
         this.y = this.ground;
 
     }else if (this.walkLeft){
-        this.width = this.widthOptions.walkingLeftWidth;
+        // this.width = this.widthOptions.walkingLeftWidth;
         console.log("Walking left!");
         if(this.walkLeftAnimation.isDone()){
             this.walkLeftAnimation.elapsedTime = 0;
@@ -181,8 +181,8 @@ Fighter.prototype.update = function(){
         this.x = this.x - 1;
         this.y = this.ground;
     }else{
-        this.width = this.widthOptions.standingWidth;
-        this.height = this.heightOptions.standingHeight;
+        // this.width = this.widthOptions.standingWidth;
+        // this.height = this.heightOptions.standingHeight;
     }
 
     Entity.prototype.update.call(this);
