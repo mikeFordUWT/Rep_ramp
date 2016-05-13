@@ -97,6 +97,10 @@ GameEngine.prototype.startInput = function () {
         if(String.fromCharCode(e.which).toLowerCase() === 'l'){
             that.lKey = true;
         }
+
+        if(String.fromCharCode(e.which).toLowerCase() === 'q'){
+            that.q = true;
+        }
         console.log(e);
         //e.preventDefault();
     }, false);
