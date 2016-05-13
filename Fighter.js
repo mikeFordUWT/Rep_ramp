@@ -11,6 +11,9 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
             , walkRightWidth: 144, walkingLeftWidth: 144.15, highKickingWidth: 276}
         this.width = this.widthOptions.standingWidth;
         //TODO add height array
+        this.heightOptions = {standingHeight:292, jumpingHeight: 311, punchingHeight:317, lowKickingHeight:315, duckingHeight:294
+            , walkRightHeight: 292, walkLeftHeight:292, highKickingHeight:317};
+        this.height = this.heightOptions.standingHeight;
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
@@ -112,6 +115,7 @@ Fighter.prototype.update = function(){
 
     if (this.jumping) {
         this.width = this.widthOptions.jumpingWidth;
+        this.height = this.heightOptions.jumpingHeight;
         if (this.jumpAnimation.isDone()) {
             this.jumpAnimation.elapsedTime = 0;
             this.jumping = false;
@@ -178,6 +182,7 @@ Fighter.prototype.update = function(){
         this.y = this.ground;
     }else{
         this.width = this.widthOptions.standingWidth;
+        this.height = this.heightOptions.standingHeight;
     }
 
     Entity.prototype.update.call(this);
