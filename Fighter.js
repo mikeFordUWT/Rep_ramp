@@ -47,6 +47,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
         // this.width = this.widthOptions.standingWidth;
         //TODO add height array
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStanding.png"), 0, 0, 270, 325, 0.099, 6, true, false);
+
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpJump.png"), 0, 0, 242, 353, 0.06, 20, false, false);
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunch.png"), 0, 0, 434, 345, 0.06, 12, false, false);
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpLoKick.png"), 0, 0, 429, 341, 0.06, 12, false, false);
@@ -68,7 +69,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
         this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false); //FIIIX LATTE
         this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWalkRight.png"), 0, 0, 182, 313, 0.06, 20, false, false);
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWalkLeft.png"), 7, 0, 179.5, 313, 0.06, 20, false, false); //needs a little fix.
-        //maybe redo walk left spritesheete sheet. seems a little off, but might be able to fix with width input. 
+        //maybe redo walk left spritesheete sheet. seems a little off, but might be able to fix with width input.
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersHiKick.png"), 0, 0, 440, 343, 0.06, 12, false, false);
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersBlock.png"), 0, 0, 470, 335, 0.06, 12, false, false);
     }
@@ -90,6 +91,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
 
     this.radius = 100;
     this.ground = 300;
+
     Entity.call(this, game, 0, 300);
 }
 
