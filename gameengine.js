@@ -151,6 +151,7 @@ GameEngine.prototype.loop = function () {
     this.d = null;
     this.i = null;
     this.o = null;
+    this.q = null;
     this.lKey = null;
 
 }
