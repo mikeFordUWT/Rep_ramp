@@ -54,14 +54,14 @@
 
 // An array of _sounds
 
-var SOUNDS = {
-    titleScreenMusic: new Howl({
-        src:['./audio/songs/hailToTheChief.mp3'],
-        loop:true
-    })
-
-    
-};
+// var SOUNDS = {
+//     titleScreenMusic: new Howl({
+//         src:['./audio/songs/hailToTheChief.mp3'],
+//         loop:true
+//     })
+//
+//
+// };
 
 function Background(game, spriteSheet) {
     this.spriteSheet = spriteSheet;
