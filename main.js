@@ -116,7 +116,7 @@ function TedCruz(game) {
 TedCruz.prototype = new Entity();
 TedCruz.prototype.constructor = TedCruz;
 
-TedCruz.prototype.update = function () {
+/*TedCruz.prototype.update = function () {
     //jumping logic
     if (this.game.w) {
         this.jumping = true;
@@ -230,7 +230,7 @@ TedCruz.prototype.draw = function (ctx) {
         this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
     }
     Entity.prototype.draw.call(this);
-}
+}*/
 
 // the "main" code begins here
 
@@ -286,14 +286,19 @@ ASSET_MANAGER.downloadAll(function () {
     var ctx = canvas.getContext('2d');
 
     var gameEngine = new GameEngine();
+
     //var unicorn = new TedCruz(gameEngine);
-    var unicorn2 = new Fighter(gameEngine,"donaldTrump", ASSET_MANAGER);
+    var unicorn2 = new Fighter(gameEngine,"donaldTrump", ASSET_MANAGER, 0, 0);
+    var unicorn = new Fighter(gameEngine, "bernieSanders", ASSET_MANAGER, 1000, 0);
 
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
 
     //gameEngine.addEntity(unicorn);
+    gameEngine.addEntity(unicorn);
     gameEngine.addEntity(unicorn2);
+
 
     gameEngine.init(ctx);
     gameEngine.start();
+
 });

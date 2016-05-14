@@ -2,7 +2,7 @@
  * Created by Mike on 5/10/16.
  */
 
-function Fighter(game, fighterName, ASSET_MANAGER) {
+function Fighter(game, fighterName, ASSET_MANAGER, x, y) {
 
 
     if(fighterName === "tedCruz"){
@@ -82,6 +82,8 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
     this.lowKicking = false;
     this.highKicking = false;
     this.blocking = false;
+    this.x = x;
+    this.y = y;
 
     //health variable
     this.health  = 100;
@@ -92,7 +94,7 @@ function Fighter(game, fighterName, ASSET_MANAGER) {
     this.radius = 100;
     this.ground = 300;
 
-    Entity.call(this, game, 0, 300);
+    Entity.call(this, game, x, 300-y);
 }
 
 
@@ -173,7 +175,7 @@ Fighter.prototype.update = function(){
     } else if(this.walkRight){
         // this.width = this.widthOptions.walkRightWidth;
         console.log("Walking");
-        if(this.walkRightAnimation.isDone()){
+        if(this.walkRightAnimation.isDone() || this.game.d === false){
             this.walkRightAnimation.elapsedTime = 0;
             this.walkRight = false;
         }
@@ -227,7 +229,7 @@ Fighter.prototype.draw = function (ctx) {
         console.log("walking right");
         this.walkRightAnimation.d;
         this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x +5, this.y);
-    } else if (this.walkLeft){
+    } else if (this.walkLeft && this.game.d != false){
         console.log("Walking Left");
         this.walkLeftAnimation.d;
         this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x -5, this.y);

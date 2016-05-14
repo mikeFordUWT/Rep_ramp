@@ -101,9 +101,48 @@ GameEngine.prototype.startInput = function () {
         if(String.fromCharCode(e.which).toLowerCase() === 'q'){
             that.q = true;
         }
-        console.log(e);
+        //console.log(e);
         //e.preventDefault();
     }, false);
+
+    this.ctx.canvas.addEventListener("keyup",function(f){
+        var h = that.o;
+        var keyStrokes = [that.a, that.s, that.d, that.w, that.i, that.o, that.p,that.m, that.lKey];
+
+
+        if(String.fromCharCode(f.which).toLowerCase() === 'a'){
+            that.a = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 's') {
+            that.s = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'd') {
+            that.d = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'w') {
+            that.w = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'i') {
+            that.i = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'o') {
+            that.o = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'p') {
+            that.p = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'm') {
+            that.m = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'l'){
+            that.lKey = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'q'){
+            that.q = false;
+        }
+        console.log( "RELEASE");
+        //e.preventDefault();
+    },false);
 
     console.log('Input started');
 }
