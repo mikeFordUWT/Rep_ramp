@@ -2,7 +2,7 @@
  * Created by Mike on 5/10/16.
  */
 
-function Fighter(game, fighterName, ASSET_MANAGER, x, y) {
+function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
 
     if(fighterName === "tedCruz"){
@@ -185,7 +185,7 @@ Fighter.prototype.update = function(){
     }else if (this.walkLeft){
         // this.width = this.widthOptions.walkingLeftWidth;
         console.log("Walking left!");
-        if(this.walkLeftAnimation.isDone()){
+        if(this.walkLeftAnimation.isDone() || this.game.a === false){
             this.walkLeftAnimation.elapsedTime = 0;
             this.walkLeft = false;
         }
