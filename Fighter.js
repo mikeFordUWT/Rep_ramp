@@ -2,10 +2,15 @@
  * Created by Mike on 5/10/16.
  */
 
+var TRUMP = "donaldTrump";
+var CRUZ = "tedCruz";
+var CLINTON = "hillaryClinton";
+var SANDERS = "bernieSanders";
+
 function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
+    this.fighter = fighterName;
 
-
-    if(fighterName === "tedCruz"){
+    if(fighterName === CRUZ){
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 157, jumpingWidth:234,punchingWidth: 295, lowKickingWidth: 285, duckingWidth:  192
             , walkRightWidth: 144, walkingLeftWidth: 144.15, highKickingWidth: 276}
@@ -32,7 +37,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         //this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlock.png"), 0, 0, 436, 321, 0.06, 12, false, false);
         //blocking animation not yet made for cruz
-    }else if(fighterName ==="hillaryClinton"){
+    }else if(fighterName === CLINTON){
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 185, jumpingWidth:288,punchingWidth: 312, lowKickingWidth: 270, duckingWidth:  192
             , walkRightWidth: 262, walkingLeftWidth: 262, highKickingWidth: 344, blockingWidth: 436};
@@ -49,14 +54,14 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWalkLeft.png"), 0, 0, 266, 326, 0.06, 20, false, false);
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonHiKick.png"), 0, 0, 344, 322, 0.06, 12, false, false);
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonBlock.png", 0,0, 436, 321, 0.06,12,false, false));
-    }else if(fighterName === "donaldTrump"){
+    }else if(fighterName === TRUMP){
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 270, jumpingWidth:242,punchingWidth: 434, lowKickingWidth: 429, duckingWidth:  192
             , walkRightWidth: 192, walkingLeftWidth: 192, highKickingWidth: 488};
         // this.width = this.widthOptions.standingWidth;
         //TODO add height array
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStanding.png"), 0, 0, 270, 325, 0.099, 6, true, false);
-        this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStandingLeft.png"), 0, 0, 270, 325, 0.099, 6, true, false);
+        this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStandingLeft.png"), -10, 0, 260, 325, 0.099, 6, true, false);
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpJump.png"), 0, 0, 242, 353, 0.06, 20, false, false);
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunch.png"), 0, 0, 434, 345, 0.06, 12, false, false);
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpLoKick.png"), 0, 0, 429, 341, 0.06, 12, false, false);
@@ -65,7 +70,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkLeft.png"), 0, 0, 189.25, 326, 0.06, 20, false, false);//might need fixed. looks okay tho.
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpHiKick.png"), 0, 0, 488, 350, 0.06, 12, false, false);
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpBlock.png"), 0, 0, 388, 424, 0.06, 12, false, false);
-    }else if(fighterName === "bernieSanders"){
+    }else if(fighterName === SANDERS){
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 177, jumpingWidth:285,punchingWidth: 369, lowKickingWidth: 358, duckingWidth:  192
             , walkRightWidth: 182, walkingLeftWidth: 182, highKickingWidth: 440, blockingWidth: 470};
@@ -249,7 +254,16 @@ Fighter.prototype.draw = function (ctx) {
     }else if(this.blocking) {
         console.log("Blocking");
         this.blockingAnimation.d;
-        this.blockingAnimation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+        if(this.fighter === TRUMP){
+            this.blockingAnimation.drawFrame(this.game.clockTick, ctx, this.x-120, this.y-95);
+        }else if(this.fighter === SANDERS){
+            this.blockingAnimation.drawFrame(this.game.clockTick, ctx, this.x-135, this.y-15);
+        }else if(this.fighter === CLINTON){
+            this.blockingAnimation.drawFrame(this.game.clockTick, ctx, this.x-135, this.y-15);
+        } else if (this.fighter === CRUZ) {
+            this.blockingAnimation.drawFrame(this.game.clockTick, ctx, this.x-135, this.y-15);
+        }
+
     }else {
         console.log("standing still");
         if (this.facing === true) {

@@ -173,9 +173,13 @@ ASSET_MANAGER.downloadAll(function () {
 
     var gameEngine = new GameEngine();
 
+    var trump = "donaldTrump"
+    var cruz = "tedCruz"
+    var clinton = "hillaryClinton"
+    var sanders = "bernieSanders"
     //var unicorn = new TedCruz(gameEngine);
-    var unicorn2 = new Fighter(gameEngine,"hillaryClinton", ASSET_MANAGER, 0, 0, false);
-    var unicorn = new Fighter(gameEngine, "tedCruz", ASSET_MANAGER, 1000, 0, false);
+    var unicorn2 = new Fighter(gameEngine,cruz, ASSET_MANAGER, 0, 0, false);
+    var unicorn = new Fighter(gameEngine, sanders, ASSET_MANAGER, 1000, 0, false);
 
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
 
