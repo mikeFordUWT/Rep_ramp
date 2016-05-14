@@ -170,7 +170,7 @@ ASSET_MANAGER.downloadAll(function () {
     var ctx = canvas.getContext('2d');
 
     var gameEngine = new GameEngine();
-
+    gameEngine.init(ctx);
     //var unicorn = new TedCruz(gameEngine);
     var unicorn2 = new Fighter(gameEngine,"donaldTrump", ASSET_MANAGER, 0, 0, true);
     var unicorn = new Fighter(gameEngine, "bernieSanders", ASSET_MANAGER, 1000, 0, false);
@@ -182,7 +182,19 @@ ASSET_MANAGER.downloadAll(function () {
     gameEngine.addEntity(unicorn2);
 
 
-    gameEngine.init(ctx);
+    var titleScreen = new TitleScreen(gameEngine, ASSET_MANAGER, 0, 0);
+
+    titleScreen.entity.removeUponRequest = true;
+    canvas.addEventListener('focus', function (event) {
+        var agents = gameEngine.agents;
+        for(var i = 0; i <agents.length; i++){
+            if(agents[i] === titleScreen){
+                agents.splice(i, 1);
+                break;
+            }
+        }
+    }, false);
     gameEngine.start();
+    
 
 });
