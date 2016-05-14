@@ -59,6 +59,8 @@ var SOUNDS = {
         src:['./audio/songs/hailToTheChief.mp3'],
         loop:true
     })
+
+    
 };
 
 function Background(game, spriteSheet) {
