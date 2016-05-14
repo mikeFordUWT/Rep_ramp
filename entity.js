@@ -1,9 +1,17 @@
 
 function Entity(game, x, y) {
     this.game = game;
+    this.animationList = [];
+    this.currentAnimation = 0;
+    
     this.x = x;
     this.y = y;
     this.removeFromWorld = false;
+    
+    this.controllable = false;
+    this.temporary =false;
+    this.removeUponRequest = false;
+    
 }
 
 Entity.prototype.update = function () {
@@ -34,4 +42,15 @@ Entity.prototype.rotateAndCache = function (image, angle) {
     //offscreenCtx.strokeStyle = "red";
     //offscreenCtx.strokeRect(0,0,size,size);
     return offscreenCanvas;
+}
+
+Entity.prototype.addAnimation = function (newAnimation) {
+    this.animationList.push(newAnimation);
+}
+
+Entity.prototype.getCenter = function () {
+    return {
+        x:(this.x + this.y /2),
+        y:(this.y + this.y /2)
+    }
 }

@@ -47,10 +47,40 @@ Animation.prototype.drawFrame = function (tick, ctx, x, y, scaleBy) {
         this.frameHeight * scaleBy);
 }
 
+Animation.prototype.addFrame = function (startX, startY, numFrames, scanForward){
+    var currentX = startX;
+    var currentY = startY;
+    var frames = numFrames || 1;
+    
+    for (var i = 0; i < frames; i += 1) {
+        if (scanForward === false) {
+            if (currentX < 0) {
+                currentX = this.spriteSheet.width - this.frameWidth;
+                currentY -= this.frameHeight;
+            }
+            this.frames.push(currentX)
+            this.frames.push(currentY);
+            currentX -= this.frameWidth;
+        } else {    // scan forward
+            if(currentX + this.frameWidth > this.spriteSheet.width) {
+                currentX = 0;
+                currentY += this.frameHeight;
+            }
+            this.frames.push(currentX)
+            this.frames.push(currentY);
+            currentX += this.frameWidth;
+        }
+    }
+}
+
 Animation.prototype.currentFrame = function () {
     return Math.floor(this.elapsedTime / this.frameDuration);
 }
 
 Animation.prototype.isDone = function () {
     return (this.elapsedTime >= this.totalTime);
+}
+
+Animation.prototype.finalFrame= function () {
+    return (this.currentFrame() + 1 >= this.frames.length /2);
 }
