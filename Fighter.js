@@ -132,11 +132,28 @@ Fighter.prototype.update = function(){
     } else if(this.game.s) {
         this.ducking=true;
     } else if (this.game.d) {
-        this.walkRight = true;
-        this.facing = false;
-    }else if(this.game.a){
-        this.walkLeft = true;
-        this.facing = true;
+        //this.x + sprite width > canvas width
+        console.log(this.x)
+        if(this.x + 100 < 1180) {            
+            this.walkRight = true;
+            this.facing = false;
+        }
+    }else if(this.game.a){   
+        console.log("a pressed")
+        /*
+        potentially seperaten for each character for better accuracy.
+        if(this.fighter === CLINON) {
+            if(this.x - 50 > 0) {         
+                this.walkLeft = true;
+                this.facing = true;
+            }  
+        } 
+        */        
+        //this.x - sprite width > canvas left (0)
+        if(this.x - 50 > 0) {         
+            this.walkLeft = true;
+            this.facing = true;
+        }         
     }else if(this.game.q){
         this.blocking = true;
     }
@@ -303,7 +320,7 @@ Fighter.prototype.draw = function (ctx) {
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x + 5, this.y);
         }else if(this.fighter === SANDERS){
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x + 5, this.y);
-        }else if(this.fighter === CLINTON){
+        }else if(this.fighter === CLINTON){       
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x + 5, this.y-20);
         } else if (this.fighter === CRUZ) {
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x +5, this.y);
@@ -316,8 +333,8 @@ Fighter.prototype.draw = function (ctx) {
             this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y);
         }else if(this.fighter === SANDERS){
             this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y);
-        }else if(this.fighter === CLINTON){
-            this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y-20);
+        }else if(this.fighter === CLINTON){  
+                this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y-20);
         } else if (this.fighter === CRUZ) {
             this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y);
         }
