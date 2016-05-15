@@ -175,14 +175,16 @@ Fighter.prototype.update = function(){
             this.lowKickingAnimation.elapsedTime = 0;
             this.lowKicking = false;
         }
-    } else if(this.ducking) {
-        // this.width = this.widthOptions.duckingWidth;
-        if(this.duckingAnimation.isDone()) {
-            console.log("ducking is done");
-            this.duckingAnimation.elapsedTime=0;
-            this.ducking=false;
-        }
-    } else if(this.highKicking) {
+    }
+    // else if(this.ducking) {TODO
+    //     // this.width = this.widthOptions.duckingWidth;
+    //     if(this.duckingAnimation.isDone()) {
+    //         console.log("ducking is done");
+    //         this.duckingAnimation.elapsedTime=0;
+    //         this.ducking=false;
+    //     }
+    // }
+    else if(this.highKicking) {
         // this.width = this.widthOptions.highKickingWidth;
         if(this.highKickAnimation.isDone()) {
             console.log("high kicking is done");
@@ -277,21 +279,24 @@ Fighter.prototype.draw = function (ctx) {
             this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-80,this.y-20);
         }
 
-    } else if (this.ducking) {
-        console.log("ducking");
-        this.duckingAnimation.d;
-        if(this.fighter === TRUMP){
-            // TODO this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
-        }else if(this.fighter === SANDERS){
-            // TODO this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
-        }else if(this.fighter === CLINTON){
-            // TODO this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
-        } else if (this.fighter === CRUZ) {
-            this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x-40,this.y-2);
-        }
+    }
+    // else if (this.ducking) {
+    //     console.log("ducking");
+    //     this.duckingAnimation.d;
+    //     if(this.fighter === TRUMP){
+    //         // TODO this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+    //     }else if(this.fighter === SANDERS){
+    //         // TODO this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+    //     }else if(this.fighter === CLINTON){
+    //         // TODO this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+    //     } else if (this.fighter === CRUZ) {
+    //         this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x-40,this.y-2);
+    //     }
+    //
+    //
+    // }
 
-
-    }else if (this.walkRight){
+    else if (this.walkRight){
         console.log("walking right");
         this.walkRightAnimation.d;
         if(this.fighter === TRUMP){
