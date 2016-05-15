@@ -226,30 +226,97 @@ Fighter.prototype.update = function(){
 Fighter.prototype.draw = function (ctx) {
     if (this.jumping) {
         // this.jumpAnimation.d
-        this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x + 17, this.y - 34);
+        if(this.fighter === TRUMP){
+            this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x-85, this.y-30);
+        }else if(this.fighter === SANDERS){
+            this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x-70, this.y-15);
+        }else if(this.fighter === CLINTON){
+            this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x-50, this.y-15);
+        } else if (this.fighter === CRUZ) {
+            this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x-50, this.y-15);
+        }
+
     } else if (this.punching){
         console.log("punching");
         this.punchingAnimation.d;
-        this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x , this.y);
+
+        if(this.fighter === TRUMP){
+            this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x-150 , this.y-20);
+        }else if(this.fighter === SANDERS){
+            this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x-110 , this.y-105);
+        }else if(this.fighter === CLINTON){
+            this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x , this.y);
+        } else if (this.fighter === CRUZ) {
+            this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x - 85, this.y-10);
+        }
+
     } else if (this.lowKicking) {
         console.log("low kicking");
         this.lowKickingAnimation.d;
-        this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+        if(this.fighter === TRUMP){
+            this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-155,this.y-5);
+        }else if(this.fighter === SANDERS){
+            this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-150,this.y);
+        }else if(this.fighter === CLINTON){
+            this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-30,this.y);
+        } else if (this.fighter === CRUZ) {
+            this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-54,this.y-15);
+        }
+
+
     } else if (this.highKicking) {
         console.log("high kicking");
+
         this.highKickAnimation.d;
-        this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+        if(this.fighter === TRUMP){
+            this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-160,this.y);
+        }else if(this.fighter === SANDERS){
+            this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+        }else if(this.fighter === CLINTON){
+            this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+        } else if (this.fighter === CRUZ) {
+            this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+        }
+
     } else if (this.ducking) {
         console.log("ducking");
         this.duckingAnimation.d;
+        if(this.fighter === TRUMP){
+
+        }else if(this.fighter === SANDERS){
+
+        }else if(this.fighter === CLINTON){
+
+        } else if (this.fighter === CRUZ) {
+
+        }
+
         this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
     }else if (this.walkRight){
         console.log("walking right");
         this.walkRightAnimation.d;
+        if(this.fighter === TRUMP){
+
+        }else if(this.fighter === SANDERS){
+
+        }else if(this.fighter === CLINTON){
+
+        } else if (this.fighter === CRUZ) {
+
+        }
         this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x + 5, this.y);
     } else if (this.walkLeft ){
         console.log("Walking Left");
         this.walkLeftAnimation.d;
+        if(this.fighter === TRUMP){
+
+        }else if(this.fighter === SANDERS){
+
+        }else if(this.fighter === CLINTON){
+
+        } else if (this.fighter === CRUZ) {
+
+        }
         this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y);
     }else if(this.blocking) {
         console.log("Blocking");
@@ -267,8 +334,26 @@ Fighter.prototype.draw = function (ctx) {
     }else {
         console.log("standing still");
         if (this.facing === true) {
+            if(this.fighter === TRUMP){
+
+            }else if(this.fighter === SANDERS){
+
+            }else if(this.fighter === CLINTON){
+
+            } else if (this.fighter === CRUZ) {
+
+            }
             this.animationLeft.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         } else {
+            if(this.fighter === TRUMP){
+
+            }else if(this.fighter === SANDERS){
+
+            }else if(this.fighter === CLINTON){
+
+            } else if (this.fighter === CRUZ) {
+
+            }
             this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         }
     }
