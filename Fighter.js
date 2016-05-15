@@ -273,7 +273,7 @@ Fighter.prototype.draw = function (ctx) {
         }else if(this.fighter === CLINTON){
             this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-100,this.y-10);
         } else if (this.fighter === CRUZ) {
-            this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
+            this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-80,this.y-20);
         }
 
     } else if (this.ducking) {
