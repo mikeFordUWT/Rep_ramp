@@ -35,8 +35,6 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlock.png",0,0, 378, 319, 0.06, 12, false, false));
 
-        //this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlock.png"), 0, 0, 436, 321, 0.06, 12, false, false);
-        //blocking animation not yet made for cruz
     }else if(fighterName === CLINTON){
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 185, jumpingWidth:288,punchingWidth: 312, lowKickingWidth: 270, duckingWidth:  192
