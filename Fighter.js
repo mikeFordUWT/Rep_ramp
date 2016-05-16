@@ -108,7 +108,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
     this.radius = 100;
     this.ground = 300;
-
+    this.game  = game;
     Entity.call(this, game, x, 300-y);
 }
 
