@@ -165,6 +165,7 @@ ASSET_MANAGER.queueDownload("./img/Sanders/SandersBlock.png");
 
 //Background
 ASSET_MANAGER.queueDownload("./img/whiteHouse.jpg");
+ASSET_MANAGER.queueDownload("./img/titleScreen.png");
 
 ASSET_MANAGER.downloadAll(function () {
     console.log("starting up da sheild");
@@ -177,27 +178,37 @@ ASSET_MANAGER.downloadAll(function () {
     var cruz = "tedCruz"
     var clinton = "hillaryClinton"
     var sanders = "bernieSanders"
-    
-    var fighter = new Fighter(gameEngine,clinton, ASSET_MANAGER, 0, 0, false);
-    var fighter2 = new AIFighter(gameEngine, trump, ASSET_MANAGER, 1000, 0, true);
-
-    gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
-
-    gameEngine.addEntity(fighter);
-    gameEngine.addEntity(fighter2);
-
-
 
     gameEngine.init(ctx);
+    var fighter = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, true);
+    // var fighter2 = new AIFighter(gameEngine, trump, ASSET_MANAGER, 100, 0, true);
+    gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
+    var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
+    gameEngine.addEntity(fighter);
+    // gameEngine.addEntity(fighter2);
+    gameEngine.addEntity(title);
+
+
+
+
 
     canvas.addEventListener('focus', function (event) {
         var ents = gameEngine.entities;
+
+        for(var j = 0; j< ents.length; j++){
+            if(ents[j] === title){
+                ents.splice(j,1);
+                break;
+            }
+        }
         for(var i = 0; i< ents.length; i++){
             if(ents[i]===fighter2){
                 fighter2.move = true;
                 break;
             }
+
         }
+
     });
 
     gameEngine.start();

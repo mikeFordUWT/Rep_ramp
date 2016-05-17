@@ -111,7 +111,7 @@ function AIFighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         //STAND
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStanding.png"), 0, 0, 270, 325, 0.099, 6, true, false);
-        this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStandingLeft.png"), -10, 0, 260, 325, 0.099, 6, true, false);
+        this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStandingLeft.png"), 0, 0, 280, 320, 0.099, 5, true, false);
 
         //JUMP
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpJump.png"), 0, 0, 242, 353, 0.06, 20, false, false);
@@ -119,7 +119,7 @@ function AIFighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunch.png"), 0, 0, 434, 345, 0.06, 12, false, false);
-        this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunchLeft.png"), 0, 0, 434, 345, 0.06, 12, false, false);
+        this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunchLeft.png"), 0, 0, 434, 359, 0.06, 12, false, false);
 
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpLoKick.png"), 0, 0, 429, 341, 0.06, 12, false, false);
@@ -130,7 +130,7 @@ function AIFighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         //WALK
         this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkRight.png"), 0, 0, 192, 326, 0.06, 20, false, false);
-        this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkLeft.png"), 0, 0, 189.25, 326, 0.06, 20, false, false);//might need fixed. looks okay tho.
+        this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkLeft.png"), 0, 0, 230, 326, 0.06, 20, false, false);//might need fixed. looks okay tho.
 
         //HIGH KICK
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpHiKick.png"), 0, 0, 488, 350, 0.06, 12, false, false);
@@ -139,7 +139,7 @@ function AIFighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         //BLOCK
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpBlock.png"), 0, 0, 388, 424, 0.06, 12, false, false);
-        this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpBlockLeft.png"), 0, 0, 388, 424, 0.06, 12, false, false);
+        this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpBlockLeft.png"), 0, 0, 360, 435, 0.06, 12, false, false);
 
         //DEATH
         this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDead.png"),0,0, 476, 338, 0.06, 12, false, false);
@@ -200,7 +200,7 @@ function AIFighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     this.x = x;
     this.y = y;
     this.facing = aiStatus;
-
+    this.fightRadius = 200;
     //health variable
     this.health  = 100;
 
@@ -220,63 +220,100 @@ AIFighter.prototype.constructor = AIFighter;
 
 AIFighter.prototype.search = function(other){
     if(this.move){
+
+
+        var moves = [this.punching, this.highKicking, this.blocking];
         if(this.x > other.x){
-            this.x = this.x - 2;
+            if(other.x === this.x - this.fightRadius ){
+                var truths = 0;
+                var rand = Math.floor(Math.random() * (4));
+                
+                for(var i = 0; i< moves.length; i++){
+                    if(moves[i] == true){
+                        truths++;
+                    }
+                }
+                
+                if(truths ==0){
+                    if(rand ==2){
+                        this.highKicking = true;
+                    } else if(rand == 1){
+                        this.punching = true;
+                    } else if(rand == 3){
+                        this.blocking = true;
+                    }
+                }
+
+
+
+
+            }else if(this.x >= other.x + this.fightRadius){
+                this.x = this.x - 2;
+            }
+
         }
 
         if(this.x <other.x){
-            this.x = this.x +2;
+            if(other.x == (this.x+ this.fightRadius)){
+                var truths = 0;
+                var rand = Math.floor(Math.random() * (4));
+
+                for(var i = 0; i< moves.length; i++){
+                    if(moves[i] == true){
+                        truths++;
+                    }
+                }
+
+                if(truths ==0){
+                    if(rand ==2){
+                        this.highKicking = true;
+                    } else if(rand == 1){
+                        this.punching = true;
+                    } else if(rand == 3){
+                        this.blocking = true;
+                    }
+                }
+            }else if(this.x <= other.x - this.fightRadius){
+                this.x = this.x +2;
+            }
+            
         }
     }
 
     
-    var moves = [this.punching, this.lowKicking, this.highKicking, this.blocking]
+
+}
+
+AIFighter.prototype.fight = function(other){
+
 }
 
 
 AIFighter.prototype.update = function(){
-    //jumping logic
-    //jumping logic
-    if (this.game.w) {
-        this.jumping = true;
-    }else if(this.game.p){
-        this.punching = true;
-    } else if(this.game.i) {
-        this.lowKicking=true;
-    } else if(this.game.o) {
-        this.highKicking=true;
-    } else if(this.game.s) {
-        this.ducking=true;
-    } else if (this.game.d) {
-        //this.x + sprite width > canvas width
-        // console.log(this.x);
-        if(this.x + 100 < 1180) {
-            this.walkRight = true;
-            this.facing = false;
-        }
-    }else if(this.game.a){
-        /*
-         potentially seperaten for each character for better accuracy.
-         if(this.fighter === CLINTON) {
-         if(this.x - 50 > 0) {         
-         this.walkLeft = true;
-         this.facing = true;
-         }  
-         } 
-         */
-        //this.x - sprite width > canvas left (0)
-        if(this.x - 50 > 0) {
-            this.walkLeft = true;
-            this.facing = true;
-        }
-    }else if(this.game.q){
-        this.blocking = true;
-    }
 
-    for(var i =0; i< this.game.entities.length; i++){
+
+    var ents = this.game.entities;
+    for(var i =0; i< ents.length; i++){
         var ent = this.game.entities[i];
         if(this != ent && ent instanceof Fighter){
             this.search(ent);
+        }
+    }
+
+    for(var i = 0; i< ents.length; i++){
+        var ent = ents[i];
+        if(this!= ent && ent instanceof Fighter){
+            var truths = 0;
+            var moves = [this.punching, this.highKicking, this.blocking];
+            for(var i = 0; i< moves.length; i++){
+                if(moves[i] == true){
+                    truths++;
+                }
+            }
+            if(truths ===0){
+                this.fight(ent);
+            }
+
         }
     }
 
