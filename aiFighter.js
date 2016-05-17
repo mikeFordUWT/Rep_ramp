@@ -217,6 +217,19 @@ AIFighter.prototype = new Entity();
 
 AIFighter.prototype.constructor = AIFighter;
 
+AIFighter.prototype.search = function(other){
+    if(this.x > other.x){
+        this.x = this.x - 2;
+    }
+    
+    if(this.x <other.x){
+        this.x = this.x +2;
+    }
+    
+    var moves = [this.punching, this.lowKicking, this.highKicking, this.blocking]
+}
+
+
 AIFighter.prototype.update = function(){
     //jumping logic
     //jumping logic
