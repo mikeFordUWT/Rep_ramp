@@ -166,6 +166,9 @@ ASSET_MANAGER.queueDownload("./img/Sanders/SandersBlock.png");
 //Background
 ASSET_MANAGER.queueDownload("./img/whiteHouse.jpg");
 
+//Title Screen
+ASSET_MANAGER.queueDownload("./img/titleScreen.png");
+
 ASSET_MANAGER.downloadAll(function () {
     console.log("starting up da sheild");
     var canvas = document.getElementById('gameWorld');
@@ -181,7 +184,7 @@ ASSET_MANAGER.downloadAll(function () {
     var sanders = "bernieSanders"
 
     
-    var unicorn2 = new Fighter(gameEngine,clinton, ASSET_MANAGER, 100, 0, true);
+    var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, true);
     var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 1000, 0, false);
 
 
@@ -190,11 +193,26 @@ ASSET_MANAGER.downloadAll(function () {
 
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
 
+    var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
+
     //gameEngine.addEntity(unicorn);
     // gameEngine.addEntity(unicorn);
     gameEngine.addEntity(unicorn2);
 
 
+    gameEngine.addEntity(title);
+
     gameEngine.init(ctx);
+
+    canvas.addEventListener('focus', function (event) {
+        var entities = gameEngine.entities;
+        for(var i =0; i<entities.length; i++){
+            if(entities[i] === title){
+                entities.splice(i,1);
+                break;
+            }
+        }
+    })
+
     gameEngine.start();
 });

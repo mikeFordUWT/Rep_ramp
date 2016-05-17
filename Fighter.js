@@ -53,7 +53,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlockLeft.png"),0,0, 378, 319, 0.06, 12, false, false);
 
         //DEAD
-
+        this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDead.png"),0,0, 294, 309, 0.06, 12, false, false);
+        this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDeadLeft.png"),0,0, 294, 309, 0.06, 12, false, false);
 
     }else if(fighterName === CLINTON){
         //TODO add blockingWidth
@@ -95,8 +96,10 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         //BLOCK
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonBlock.png"), 0,0, 436, 321, 0.06,12,false, false);
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonBlockLeft.png"), 0,0, 436, 321, 0.06,12,false, false);
-        //DEATH
 
+        //DEATH
+        this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDead.png"),0,0, 314, 328, 0.06, 12, false, false);
+        this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDeadLeft.png"),0,0, 314, 328, 0.06, 12, false, false);
 
     }else if(fighterName === TRUMP){
         //TODO add blockingWidth
@@ -138,6 +141,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpBlockLeft.png"), 0, 0, 388, 424, 0.06, 12, false, false);
 
         //DEATH
+        this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDead.png"),0,0, 476, 338, 0.06, 12, false, false);
+        this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDeadLeft.png"),0,0, 476, 338, 0.06, 12, false, false);
 
     }else if(fighterName === SANDERS){
         //TODO add blockingWidth
@@ -169,7 +174,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         //WALK
         this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWalkRight.png"), 0, 0, 182, 313, 0.06, 20, false, false);
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWalkLeft.png"), 7, 0, 179.5, 313, 0.06, 20, false, false); //needs a little fix.
-        //maybe redo walk left spritesheete sheet. seems a little off, but might be able to fix with width input.
+        //maybe redo walk left spritesheet. seems a little off, but might be able to fix with width input.
 
         //HIGH KICK
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersHiKick.png"), 0, 0, 440, 343, 0.06, 12, false, false);
@@ -179,6 +184,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersBlock.png"), 0, 0, 470, 335, 0.06, 12, false, false);
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersBlockLeft.png"), 0, 0, 470, 335, 0.06, 12, false, false);
         //DEATH
+        this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersDead.png"),0,0, 335, 334, 0.06, 12, false, false);
+        this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersDeadLeft.png"),0,0, 335, 334, 0.06, 12, false, false);
     }
 
     this.jumping = false;
