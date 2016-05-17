@@ -74,7 +74,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.jumpAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonJumpLeft.png"),0, 0, 288, 337, 0.06, 20, false, false);
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonPunch.png"), 0, 0, 312, 297, 0.06, 12, false, false);
-        this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonPunchLeft.png"), 0, 0, 312, 297, 0.06, 12, false, false);
+        this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonPunchLeft.png"), 0, 0, 299, 297, 0.06, 12, false, false);
 
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonLoKick.png"), 0, 0, 270, 299, 0.06, 12, false, false);
@@ -282,6 +282,8 @@ Fighter.prototype.update = function(){
         this.y = this.ground - height;
     } else if(this.punching){
         // this.width = this.widthOptions.punchingWidth;
+        this.punchingAnimation.d;
+        this.punchingAnimationLeft.d;
         if(this.punchingAnimation.isDone()){
             console.log("low punch done");
             this.punchingAnimation.elapsedTime = 0;
@@ -289,7 +291,7 @@ Fighter.prototype.update = function(){
 
         }
         if(this.punchingAnimationLeft.isDone()){
-            this.blockingLeftAnimation.elapsedTime = 0;
+            this.punchingAnimationLeft.elapsedTime = 0;
             this.punching = false;
         }
 
