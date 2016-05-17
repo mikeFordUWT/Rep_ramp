@@ -189,5 +189,16 @@ ASSET_MANAGER.downloadAll(function () {
 
 
     gameEngine.init(ctx);
+
+    canvas.addEventListener('focus', function (event) {
+        var ents = gameEngine.entities;
+        for(var i = 0; i< ents.length; i++){
+            if(ents[i]===fighter2){
+                fighter2.move = true;
+                break;
+            }
+        }
+    });
+
     gameEngine.start();
 });

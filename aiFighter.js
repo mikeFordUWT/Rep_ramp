@@ -10,6 +10,7 @@ var SANDERS = "bernieSanders";
 function AIFighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     this.fighter = fighterName;
 
+    this.move = false;
     if(fighterName === CRUZ){
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 157, jumpingWidth:234,punchingWidth: 295, lowKickingWidth: 285, duckingWidth:  192
@@ -218,13 +219,16 @@ AIFighter.prototype = new Entity();
 AIFighter.prototype.constructor = AIFighter;
 
 AIFighter.prototype.search = function(other){
-    if(this.x > other.x){
-        this.x = this.x - 2;
+    if(this.move){
+        if(this.x > other.x){
+            this.x = this.x - 2;
+        }
+
+        if(this.x <other.x){
+            this.x = this.x +2;
+        }
     }
-    
-    if(this.x <other.x){
-        this.x = this.x +2;
-    }
+
     
     var moves = [this.punching, this.lowKicking, this.highKicking, this.blocking]
 }
@@ -267,6 +271,13 @@ AIFighter.prototype.update = function(){
         }
     }else if(this.game.q){
         this.blocking = true;
+    }
+
+    for(var i =0; i< this.game.entities.length; i++){
+        var ent = this.game.entities[i];
+        if(this != ent && ent instanceof Fighter){
+            this.search(ent);
+        }
     }
 
     if (this.jumping) {
