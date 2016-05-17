@@ -7,9 +7,10 @@ var CRUZ = "tedCruz";
 var CLINTON = "hillaryClinton";
 var SANDERS = "bernieSanders";
 
-function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
+function AIFighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     this.fighter = fighterName;
 
+    this.move = false;
     if(fighterName === CRUZ){
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 157, jumpingWidth:234,punchingWidth: 295, lowKickingWidth: 285, duckingWidth:  192
@@ -157,12 +158,12 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         //JUMP
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersJump.png"), 0, 0, 285, 325, 0.06, 20, false, false);
         this.jumpAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersJumpLeft.png"), 0, 0, 285, 325, 0.06, 20, false, false);
-        
-        
+
+
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersPunch.png"), 0, 0, 369, 426, 0.06, 12, false, false);
         this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersPunchLeft.png"), 0, 0, 369, 426, 0.06, 12, false, false);
-        
+
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersLoKick.png"), 0, 0, 358, 316, 0.06, 12, false, false);
         this.lowKickingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersLoKickLeft.png"), 0, 0, 358, 316, 0.06, 12, false, false);
@@ -213,11 +214,27 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 }
 
 
-Fighter.prototype = new Entity();
+AIFighter.prototype = new Entity();
 
-Fighter.prototype.constructor = Fighter;
+AIFighter.prototype.constructor = AIFighter;
 
-Fighter.prototype.update = function(){
+AIFighter.prototype.search = function(other){
+    if(this.move){
+        if(this.x > other.x){
+            this.x = this.x - 2;
+        }
+
+        if(this.x <other.x){
+            this.x = this.x +2;
+        }
+    }
+
+    
+    var moves = [this.punching, this.lowKicking, this.highKicking, this.blocking]
+}
+
+
+AIFighter.prototype.update = function(){
     //jumping logic
     //jumping logic
     if (this.game.w) {
@@ -233,27 +250,34 @@ Fighter.prototype.update = function(){
     } else if (this.game.d) {
         //this.x + sprite width > canvas width
         // console.log(this.x);
-        if(this.x + 100 < 1180) {            
+        if(this.x + 100 < 1180) {
             this.walkRight = true;
             this.facing = false;
         }
     }else if(this.game.a){
         /*
-        potentially seperaten for each character for better accuracy.
-        if(this.fighter === CLINTON) {
-            if(this.x - 50 > 0) {         
-                this.walkLeft = true;
-                this.facing = true;
-            }  
-        } 
-        */        
+         potentially seperaten for each character for better accuracy.
+         if(this.fighter === CLINTON) {
+         if(this.x - 50 > 0) {         
+         this.walkLeft = true;
+         this.facing = true;
+         }  
+         } 
+         */
         //this.x - sprite width > canvas left (0)
-        if(this.x - 50 > 0) {         
+        if(this.x - 50 > 0) {
             this.walkLeft = true;
             this.facing = true;
-        }         
+        }
     }else if(this.game.q){
         this.blocking = true;
+    }
+
+    for(var i =0; i< this.game.entities.length; i++){
+        var ent = this.game.entities[i];
+        if(this != ent && ent instanceof Fighter){
+            this.search(ent);
+        }
     }
 
     if (this.jumping) {
@@ -376,7 +400,7 @@ Fighter.prototype.update = function(){
     Entity.prototype.update.call(this);
 };
 
-Fighter.prototype.draw = function (ctx) {
+AIFighter.prototype.draw = function (ctx) {
     if (this.jumping) {
         // this.jumpAnimation.d
 
@@ -517,7 +541,7 @@ Fighter.prototype.draw = function (ctx) {
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x + 5, this.y);
         }else if(this.fighter === SANDERS){
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x + 5, this.y);
-        }else if(this.fighter === CLINTON){       
+        }else if(this.fighter === CLINTON){
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x + 5, this.y-20);
         } else if (this.fighter === CRUZ) {
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x +5, this.y);
@@ -530,8 +554,8 @@ Fighter.prototype.draw = function (ctx) {
             this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y);
         }else if(this.fighter === SANDERS){
             this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y);
-        }else if(this.fighter === CLINTON){  
-                this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y-20);
+        }else if(this.fighter === CLINTON){
+            this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y-20);
         } else if (this.fighter === CRUZ) {
             this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x - 5, this.y);
         }
@@ -595,19 +619,19 @@ Fighter.prototype.draw = function (ctx) {
 
 //TODO build bounding boxes after adding height arrays
 // checks to see if a punch has collided
-Fighter.prototype.punch = function (other) {
+AIFighter.prototype.punch = function (other) {
     var thisBox = {x:this.x, y:this.y, width: this.width, height:this.height};
     var otherBox = {x: other.x, y: other.y, width:other.width, height:other.height}
 };
 
 
-Fighter.prototype.highKick = function (other) {
+AIFighter.prototype.highKick = function (other) {
     if(this.highKicking){
 
     }
 };
 
-Fighter.prototype.lowKick = function (other) {
+AIFighter.prototype.lowKick = function (other) {
     if(this.lowKicking){
 
     }

@@ -1,36 +1,36 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Representative Rumble</title>
+    <img id = "clintonHead" src="./img/Clinton/ClintonHead.png" width = "200" height = "200" style="display: none">
+    <img id = "cruzHead" src = "./img/Cruz/CruzHead.png" width="200" height="200" style="display: none">
+    <img id = "trumpHead" src="./img/Trump/TrumpHead.png" width="200" height = "200" style="display: none">
+    <img id = "sandersHead" src="./img/Sanders/SandersHead.png" width="200" height="200" style="display: none">
+    <img id = "titleImage" src = "./img/title2.png" width="600" height="150" style="display: none">
 
     <script type="text/javascript" src="./gameengine.js"></script>
+
     <script type="text/javascript" src="./assetmanager.js"></script>
-
-    <script type="text/javascript" src ="./characterselectscreen.js"></script>
+    <script type="text/javascript" src="./timer.js"></script>
+    <script type="text/javascript" src="./howler.js"></script>
+    <script type="text/javascript" src="./Animation.js"></script>
+    <script type="text/javascript" src="./timer.js"></script>
+    <script type="text/javascript" src="./entity.js"></script>
+    <script type="text/javascript" src="./Fighter.js"></script>
+    <script type="text/javascript" src="./AIFighter.js"></script>
+    <script type="text/javascript" src="./titleScreen.js"></script>
     <script type="text/javascript" src="./mikeMain.js"></script>
-
 </head>
-
 <body>
 <audio src="./audio/songs/hailToTheChief.mp3" preload="auto"></audio>
-<canvas id="testCanvas" tabindex="1" width="1280" height="632" style="border: 1px solid brown;
-    background: lightskyblue;"></canvas>
-<script>
+<canvas id="gameWorld" tabindex="1" width="1280" height="632" style="border: 1px solid brown;
+    background: lightskyblue;">
 
-//    var canvas = document.getElementById("testCanvas").style.display ="none";
-    var repRumble = document.body.createElement("img");
-    repRumble.src = "./img/title2.png";
-
-    document.body.appendChild(repRumble);
+</canvas>
 
 
-    //        img.width = 600;
-    //        img.height = 150;
-    //        document.body.appendChild(img);
-
-
-</script>
 
 </body>
 </html>
