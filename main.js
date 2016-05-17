@@ -212,7 +212,7 @@ ASSET_MANAGER.downloadAll(function () {
                 break;
             }
         }
-    })
+    });
 
     gameEngine.start();
 });
