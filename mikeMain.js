@@ -178,8 +178,8 @@ ASSET_MANAGER.downloadAll(function () {
     var clinton = "hillaryClinton"
     var sanders = "bernieSanders"
     
-    var fighter = new Fighter(gameEngine,clinton, ASSET_MANAGER, 0, 0, false);
-    // var fighter2 = new Fighter(gameEngine, trump, ASSET_MANAGER, 1000, 0, false);
+    var fighter = new AIFighter(gameEngine,clinton, ASSET_MANAGER, 0, 0, false);
+    // var fighter2 = new AIFighter(gameEngine, trump, ASSET_MANAGER, 1000, 0, false);
 
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
 
