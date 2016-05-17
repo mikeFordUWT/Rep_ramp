@@ -13,7 +13,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     if(fighterName === CRUZ){
         //TODO add blockingWidth
         this.widthOptions = {standingWidth: 157, jumpingWidth:234,punchingWidth: 295, lowKickingWidth: 285, duckingWidth:  192
-            , walkRightWidth: 144, walkingLeftWidth: 144.15, highKickingWidth: 276}
+            , walkRightWidth: 144, walkingLeftWidth: 144.15, highKickingWidth: 276};
         this.width = this.widthOptions.standingWidth;
         //TODO add height array
         this.heightOptions = {standingHeight:292, jumpingHeight: 311, punchingHeight:317, lowKickingHeight:315, duckingHeight:294
@@ -232,7 +232,7 @@ Fighter.prototype.update = function(){
         this.ducking=true;
     } else if (this.game.d) {
         //this.x + sprite width > canvas width
-        console.log(this.x)
+        // console.log(this.x);
         if(this.x + 100 < 1180) {            
             this.walkRight = true;
             this.facing = false;
@@ -374,7 +374,7 @@ Fighter.prototype.update = function(){
     }
 
     Entity.prototype.update.call(this);
-}
+};
 
 Fighter.prototype.draw = function (ctx) {
     if (this.jumping) {
@@ -591,24 +591,24 @@ Fighter.prototype.draw = function (ctx) {
         }
     }
     Entity.prototype.draw.call(this);
-}
+};
 
 //TODO build bounding boxes after adding height arrays
 // checks to see if a punch has collided
 Fighter.prototype.punch = function (other) {
-    var thisBox = {x:this.x, y:this.y, width: this.width, height:this.height}
+    var thisBox = {x:this.x, y:this.y, width: this.width, height:this.height};
     var otherBox = {x: other.x, y: other.y, width:other.width, height:other.height}
-}
+};
 
 
 Fighter.prototype.highKick = function (other) {
     if(this.highKicking){
 
     }
-}
+};
 
 Fighter.prototype.lowKick = function (other) {
     if(this.lowKicking){
 
     }
-}
+};
