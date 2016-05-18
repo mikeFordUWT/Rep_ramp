@@ -795,6 +795,8 @@ Fighter.prototype.update = function(){
     Entity.prototype.update.call(this);
 };
 
+
+//TODO plug in map references from this. blah blah [MIKE]
 Fighter.prototype.draw = function (ctx) {
     if (this.jumping) {
         // this.jumpAnimation.d
