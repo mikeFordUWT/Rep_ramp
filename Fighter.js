@@ -9,6 +9,32 @@ var SANDERS = "bernieSanders";
 
 function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     this.fighter = fighterName;
+    this.x = x;
+    this.y = y;
+    this.jumping = false;
+    this.punching = false;
+    this.ducking = false;
+    this.walkLeft = false;
+    this.walkRight = false;
+    this.lowKicking = false;
+    this.highKicking = false;
+    this.blocking = false;
+
+    this.facing = aiStatus;
+
+    //Bounding boxes
+
+
+
+    //health variable
+    this.health  = 100;
+
+    //speed variable
+    this.speed = 0;
+
+    this.radius = 100;
+    this.ground = 300;
+    this.game  = game;
 
     if(fighterName === CRUZ){
         //height and widths for bounding boxes
@@ -30,9 +56,9 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         //JUMP
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
-        //TODO add jump right box
+        this.jumpRightBox = {x: this.x -50, y: this.y -30, width:this.widthOptions.jumpRight, height:this.heightOptions.jumpRight};
         this.jumpAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJumpLeft.png"), 0, 0, 237, 311, 0.06, 20, false, false);
-        //TODO add jump left box
+        this.jumpLeftBox = {x: this.x -50, y: this.y -15, width: this.widthOptions.jumpLeft, height: this.heightOptions.jumpLeft};
 
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
@@ -40,8 +66,6 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunchLeft.png"), 0, 0, 386, 319, 0.06, 12, false, false);
         this.punchLeftBox = {x: this.x - 70, y:this.y -10, width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
 
-
-        //width, height
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzLoKick.png"), 0, 0, 285, 315, 0.06, 12, false, false);
         this.lowKickRightBox = {x: this.x -54, y:this.y -15, width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight}
@@ -50,9 +74,9 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         //DUCK
         this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);
-        this.duckingRightBox = {x:this.x -40, y:this.y -2, width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
+        this.duckRightBox = {x:this.x -40, y:this.y -2, width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
         this.duckingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuckLeft.png"), 0, 0, 192, 294, 0.06, 12, false, false);
-        this.duckingLeftBox = {x: this.x -40, y: this.y -2, width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
+        this.duckLeftBox = {x: this.x -40, y: this.y -2, width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
 
         //WALKING
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWalkLeft.png"), 0, 0, 246, 309, 0.06, 20, false, false);
@@ -90,34 +114,51 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         //STANDING
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStanding.png"), 0, 0, 185, 299, 0.099, 6, true, false);
+        this.standRightBox = {x: this.x, y:this.y, width:this.widthOptions.standRight, height:this.heightOptions.standRight};
         this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStandingLeft.png"), 0, 0, 184, 299, 0.099, 6, true, false);
+        this.standLeftBox ={x:this.x, y:this.y, width:this.widthOptions.standLeft, height:this.heightOptions.standLeft};
 
         //JUMP
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonJump.png"), 0, 0, 288, 337, 0.06, 20, false, false);
+        this.jumpRightBox = {x:this.x -50, y:this.y -15, width:this.widthOptions.jumpRight, height:this.heightOptions.jumpRight};
         this.jumpAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonJumpLeft.png"),0, 0, 292, 337, 0.06, 20, false, false);
+        this.jumpLeftBox = {x: this.x - 50, y: this.y - 15, width:this.widthOptions.jumpLeft, height:this.heightOptions.jumpLeft};
+
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonPunch.png"), 0, 0, 312, 297, 0.06, 12, false, false);
+        this.punchRightBox = {x: this.x, y: this.y, width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
         this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonPunchLeft.png"), 0, 0, 312, 297, 0.06, 12, false, false);
-
+        this.punchLeftBox = {x: this.x, y: this.y, width: this.widthOptions.punchLeft, height: this.heightOptions.punchLeft};
+        
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonLoKick.png"), 0, 0, 270, 299, 0.06, 12, false, false);
+        this.lowKickRightBox = {x:this.x-30, y: this.y, width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight};
         this.lowKickingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonLoKickLeft.png"), 0, 0, 270, 299, 0.06, 12, false, false);
-
+        this.lowKickLeftBox = {x: this.x - 30, y: this.y, width: this.widthOptions.loKickLeft, height: this.heightOptions.loKickLeft};
+        
         //DUCK
         this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDuck.png"), 0, 0, 162, 303, 0.06, 12, false, false);//FIXXXX LATTE
+        this.duckRightBox = {x: this.x, y: this.y, width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
         this.duckingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDuckLeft.png"), 0, 0, 162, 303, 0.06, 12, false, false);
+        this.duckLeftBox = {x: this.x, y: this.x, width: this.widthOptions.duckLeft, height: this.heightOptions.duckRight};
 
         //WALKING
         this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWalkRight.png"), 0, 0, 262, 326, 0.06, 20, false, false);
+        this.walkRightBox = {x: this.x +5, y: this.y -20, width:this.widthOptions.walkRight, height: this.heightOptions.walkRight};
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWalkLeft.png"), 0, 0, 296, 334, 0.06, 20, false, false);
+        this.walkLeftBox = {x: this.x - 5, y: this.x -20, width: this.widthOptions.walkLeft, height: this.heightOptions.walkLeft};
 
         //HIGH KICK
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonHiKick.png"), 0, 0, 344, 322, 0.06, 12, false, false);
+        this.highKickRightBox = {x: this.x -100, y: this.y-10, width: this.widthOptions.hiKickRight, height: this.heightOptions.hiKickRight};
         this.highKickAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonHiKickLeft.png"), 0, 0, 349, 317, 0.06, 12, false, false);
+        this.highKickLeftBox = {x: this.x -100, y: this.y -10, width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft}
 
         //BLOCK
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonBlock.png"), 0,0, 436, 321, 0.06,12,false, false);
+        this.blockRightBox = {x: this.x -135,y: this.y -15, width: this.widthOptions.blockRight ,height: this.heightOptions.blockRight};
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonBlockLeft.png"), 0,0, 446, 320, 0.06,12,false, false);
+        this.blockLeftBox = {x: this.x -135, y: this.y -15, width: this.widthOptions.blockLeft, height: this.heightOptions.blockLeft};
 
         //DEATH
         this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDead.png"),0,0, 314, 328, 0.06, 12, false, false);
@@ -126,32 +167,50 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     }else if(fighterName === TRUMP){
         //height and widths for bounding boxes
         this.widthOptions = {walkRight: 192, standRight: 270, punchRight: 434, loKickRight: 429, jumpRight: 242, hiKickRight: 488, duckRight: 320, blockRight: 388,
-            walkLeft: 192, standLeft: 276, punchLeft: 422, loKickLeft: 443, jumpLeft: 233, hiKickLeft: 480, duckLeft: 320, blockLeft: 372, deadRight: 476, deadLeft: 478}
-        this.heightOptions = {walkRight: 326, standRight: 325, punchRight: 345, loKickRight: 321, jumpRight: 353, hiKickRight: 350, duckRight: 324, blockRight: 424,
-            walkLeft: 326, standLeft: 320, punchLeft: 360, loKickLeft: 335, jumpLeft: 355, hiKickLeft: 377, duckLeft: 324, blockLeft: 429, deadRight: 338, deadLeft: 338}
+            walkLeft: 192, standLeft: 276, punchLeft: 422, loKickLeft: 443, jumpLeft: 233, hiKickLeft: 480, duckLeft: 320, blockLeft: 372, deadRight: 476, deadLeft: 478};
 
+        this.heightOptions = {walkRight: 326, standRight: 325, punchRight: 345, loKickRight: 321, jumpRight: 353, hiKickRight: 350, duckRight: 324, blockRight: 424,
+            walkLeft: 326, standLeft: 320, punchLeft: 360, loKickLeft: 335, jumpLeft: 355, hiKickLeft: 377, duckLeft: 324, blockLeft: 429, deadRight: 338, deadLeft: 338};
+
+        var xOptions = {standRightX: this.x, standLeftX: this.x, jumpRightX: this.x -85, jumpLeftX: this.x =115, punchRightX: this.x -85, punchLeftX: this.x +115,
+                        lowKickRightX: this.x};
+
+        var yOptions = {standRightY: this.y, standLeftY: this.y, jumpRightX: , jumpLeftX:  };
         //STAND
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStanding.png"), 0, 0, 270, 325, 0.099, 6, true, false);
+        this.standRightBox = {x: this.x, y: this.y, width: this.widthOptions.standRight, height: this.heightOptions.standRight};
         this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStandingLeft.png"), 0, 0, 276, 320, 0.099, 6, true, false);
-
+        this.standLeftBox = {x: this.x, y: this.y, width: this.widthOptions.standLeft, height: this.heightOptions.standLeft};
         //JUMP
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpJump.png"), 0, 0, 242, 353, 0.06, 20, false, false);
+        this.jumpRightBox = {x: this.x -85, y: this.y -30, width: this.widthOptions.jumpRight, height: this.heightOptions.jumpRight};
         this.jumpAnimationLeft =new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpJumpLeft.png"), 0, 0, 233, 355, 0.06, 20, false, false);
+        this.jumpLeftBox = {x: this.x +115, y: this.y -35, width: this.widthOptions.jumpLeft, height: this.heightOptions.jumpLeft};
 
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunch.png"), 0, 0, 434, 345, 0.06, 12, false, false);
+        this.punchRightBox = {x: this.x - 150, y: this.y - 20, width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
         this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpPunchLeft.png"), 0, 0, 440, 360, 0.06, 12, false, false);
+        this.punchLeftBox = {x: this.x,y: this.y - 25, width: this.widthOptions.punchLeft, height: this.heightOptions.punchLeft};
 
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpLoKick.png"), 0, 0, 429, 341, 0.06, 12, false, false);
+        this.lowKickRightBox = {x: , y: , width:  ,height: };
         this.lowKickingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpLoKickLeft.png"), 0, 0, 443, 335, 0.06, 12, false, false);
+        this.lowKickLeftBox = {x: , y: , width:  ,height: };
+
         //DUCK
         this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDuck.png"), 0, 0, 320, 324, 0.06, 12, false, false);
+        this.duckRightBox = {x: , y: , width:  , height: };
         this.duckingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDuckLeft.png"), 0, 0, 320, 324, 0.06, 12, false, false);
+        this.duckLeftBox = {x: , y: , width:  , height: };
+
 
         //WALK
         this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkRight.png"), 0, 0, 192, 326, 0.06, 18, false, false);
+        this.walkRightBox = {x: , y: , width:  , height: };
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWalkLeft.png"), 0, 0, 192, 326, 0.06, 18, false, false);//might need fixed. looks okay tho.
+        this.walkLeftBox = {x: , y: , width:  , height: };
 
         //HIGH KICK
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpHiKick.png"), 0, 0, 488, 350, 0.06, 12, false, false);
@@ -204,36 +263,13 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         //BLOCK
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersBlock.png"), 0, 0, 470, 335, 0.06, 12, false, false);
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersBlockLeft.png"), 0, 0, 482, 342, 0.06, 12, false, false);
+
         //DEATH
         this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersDead.png"),0,0, 335, 334, 0.06, 12, false, false);
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersDeadLeft.png"),0,0, 310, 352, 0.06, 12, false, false);
     }
 
-    this.jumping = false;
-    this.punching = false;
-    this.ducking = false;
-    this.walkLeft = false;
-    this.walkRight = false;
-    this.lowKicking = false;
-    this.highKicking = false;
-    this.blocking = false;
-    this.x = x;
-    this.y = y;
-    this.facing = aiStatus;
-
-    //Bounding boxes
     
-
-
-    //health variable
-    this.health  = 100;
-
-    //speed variable
-    this.speed = 0;
-
-    this.radius = 100;
-    this.ground = 300;
-    this.game  = game;
     Entity.call(this, game, x, 300-y);
 }
 
