@@ -22,6 +22,10 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
     this.facing = aiStatus;
 
+    this.xOptions={}
+    this.yOptions ={}
+    this.widthOptions ={}
+    this.heightOptions={}
     //Bounding boxes
 
 
@@ -544,7 +548,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
             duckLeftX: this.x,
             highKickRightX: this.x-160,
             highKickLeftX: this.x - 160,
-            blockRightX: this.x - 135,
+            blockRightX: (this.x - 135),
             blockLeftX: this.x - 135,
             walkLeftX:this.x -5,
             walkRightX: this.x + 5
@@ -802,16 +806,19 @@ Fighter.prototype.draw = function (ctx) {
         // this.jumpAnimation.d
 
         if(this.facing === true){
+            // this.jumpAnimationLeft.drawFrame(this.game.clockTick, ctx, this.xOptions.jumpLeftX, this.yOptions.jumpLeftY);
             if(this.fighter === TRUMP){
                 this.jumpAnimationLeft.drawFrame(this.game.clockTick, ctx, this.x+115, this.y-35);
             }else if(this.fighter === SANDERS){
                 this.jumpAnimationLeft.drawFrame(this.game.clockTick, ctx, this.x-70, this.y-15);
             }else if(this.fighter === CLINTON){
+                // this.jumpAnimationLeft.drawFrame(this.game.clockTick, ctx, this.xOptions.jumpLeftX, this.yOptions.jumpLeftY);
                 this.jumpAnimationLeft.drawFrame(this.game.clockTick, ctx, this.x-50, this.y-15);
             } else if (this.fighter === CRUZ) {
                 this.jumpAnimationLeft.drawFrame(this.game.clockTick, ctx, this.x-50, this.y-15);
             }
         } else{
+            // this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.jumpRightX, this.yOptions.jumpRightY);
             if(this.fighter === TRUMP){
                 this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x-85, this.y-30);
             }else if(this.fighter === SANDERS){
@@ -829,6 +836,7 @@ Fighter.prototype.draw = function (ctx) {
         this.punchingAnimation.d;
 
         if(this.facing === true){
+            // this.punchingAnimationLeft.drawFrame(this.game.clockTick, ctx, this.xOptions.punchLeftX , this.yOptions.punchLeftY);
             if(this.fighter === TRUMP){
                 this.punchingAnimationLeft.drawFrame(this.game.clockTick, ctx, this.x , this.y-25);
             }else if(this.fighter === SANDERS){
@@ -839,6 +847,7 @@ Fighter.prototype.draw = function (ctx) {
                 this.punchingAnimationLeft.drawFrame(this.game.clockTick, ctx, this.x - 70, this.y-10);
             }
         }else{
+            // this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.punchRightX , this.yOptions.blockRightY);
             if(this.fighter === TRUMP){
                 this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x-150 , this.y-20);
             }else if(this.fighter === SANDERS){
@@ -855,6 +864,7 @@ Fighter.prototype.draw = function (ctx) {
         console.log("low kicking");
         this.lowKickingAnimation.d;
         if(this.facing === true){
+            // this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.xOptions.lowKickLeftX,this.yOptions.lowKickLeftY);
             if(this.fighter === TRUMP){
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x,this.y-10);
             }else if(this.fighter === SANDERS){
@@ -865,6 +875,7 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x,this.y-15);
             }
         }else{
+            // this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.xOptions.lowKickRightX,this.yOptions.lowKickRightY);
             if(this.fighter === TRUMP){
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-155,this.y-5);
             }else if(this.fighter === SANDERS){
@@ -884,6 +895,7 @@ Fighter.prototype.draw = function (ctx) {
         this.highKickAnimation.d;
 
         if(this.facing ===true){
+            // this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.xOptions.highKickLeftX,this.yOptions.highKickLeftY);
             if(this.fighter === TRUMP){
                 this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-60,this.y-5);
             }else if(this.fighter === SANDERS){
@@ -894,6 +906,7 @@ Fighter.prototype.draw = function (ctx) {
                 this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-35,this.y-20);
             }
         }else{
+            // this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.xOptions.highKickRightX,this.yOptions.highKickRightY);
             if(this.fighter === TRUMP){
                 this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-160,this.y);
             }else if(this.fighter === SANDERS){
@@ -910,6 +923,7 @@ Fighter.prototype.draw = function (ctx) {
         console.log("ducking");
         this.duckingAnimation.d;
         if(this.facing === true){
+            // this.duckingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.xOptions.duckLeftX,this.yOptions.duckLeftY);
             if(this.fighter === TRUMP){
                 this.duckingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x,this.y);
             }else if(this.fighter === SANDERS){
@@ -920,6 +934,7 @@ Fighter.prototype.draw = function (ctx) {
                 this.duckingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-40,this.y-2);
             }
         }else{
+            // this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.xOptions.duckRightX,this.yOptions.duckRightY);
             if(this.fighter === TRUMP){
                 this.duckingAnimation.drawFrame(this.game.clockTick,ctx,this.x,this.y);
             }else if(this.fighter === SANDERS){
@@ -934,6 +949,7 @@ Fighter.prototype.draw = function (ctx) {
     } else if (this.walkRight){
         console.log("walking right");
         this.walkRightAnimation.d;
+        // this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.walkRightX, this.yOptions.walkRightY);
         if(this.fighter === TRUMP){
             this.walkRightAnimation.drawFrame(this.game.clockTick, ctx, this.x + 5, this.y);
         }else if(this.fighter === SANDERS){
@@ -947,6 +963,7 @@ Fighter.prototype.draw = function (ctx) {
     } else if (this.walkLeft ){
         console.log("Walking Left");
         this.walkLeftAnimation.d;
+        // this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.walkLeftX, this.yOptions.walkLeftY);
         if(this.fighter === TRUMP){
             this.walkLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x +80, this.y);
         }else if(this.fighter === SANDERS){
@@ -962,7 +979,9 @@ Fighter.prototype.draw = function (ctx) {
         this.blockingAnimation.d;
         this.blockingLeftAnimation.d;
 
+
         if(this.facing === true){
+            // this.blockingLeftAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.blockLeftX, this.yOptions.blockLeftY);
             if(this.fighter === TRUMP){
                 this.blockingLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x-120, this.y-95);
             }else if(this.fighter === SANDERS){
@@ -973,6 +992,7 @@ Fighter.prototype.draw = function (ctx) {
                 this.blockingLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x-70, this.y-5);
             }
         }else{
+            // this.blockingAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.blockRightX, this.yOptions.blockRightY);
             if(this.fighter === TRUMP){
                 this.blockingAnimation.drawFrame(this.game.clockTick, ctx, this.x-120, this.y-95);
             }else if(this.fighter === SANDERS){
@@ -989,26 +1009,26 @@ Fighter.prototype.draw = function (ctx) {
         console.log("standing still");
         if (this.facing === true) {
             if(this.fighter === TRUMP){
-
+                this.animationLeft.drawFrame(this.game.clockTick, ctx, this.x, this.y);
             }else if(this.fighter === SANDERS){
-
+                this.animationLeft.drawFrame(this.game.clockTick, ctx, this.x, this.y);
             }else if(this.fighter === CLINTON){
-
+                this.animationLeft.drawFrame(this.game.clockTick, ctx, this.x, this.y);
             } else if (this.fighter === CRUZ) {
-
+                this.animationLeft.drawFrame(this.game.clockTick, ctx, this.x, this.y);
             }
-            this.animationLeft.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+            // this.animationLeft.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         } else {
             if(this.fighter === TRUMP){
-
+                this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
             }else if(this.fighter === SANDERS){
-
+                this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
             }else if(this.fighter === CLINTON){
-
+                this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
             } else if (this.fighter === CRUZ) {
-
+                this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
             }
-            this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+            // this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         }
     }
     Entity.prototype.draw.call(this);
