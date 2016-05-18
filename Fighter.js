@@ -12,45 +12,66 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
     if(fighterName === CRUZ){
         //height and widths for bounding boxes
-        this.widthOptions = {walkRight: 144, standRight: 157, punchRight: 290, loKickRight: 285, jumpRight: 234, hiKickRight: 276, duckRight: 192, blockRight: 378,
-            walkLeft: 246, standLeft: 157, punchLeft: 386, loKickLeft: 296 , jumpLeft: 234, hiKickLeft: 280, duckLeft: 192, blockLeft: 382, deadRight: 294, deadLeft: 303}
+        this.widthOptions = {walkRight: 144, standRight: 157, punchRight: 290, loKickRight: 285, jumpRight: 234, hiKickRight: 276, duckRight: 192, blockRight: 378, deadRight: 294,
+                             walkLeft: 246, standLeft: 157, punchLeft: 386, loKickLeft: 296 , jumpLeft: 234, hiKickLeft: 280, duckLeft: 192, blockLeft: 382, deadLeft: 303}
         this.heightOptions = {walkRight: 292, standRight: 292, punchRight: 310, loKickRight:315 , jumpRight: 311, hiKickRight: 317, duckRight: 294, blockRight: 319,
             walkLeft: 309, standLeft: 292, punchLeft: 319, loKickLeft: 312, jumpLeft: 311, hiKickLeft: 316, duckLeft: 294, blockLeft: 311, deadRight: 309, deadLeft: 321}
         this.width = this.widthOptions.standingWidth;
         this.height = this.heightOptions.standingHeight;
 
+
+
+
         //STANDING
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
+        this.standRightBox = {x: this.x , y: this.y, width:this.widthOptions.standRight, height: this.heightOptions.standRight};
         this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStandingLeft.png"), 0, 0, 147, 293, 0.099, 6, true, false);
+        this.standLeftBox = {x:this.x, y:this.y, width:this.widthOptions.standLeft, height:this.heightOptions.standLeft};
 
         //JUMP
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
+        //TODO add jump right box
         this.jumpAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJumpLeft.png"), 0, 0, 237, 311, 0.06, 20, false, false);
+        //TODO add jump left box
 
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
+        this.punchRightBox = {x: this.x -85, y:this.y -10, width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
         this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunchLeft.png"), 0, 0, 386, 319, 0.06, 12, false, false);
+        this.punchLeftBox = {x: this.x - 70, y:this.y -10, width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
+
 
         //width, height
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzLoKick.png"), 0, 0, 285, 315, 0.06, 12, false, false);
+        this.lowKickRightBox = {x: this.x -54, y:this.y -15, width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight}
         this.lowKickingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzLoKickLeft.png"), 0, 0, 296, 312, 0.06, 12, false, false);
+        this.lowKickLeftBox = {x:this.x, y:this.y-15, width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
 
         //DUCK
         this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);
+        this.duckingRightBox = {x:this.x -40, y:this.y -2, width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
         this.duckingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuckLeft.png"), 0, 0, 192, 294, 0.06, 12, false, false);
+        this.duckingLeftBox = {x: this.x -40, y: this.y -2, width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
 
         //WALKING
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWalkLeft.png"), 0, 0, 246, 309, 0.06, 20, false, false);
+        this.walkLeftBox = {x:this.x - 5, y:this.y, width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
         this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
+        this.walkRightBox = {x:this.x +5, y:this.y, width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
 
         //HIGH KICK
         this.highKickAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKickLeft.png"), 0, 0, 280, 316, 0.06, 12, false, false);
+        this.highKickLeftBox = {x:this.x - 35, y: this.y -20, width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
+        this.highKickRightBox = {x: this.x -80, y: this.y -20, width: this.widthOptions.hiKickRight, height:this.heightOptions.hiKickRight};
+
 
         //BLOCK
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlock.png"),0,0, 378, 319, 0.06, 12, false, false);
+        this.blockRightBox = {x:this.x -70, y:this.y -5, width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlockLeft.png"),0,0, 382, 311, 0.06, 12, false, false);
+        this.blockLeftBox = {x:this.x -135, y:this.y-15, width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
 
         //DEAD
         this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDead.png"),0,0, 294, 309, 0.06, 12, false, false);
@@ -199,6 +220,10 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     this.x = x;
     this.y = y;
     this.facing = aiStatus;
+
+    //Bounding boxes
+    
+
 
     //health variable
     this.health  = 100;
