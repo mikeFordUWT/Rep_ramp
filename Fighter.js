@@ -1330,5 +1330,15 @@ Fighter.prototype.lowKick = function (other) {
 };
 
 Fighter.prototype.collide = function (other) {
+    if(this.punching){
+        //    TODO extend tiny box
+    }
 
+    if(this.lowKicking){
+        //    TODO extend tiny box
+    }
+
+    if(this.highKicking){
+        //    TODO extend tiny box
+    }
 };
