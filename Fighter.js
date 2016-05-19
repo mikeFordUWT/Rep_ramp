@@ -87,45 +87,156 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         // this.width = this.widthOptions.standingWidth;
         // this.height = this.heightOptions.standingHeight;
 
+        /**
+         * Adjusts X
+         * @returns {*}
+         */
+
         //for adjusting x's
-        this.xOptions = {
-            standRightX: this.x,
-            standLeftX: this.x,
-            jumpRightX: this.x - 50,
-            jumpLeftX: this.x -50,
-            punchRightX: this.x -85,
-            punchLeftX: this.x - 70,
-            lowKickRightX: this.x - 54,
-            lowKickLeftX: this.x,
-            duckRightX: this.x - 40,
-            duckLeftX: this.x - 40,
-            highKickRightX: this.x - 80,
-            highKickLeftX: this.x - 35,
-            blockingRightX: this.x - 135,
-            blockLeftX: this.x - 70,
-            walkLeftX: this.x - 5,
-            walkRightX: this.x +5
+
+        this.standRightX = function () {
+            return this.x;
         };
 
-        //for adjusting y's
-        this.yOptions = {
-            standRightY: this.y,
-            standLeftY: this.y,
-            jumpRightY: this.y - 15,
-            jumpLeftY: this.y -15,
-            punchRightY: this.y - 10,
-            punchLeftY: this.y - 10,
-            lowKickRightY: this.y -15,
-            lowKickLeftY: this.y - 15,
-            duckRightY: this.y - 2,
-            duckLeftY: this.y - 2,
-            highKickRightY: this.y -20,
-            highKickLeftY: this.y - 20,
-            blockRightY: this.y - 15,
-            blockLeftY: this.y - 5,
-            walkRightY: this.y,
-            walkLeftY: this.y
+        this.standLeftX = function () {
+            return this.x;
         };
+
+        this.jumpRightX = function () {
+            return this.x - 50;
+        };
+
+        this.jumpLeftX = function () {
+            return this.x - 50;
+        };
+
+
+
+        this.punchRightX = function () {
+            return this.x - 85;
+        };
+
+        this.punchLeftX = function () {
+            return this.x - 70;
+        };
+
+
+        this.lowKickRightX = function () {
+            return this.x - 54;
+        };
+
+        this.lowKickLeftX = function () {
+            return this.x;
+        };
+
+        this.duckRightX = function () {
+            return this.x - 40;
+        };
+
+        this.duckLeftX = function () {
+            return this.x - 40;
+        };
+
+        this.highKickRightX = function () {
+            return this.x - 80;
+        };
+
+        this.highKickLeftX = function () {
+            return this.x - 35;
+        };
+
+        this.blockRightX = function () {
+            return this.x - 135;
+        };
+
+        this.blockLeftX = function () {
+            return this.x - 70;
+        };
+
+        this.walkRightX = function () {
+            return this.x +5;
+        };
+
+        this.walkLeftX = function () {
+            return this.x - 5;
+        };
+
+
+        /**
+         * Adjusts Y's
+         */
+
+        //for adjusting y's
+        this.standRightY = function (){
+            return this.y;
+        };
+
+        this.standLeftY = function () {
+            return this.y;
+        };
+
+        this.jumpRightY = function () {
+            return this.y -15;
+        };
+
+        this.jumpLeftY = function () {
+            return this.y - 15;
+        };
+
+        this.punchRightY = function () {
+            return this.y -10;
+        };
+
+        this.punchLeftY = function () {
+            return this.y - 10;
+        };
+
+        this.lowKickRightY = function () {
+            return this.y -15;
+        };
+
+        this.lowKickLeftY = function () {
+            return this.y - 15;
+        };
+
+        this.highKickLeftY = function () {
+            return this.y -20;
+        };
+
+        this.highKickRightY = function () {
+            return this.y -20;
+        };
+
+
+
+
+        this.duckRightY = function () {
+            return this.y -2;
+        };
+
+        this.duckLeftY = function () {
+            return this.y -2;
+        };
+
+
+        this.blockRightY = function () {
+            return this.y - 15;
+        };
+
+        this.blockLeftY = function () {
+            return this.y - 5;
+        };
+
+        this.walkLeftY = function () {
+            return this.y;
+        };
+
+        this.walkRightY = function () {
+            return this.y;
+        };
+
+
+
 
         //Bounding Boxes
         this.standRightBox = {x: this.xOptions.standRightX , y: this.yOptions.standRightY, width:this.widthOptions.standRight, height: this.heightOptions.standRight};
@@ -244,66 +355,168 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
             deadLeft: 327
         };
 
-        this.xOptions = {
-            standRightX: this.x,
-            standLeftX: this.x,
-            jumpRightX: this.x - 50,
-            jumpLeftX: this.x - 50,
-            punchRightX: this.x,
-            punchLeftX: this.x,
-            lowKickRightX: this.x - 30,
-            lowKickLeftX: this.x-30,
-            duckRightX: this.x,
-            duckLeftX: this.x,
-            highKickRightX: this.x-100,
-            highKickLeftX: this.x-100,
-            blockingRightX: this.x-135,
-            blockLeftX: this.x-135,
-            walkLeftX: this.x - 5,
-            walkRightX: this.x + 5
+        /**
+         * Adjusts X
+         * @returns {*}
+         */
+
+        this.standRightX = function () {
+            return this.x;
         };
 
+        this.standLeftX = function () {
+            return this.x;
+        };
+
+        this.jumpRightX = function () {
+            return this.x - 50;
+        };
+
+        this.jumpLeftX = function () {
+            return this.x - 50;
+        };
+
+        this.punchRightX = function () {
+            return this.x;
+        };
+
+        this.punchLeftX = function () {
+            return this.x;
+        };
+
+        this.lowKickRightX = function () {
+            return this.x - 30;
+        };
+
+        this.lowKickLeftX = function () {
+            return this.x - 30;
+        };
+
+        this.duckRightX = function () {
+            return this.x;
+        };
+
+        this.duckLeftX = function () {
+            return this.x;
+        };
+
+        this.highKickRightX = function () {
+            return this.x - 100;
+        };
+
+        this.highKickLeftX = function () {
+            return this.x - 100;
+        };
+
+        this.blockRightX = function () {
+            return this.x - 135;
+        };
+
+        this.blockLeftX = function () {
+            return this.x - 135;
+        };
+
+        this.walkRightX = function () {
+            return this.x +5;
+        };
+
+        this.walkLeftX = function () {
+            return this.x - 5;
+        };
+
+
+        /**
+         * Adjusts Y's
+         */
         //for adjusting y's
-        this.yOptions = {
-            standRightY: this.y,
-            standLeftY: this.y,
-            jumpRightY: this.y - 15,
-            jumpLeftY: this.y -15,
-            punchRightY: this.y,
-            punchLeftY: this.y,
-            lowKickRightY: this.y,
-            lowKickLeftY: this.y,
-            duckRightY: this.y,
-            duckLeftY: this.y,
-            highKickRightY: this.y -10,
-            highKickLeftY: this.y -10,
-            blockRightY: this.y -15,
-            blockLeftY: this.y -15,
-            walkLeftY: this.y-20,
-            walkRightY: this.y-20
+        this.standRightY = function (){
+            return this.y;
         };
 
-        //Bounding Boxes
-        this.standRightBox = {x: this.xOptions.standRightX , y: this.yOptions.standRightY, width:this.widthOptions.standRight, height: this.heightOptions.standRight};
-        this.standLeftBox = {x: this.xOptions.standLeftX, y: this.yOptions.standLeftY, width:this.widthOptions.standLeft, height:this.heightOptions.standLeft};
-        this.jumpRightBox = {x: this.xOptions.jumpRightX, y: this.yOptions.jumpRightY, width:this.widthOptions.jumpRight, height:this.heightOptions.jumpRight};
-        this.jumpLeftBox = {x: this.xOptions.jumpLeftX, y: this.yOptions.jumpLeftY, width: this.widthOptions.jumpLeft, height: this.heightOptions.jumpLeft};
-        this.punchRightBox = {x: this.xOptions.punchRightX, y: this.yOptions.punchRightY, width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
-        this.punchLeftBox = {x: this.xOptions.punchLeftX, y: this.yOptions.punchLeftY, width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
-        this.lowKickRightBox = {x: this.xOptions.lowKickRightX, y: this.yOptions.lowKickRightY, width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight};
-        this.lowKickLeftBox = {x: this.xOptions.lowKickLeftX, y: this.yOptions.lowKickLeftY, width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
-        this.duckRightBox = {x: this.xOptions.duckRightX, y: this.yOptions.duckRightY, width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
-        this.duckLeftBox = {x: this.xOptions.duckLeftX, y: this.yOptions.duckLeftY, width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
-        this.walkRightBox = {x: this.xOptions.walkRightX, y: this.yOptions.walkRightY, width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
-        this.walkLeftBox = {x: this.xOptions.walkLeftX, y: this.yOptions.walkLeftY, width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
-        this.highKickLeftBox = {x: this.xOptions.highKickLeftX, y: this.yOptions.highKickLeftY, width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
-        this.highKickRightBox = {x: this.xOptions.highKickRightX, y: this.yOptions.highKickRightY, width: this.widthOptions.hiKickRight, height:this.heightOptions.hiKickRight};
-        this.blockRightBox = {x: this.xOptions.blockRightX, y: this.yOptions.blockRightY, width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
-        this.blockLeftBox = {x: this.xOptions.blockLeftX, y: this.yOptions.blockLeftY, width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
+        this.standLeftY = function () {
+            return this.y;
+        };
+
+        this.jumpRightY = function () {
+            return this.y -15;
+        };
+
+        this.jumpLeftY = function () {
+            return this.y - 15;
+        };
+
+        this.punchRightY = function () {
+            return this.y;
+        };
+
+        this.punchLeftY = function () {
+            return this.y;
+        };
+
+        this.lowKickRightY = function () {
+            return this.y;
+        };
+
+        this.lowKickLeftY = function () {
+            return this.y;
+        };
+
+        this.highKickLeftY = function () {
+            return this.y -10;
+        };
+
+        this.highKickRightY = function () {
+            return this.y -10;
+        };
+
+
+
+        this.duckRightY = function () {
+            return this.y;
+        };
+
+        this.duckLeftY = function () {
+            return this.y;
+        };
+
+        this.blockRightY = function () {
+            return this.y - 15;
+        };
+
+        this.blockLeftY = function () {
+            return this.y - 15;
+        };
+
+        this.walkLeftY = function () {
+            return this.y - 20;
+        };
+
+        this.walkRightY = function () {
+            return this.y -20;
+        };
+
+
+
+        this.standRightBox = {x: this.standRightX() , y: this.standRightY(), width:this.widthOptions.standRight, height: this.heightOptions.standRight};
+        this.standLeftBox = {x: this.standLeftX(), y: this.standLeftY(), width:this.widthOptions.standLeft, height:this.heightOptions.standLeft};
+        this.jumpRightBox = {x: this.jumpRightX(), y: this.jumpRightY(), width:this.widthOptions.jumpRight, height:this.heightOptions.jumpRight};
+        this.jumpLeftBox = {x: this.jumpLeftX(), y: this.jumpLeftY(), width: this.widthOptions.jumpLeft, height: this.heightOptions.jumpLeft};
+        this.punchRightBox = {x: this.punchRightX(), y: this.punchRightY(), width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
+        this.punchLeftBox = {x: this.punchLeftX(), y: this.punchLeftY(), width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
+        this.lowKickRightBox = {x: this.lowKickRightX(), y: this.lowKickRightY(), width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight};
+        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
+        this.duckRightBox = {x: this.duckRightX(), y: this.duckRightY(), width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
+        this.duckLeftBox = {x: this.duckLeftX(), y: this.duckLeftY(), width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
+        this.walkRightBox = {x: this.walkRightX(), y: this.walkRightY(), width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
+        this.walkLeftBox = {x: this.walkLeftX(), y: this.walkLeftY(), width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
+        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
+        this.highKickRightBox = {x: this.highKickRightX(), y: this.highKickRightY(), width: this.widthOptions.hiKickRight, height:this.heightOptions.hiKickRight};
+        this.blockRightBox = {x: this.blockRightX(), y: this.blockRightY(), width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
+        this.blockLeftBox = {x: this.blockLeftX(), y: this.blockLeftY(), width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
 
         //STANDING
-        this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStanding.png"), 0, 0, 185, 299, 0.099, 6, true, false);
-        this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStandingLeft.png"), 0, 0, 184, 299, 0.099, 6, true, false);
+        this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStanding.png"), 0, 0, this.widthOptions.standRight, this.heightOptions.standRight, 0.099, 6, true, false);
+        this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonStandingLeft.png"), 0, 0, this.widthOptions.standLeft, this.heightOptions.standLeft, 0.099, 6, true, false);
 
 
         //JUMP
@@ -317,13 +530,13 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
 
         this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonPunchLeft.png"), 0, 0, 312, 297, 0.06, 12, false, false);
 
-        
+
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonLoKick.png"), 0, 0, 270, 299, 0.06, 12, false, false);
 
         this.lowKickingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonLoKickLeft.png"), 0, 0, 270, 299, 0.06, 12, false, false);
 
-        
+
         //DUCK
         this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDuck.png"), 0, 0, 162, 303, 0.06, 12, false, false);//FIXXXX LATTE
 
@@ -394,63 +607,159 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
             deadLeft: 338
         };
 
-        this.xOptions = {
-            standRightX: this.x,
-            standLeftX: this.x,
-            jumpRightX: this.x -85,
-            jumpLeftX: this.x + 115,
-            punchRightX: this.x - 150,
-            punchLeftX: this.x,
-            lowKickRightX: this.x - 155,
-            lowKickLeftX: this.x,
-            duckRightX: this.x,
-            duckLeftX: this.x,
-            highKickRightX: this.x - 160,
-            highKickLeftX: this.x - 60,
-            blockingRightX: this.x-120,
-            blockLeftX: this.x-120,
-            walkLeftX: this.x + 80,
-            walkRightX: this.x + 5
+        this.standRightX = function () {
+            return this.x;
         };
+
+        this.standLeftX = function () {
+            return this.x;
+        };
+
+        this.jumpRightX = function () {
+            return this.x - 85;
+        };
+
+        this.jumpLeftX = function() {
+            return this.x + 115;
+        };
+
+        this.punchRightX = function() {
+            return this.x - 150;
+        };
+
+        this.punchLeftX = function () {
+            return this.x;
+        };
+
+        this.lowKickRightX = function () {
+            return this.x - 155;
+        };
+
+        this.lowKickLeftX = function () {
+            return this.x;
+        };
+
+        this.duckRightX = function () {
+            return this.x;
+        };
+
+        this.duckLeftX = function () {
+            return this.x;
+        };
+
+        this.highKickRightX = function () {
+            return this.x - 160;
+        };
+
+        this.highKickLeftX = function () {
+            return this.x - 60;
+        };
+
+        this.blockingRightX = function () {
+            return this.x - 120;
+        };
+
+        this.blockLeftX = function () {
+            return this.x - 120;
+        };
+
+        this.walkRightX = function () {
+            return this.x + 80;
+        };
+
+        this.walkLeftX = function () {
+            return this.x +5;
+        };
+
+
 
         //for adjusting y's
         //for adjusting y's
-        this.yOptions = {
-            standRightY: this.y,
-            standLeftY: this.y,
-            jumpRightY: this.y - 30,
-            jumpLeftY: this.y -35,
-            punchRightY: this.y - 20,
-            punchLeftY: this.y - 25,
-            lowKickRightY: this.y - 5,
-            lowKickLeftY: this.y - 10,
-            duckRightY: this.y,
-            duckLeftY: this.y,
-            highKickRightY: this.y,
-            highKickLeftY: this.y -5,
-            blockRightY: this.y -95,
-            blockLeftY: this.y -95,
-            walkLeftY: this.y,
-            walkRightY: this.y
+        this.standRightY = function (){
+          return this.y;
         };
+
+        this.standLeftY = function () {
+            return this.y;
+        };
+
+        this.jumpRightY = function () {
+            return this.y -30;
+        };
+
+        this.jumpLeftY = function () {
+            return this.y - 35;
+        };
+
+        this.punchRightY = function () {
+            return this.y - 20;
+        };
+
+        this.punchLeftY = function () {
+            return this.y - 25;
+        };
+
+        this.lowKickRightY = function () {
+            return this.y - 5;
+        };
+
+        this.lowKickLeftY = function () {
+            return this.y -10;
+        };
+
+        this.highKickLeftY = function () {
+            return this.y -5;
+        };
+
+        this.highKickRightY = function () {
+            return this.y;
+        };
+
+        this.duckRightY = function () {
+            return this.y;
+        };
+
+        this.duckLeftY = function () {
+            return this.y;
+        };
+
+        this.blockRightY = function () {
+            return this.y - 95;
+        };
+
+        this.blockLeftY = function () {
+            return this.y - 95;
+        };
+
+        this.walkLeftY = function () {
+            return this.y;
+        };
+
+        this.walkRightY = function () {
+            return this.y;
+        };
+
+
+
+
 
         //Bounding Boxes
-        this.standRightBox = {x: this.xOptions.standRightX , y: this.yOptions.standRightY, width:this.widthOptions.standRight, height: this.heightOptions.standRight};
-        this.standLeftBox = {x: this.xOptions.standLeftX, y: this.yOptions.standLeftY, width:this.widthOptions.standLeft, height:this.heightOptions.standLeft};
-        this.jumpRightBox = {x: this.xOptions.jumpRightX, y: this.yOptions.jumpRightY, width:this.widthOptions.jumpRight, height:this.heightOptions.jumpRight};
-        this.jumpLeftBox = {x: this.xOptions.jumpLeftX, y: this.yOptions.jumpLeftY, width: this.widthOptions.jumpLeft, height: this.heightOptions.jumpLeft};
-        this.punchRightBox = {x: this.xOptions.punchRightX, y: this.yOptions.punchRightY, width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
-        this.punchLeftBox = {x: this.xOptions.punchLeftX, y: this.yOptions.punchLeftY, width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
-        this.lowKickRightBox = {x: this.xOptions.lowKickRightX, y: this.yOptions.lowKickRightY, width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight};
-        this.lowKickLeftBox = {x: this.xOptions.lowKickLeftX, y: this.yOptions.lowKickLeftY, width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
-        this.duckRightBox = {x: this.xOptions.duckRightX, y: this.yOptions.duckRightY, width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
-        this.duckLeftBox = {x: this.xOptions.duckLeftX, y: this.yOptions.duckLeftY, width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
-        this.walkRightBox = {x: this.xOptions.walkRightX, y: this.yOptions.walkRightY, width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
-        this.walkLeftBox = {x: this.xOptions.walkLeftX, y: this.yOptions.walkLeftY, width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
-        this.highKickLeftBox = {x: this.xOptions.highKickLeftX, y: this.yOptions.highKickLeftY, width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
-        this.highKickRightBox = {x: this.xOptions.highKickRightX, y: this.yOptions.highKickRightY, width: this.widthOptions.hiKickRight, height:this.heightOptions.hiKickRight};
-        this.blockRightBox = {x: this.xOptions.blockRightX, y: this.yOptions.blockRightY, width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
-        this.blockLeftBox = {x: this.xOptions.blockLeftX, y: this.yOptions.blockLeftY, width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
+        this.standRightBox = {x: this.standRightX() , y: this.standRightY(), width:this.widthOptions.standRight, height: this.heightOptions.standRight};
+        this.standLeftBox = {x: this.standLeftX(), y: this.standLeftY(), width:this.widthOptions.standLeft, height:this.heightOptions.standLeft};
+        this.jumpRightBox = {x: this.jumpRightX(), y: this.jumpRightY(), width:this.widthOptions.jumpRight, height:this.heightOptions.jumpRight};
+        this.jumpLeftBox = {x: this.jumpLeftX(), y: this.jumpLeftY(), width: this.widthOptions.jumpLeft, height: this.heightOptions.jumpLeft};
+        this.punchRightBox = {x: this.punchRightX(), y: this.punchRightY(), width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
+        this.punchLeftBox = {x: this.punchLeftX(), y: this.punchLeftY(), width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
+        this.lowKickRightBox = {x: this.lowKickRightX(), y: this.lowKickRightY(), width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight};
+        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
+        this.duckRightBox = {x: this.duckRightX(), y: this.duckRightY(), width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
+        this.duckLeftBox = {x: this.duckLeftX(), y: this.duckLeftY(), width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
+        this.walkRightBox = {x: this.walkRightX(), y: this.walkRightY(), width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
+        this.walkLeftBox = {x: this.walkLeftX(), y: this.walkLeftY(), width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
+        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
+        this.highKickRightBox = {x: this.highKickRightX(), y: this.highKickRightY(), width: this.widthOptions.hiKickRight, height:this.heightOptions.hiKickRight};
+        this.blockRightBox = {x: this.blockRightX(), y: this.blockRightY(), width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
+        this.blockLeftBox = {x: this.blockLeftX(), y: this.blockLeftY(), width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
 
         //STAND
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpStanding.png"), 0, 0, 270, 325, 0.099, 6, true, false);
@@ -493,11 +802,14 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     }else if(fighterName === SANDERS){
         //height and widths for bounding boxes
         this.widthOptions = {
-            walkRight: 182,
+            jumpRight: 120,
+            jumpLeft: 135,
             standRight: 177,
+            walkRight: 182,
+
             punchRight: 369,
             loKickRight: 358,
-            jumpRight: 285,
+
             hiKickRight: 440,
             duckRight: 315,
             blockRight: 470,
@@ -505,7 +817,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
             standLeft: 177,
             punchLeft: 474,
             loKickLeft: 347,
-            jumpLeft: 285,
+
             hiKickLeft: 406,
             duckLeft: 247,
             blockLeft: 482,
@@ -526,7 +838,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
             standLeft: 305,
             punchLeft: 443,
             loKickLeft: 319,
-            jumpLeft: 325,
+            jumpLeft: 320,
             hiKickLeft: 342,
             duckLeft: 315 ,
             blockLeft: 342,
@@ -534,63 +846,153 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
             deadLeft: 352
         };
 
-        //for adjusting x's
-        this.xOptions = {
-            standRightX: this.x,
-            standLeftX: this.x,
-            jumpRightX: this.x -70,
-            jumpLeftX: this.x -70,
-            punchRightX: this.x -110,
-            punchLeftX: this.x -110,
-            lowKickRightX: this.x-150,
-            lowKickLeftX: this.x-150,
-            duckRightX: this.x,
-            duckLeftX: this.x,
-            highKickRightX: this.x-160,
-            highKickLeftX: this.x - 160,
-            blockRightX: (this.x - 135),
-            blockLeftX: this.x - 135,
-            walkLeftX:this.x -5,
-            walkRightX: this.x + 5
+
+        this.standRightX = function () {
+            return this.x;
         };
 
-        //for adjusting y's
-        this.yOptions = {
-            standRightY: this.y,
-            standLeftY: this.y,
-            jumpRightY: this.y - 15,
-            jumpLeftY: this.y -15,
-            punchRightY: this.y - 105,
-            punchLeftY: this.y - 105,
-            lowKickRightY: this.y,
-            lowKickLeftY: this.y,
-            duckRightY: this.y,
-            duckLeftY: this.y,
-            highKickRightY: this.y -10,
-            highKickLeftY: this.y -10,
-            blockRightY: this.y -15,
-            blockLeftY: this.y -15,
-            walkLeftY: this.y,
-            walkRightY: this.y
+        this.standLeftX = function () {
+            return this.x;
         };
+
+        this.jumpRightX = function () {
+            return this.x + 35;
+        };
+
+        this.jumpLeftX = function () {
+            return this.x -10;
+        };
+
+        this.punchLeftX = function () {
+            return this.x -110;
+        };
+
+        this.punchRightX = function () {
+            return this.x - 110;
+        }
+
+        this.lowKickRightX = function () {
+            return this.x - 150;
+        };
+
+        this.lowKickLeftX = function () {
+            return this.x -150;
+        };
+
+        this.duckRightX = function () {
+            return this.x;
+        };
+
+        this.duckLeftX = function () {
+            return this.x;
+        };
+        this.highKickRightX = function () {
+            return this.x - 160;
+        };
+
+        this.highKickLeftX = function () {
+            return this.x - 160;
+        };
+
+        this.blockRightX = function () {
+            return this.x - 135;
+        };
+
+        this.blockLeftX = function () {
+            return this.x - 135;
+        };
+
+        this.walkLeftX = function () {
+            return this.x - 5;
+        };
+
+        this.walkRightX = function () {
+            return this.x + 5;
+        };
+
+
+
+
+        this.standRightY = function () {
+            return this.y;
+        };
+
+        this.standLeftY = function(){
+            return this.y;
+        };
+        this.jumpRightY = function(){
+            return this.y-15;
+        };
+
+        this.jumpLeftY = function () {
+            return this.y - 15;
+        };
+
+        this.punchRightY = function () {
+            return this.y-105;
+        };
+        this.punchLeftY = function () {
+            return this.y - 105;
+        };
+        this.lowKickRightY = function () {
+            return this.y;
+        };
+        this.lowKickLeftY = function () {
+            return this.y;
+        };
+        this.duckRightY = function () {
+            return this.y;
+        };
+        this.duckLeftY = function () {
+            return this.y;
+        };
+        this.highKickRightY = function () {
+            return this.y - 10;
+        };
+        this.highKickLeftY = function () {
+            return this.y -10;
+        };
+        this.blockLeftY = function () {
+            return this.y - 15;
+        };
+        this.blockRightY = function () {
+            return this.y -15;
+        };
+        this.walkRightY = function () {
+            return this.y;
+        };
+        this.walkLeftY = function (){
+            return this.y;
+        };
+
+
+
+
+
+
+
+
+
+
+
 
         //Bounding Boxes
-        this.standRightBox = {x: this.xOptions.standRightX , y: this.yOptions.standRightY, width:this.widthOptions.standRight, height: this.heightOptions.standRight};
-        this.standLeftBox = {x: this.xOptions.standLeftX, y: this.yOptions.standLeftY, width:this.widthOptions.standLeft, height:this.heightOptions.standLeft};
-        this.jumpRightBox = {x: this.xOptions.jumpRightX, y: this.yOptions.jumpRightY, width:this.widthOptions.jumpRight, height:this.heightOptions.jumpRight};
-        this.jumpLeftBox = {x: this.xOptions.jumpLeftX, y: this.yOptions.jumpLeftY, width: this.widthOptions.jumpLeft, height: this.heightOptions.jumpLeft};
-        this.punchRightBox = {x: this.xOptions.punchRightX, y: this.yOptions.punchRightY, width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
-        this.punchLeftBox = {x: this.xOptions.punchLeftX, y: this.yOptions.punchLeftY, width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
-        this.lowKickRightBox = {x: this.xOptions.lowKickRightX, y: this.yOptions.lowKickRightY, width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight};
-        this.lowKickLeftBox = {x: this.xOptions.lowKickLeftX, y: this.yOptions.lowKickLeftY, width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
-        this.duckRightBox = {x: this.xOptions.duckRightX, y: this.yOptions.duckRightY, width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
-        this.duckLeftBox = {x: this.xOptions.duckLeftX, y: this.yOptions.duckLeftY, width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
-        this.walkRightBox = {x: this.xOptions.walkRightX, y: this.yOptions.walkRightY, width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
-        this.walkLeftBox = {x: this.xOptions.walkLeftX, y: this.yOptions.walkLeftY, width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
-        this.highKickLeftBox = {x: this.xOptions.highKickLeftX, y: this.yOptions.highKickLeftY, width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
-        this.highKickRightBox = {x: this.xOptions.highKickRightX, y: this.yOptions.highKickRightY, width: this.widthOptions.hiKickRight, height:this.heightOptions.hiKickRight};
-        this.blockRightBox = {x: this.xOptions.blockRightX, y: this.yOptions.blockRightY, width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
-        this.blockLeftBox = {x: this.xOptions.blockLeftX, y: this.yOptions.blockLeftY, width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
+        this.standRightBox = {x: this.standRightX() , y: this.standRightY(), width:this.widthOptions.standRight, height: this.heightOptions.standRight};
+        this.standLeftBox = {x: this.standLeftX(), y: this.standLeftY(), width:this.widthOptions.standLeft, height:this.heightOptions.standLeft};
+        this.jumpRightBox = {x: this.jumpRightX(), y: this.jumpRightY(), width:this.widthOptions.jumpRight, height:this.heightOptions.jumpRight};
+        this.jumpLeftBox = {x: this.jumpLeftX(), y: this.jumpLeftY(), width: this.widthOptions.jumpLeft, height: this.heightOptions.jumpLeft};
+        this.punchRightBox = {x: this.punchRightX(), y: this.punchRightY(), width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
+        this.punchLeftBox = {x: this.punchLeftX(), y: this.punchLeftY(), width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
+        this.lowKickRightBox = {x: this.lowKickRightX(), y: this.lowKickRightY(), width: this.widthOptions.loKickRight, height: this.heightOptions.loKickRight};
+        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
+        this.duckRightBox = {x: this.duckRightX(), y: this.duckRightY(), width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
+        this.duckLeftBox = {x: this.duckLeftX(), y: this.duckLeftY(), width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
+        this.walkRightBox = {x: this.walkRightX(), y: this.walkRightY(), width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
+        this.walkLeftBox = {x: this.walkLeftX(), y: this.walkLeftY(), width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
+        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
+        this.highKickRightBox = {x: this.highKickRightX(), y: this.highKickRightY(), width: this.widthOptions.hiKickRight, height:this.heightOptions.hiKickRight};
+        this.blockRightBox = {x: this.blockRightX(), y: this.blockRightY(), width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
+        this.blockLeftBox = {x: this.blockLeftX(), y: this.blockLeftY(), width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
 
         //STAND
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersStanding.png"), 0, 0, 177, 305, 0.099, 6, true, false);
@@ -630,7 +1032,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersDeadLeft.png"),0,0, 310, 352, 0.06, 12, false, false);
     }
 
-    
+
     Entity.call(this, game, x, 300-y);
 }
 
@@ -679,6 +1081,50 @@ Fighter.prototype.update = function(){
         this.blocking = true;
     }
 
+    /**
+     * Set all x's and y's of boxes
+     */
+    //standing
+    this.standLeftBox.x = this.standLeftX();
+    this.standLeftBox.y = this.standLeftY();
+    this.standRightBox.x = this.standRightX();
+    this.standRightBox.y = this.standRightY();
+
+    //punching
+    this.punchLeftBox.x = this.punchLeftX();
+    this.punchLeftBox.y = this.punchLeftY();
+    this.punchRightBox.x = this.punchRightX();
+    this.punchRightBox.y = this.punchRightY();
+
+    //jump
+    this.jumpLeftBox.y = this.jumpLeftY();
+    this.jumpLeftBox.x = this.jumpLeftX();
+    this.jumpRightBox.y = this.jumpRightY();
+    this.jumpRightBox.x = this.jumpRightX();
+
+    //low kick
+    this.lowKickLeftBox.x = this.lowKickLeftX();
+    this.lowKickLeftBox.y = this.lowKickLeftY();
+    this.lowKickRightBox.x = this.highKickRightX();
+    this.lowKickRightBox.y = this.highKickRightY();
+
+    //High kick
+    this.highKickLeftBox.x = this.highKickLeftX();
+    this.highKickLeftBox.y = this.highKickLeftY();
+    this.highKickRightBox.x = this.highKickRightX();
+    this.highKickRightBox.y = this.highKickRightY();
+
+
+    //ducking
+    this.duckLeftBox.x = this.duckLeftX();
+    this.duckLeftBox.y = this.duckLeftY();
+    this.duckRightBox.x = this.duckRightX();
+    this.duckRightBox.y = this.duckRightY();
+
+    //TODO walking
+
+    //TODO blocking
+
     if (this.jumping) {
         // this.width = this.widthOptions.jumpingWidth;
         // this.height = this.heightOptions.jumpingHeight;
@@ -697,6 +1143,7 @@ Fighter.prototype.update = function(){
 
             if (jumpDistance < 0.5)
                 jumpDistance = 1 - jumpDistance;
+
         }else{
             var jumpDistance = this.jumpAnimation.elapsedTime / this.jumpAnimation.totalTime;
 
@@ -704,16 +1151,22 @@ Fighter.prototype.update = function(){
 
             if (jumpDistance < 0.5)
                 jumpDistance = 1 - jumpDistance;
+
         }
 
 
         //var height = jumpDistance * 2 * totalHeight;
         var height = totalHeight*(-4 * (jumpDistance * jumpDistance - jumpDistance));
         this.y = this.ground - height;
+
+
+
+        console.log(this.jumpLeftBox);
     } else if(this.punching){
         // this.width = this.widthOptions.punchingWidth;
         this.punchingAnimation.d;
         this.punchingAnimationLeft.d;
+
         if(this.punchingAnimation.isDone()){
             console.log("low punch done");
             this.punchingAnimation.elapsedTime = 0;
@@ -800,7 +1253,6 @@ Fighter.prototype.update = function(){
 };
 
 
-//TODO plug in map references from this. blah blah [MIKE]
 Fighter.prototype.draw = function (ctx) {
     if (this.jumping) {
         // this.jumpAnimation.d
@@ -817,6 +1269,10 @@ Fighter.prototype.draw = function (ctx) {
             } else if (this.fighter === CRUZ) {
                 this.jumpAnimationLeft.drawFrame(this.game.clockTick, ctx, this.x-50, this.y-15);
             }
+            ctx.beginPath();
+            ctx.rect(this.jumpLeftBox.x, this.jumpLeftBox.y, this.jumpLeftBox.width, this.jumpLeftBox.height);
+            ctx.stroke();
+            ctx.closePath();
         } else{
             // this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.jumpRightX, this.yOptions.jumpRightY);
             if(this.fighter === TRUMP){
@@ -828,6 +1284,10 @@ Fighter.prototype.draw = function (ctx) {
             } else if (this.fighter === CRUZ) {
                 this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x-50, this.y-15);
             }
+            ctx.beginPath();
+            ctx.rect(this.jumpRightBox.x, this.jumpRightBox.y, this.jumpRightBox.width, this.jumpRightBox.height);
+            ctx.stroke();
+            ctx.closePath();
         }
 
 
@@ -846,6 +1306,10 @@ Fighter.prototype.draw = function (ctx) {
             } else if (this.fighter === CRUZ) {
                 this.punchingAnimationLeft.drawFrame(this.game.clockTick, ctx, this.x - 70, this.y-10);
             }
+            ctx.beginPath();
+            ctx.rect(this.punchLeftBox.x, this.punchLeftBox.y, this.punchLeftBox.width, this.punchLeftBox.height);
+            ctx.stroke();
+            ctx.closePath();
         }else{
             // this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.punchRightX , this.yOptions.blockRightY);
             if(this.fighter === TRUMP){
@@ -1052,4 +1516,8 @@ Fighter.prototype.lowKick = function (other) {
     if(this.lowKicking){
 
     }
+};
+
+Fighter.prototype.collide = function (other) {
+
 };
