@@ -38,45 +38,61 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
     if(fighterName === CRUZ){
         //height and widths for bounding boxes
         this.widthOptions = {
+            walkLeft: 150,
             walkRight: 144,
+
+            standLeft: 150,
             standRight: 157,
-            punchRight: 290,
-            lowKickRight: 285,
-            jumpRight: 234,
-            highKickRight: 276,
-            duckRight: 192,
-            blockRight: 378,
-            deadRight: 294,
-            walkLeft: 246,
-            standLeft: 157,
-            punchLeft: 386,
-            loKickLeft: 296 ,
-            jumpLeft: 234,
-            hiKickLeft: 280,
+
+            punchLeft: 150,
+            punchRight: 140,
+
+            lowKickLeft: 200,
+            lowKickRight: 200,
+
+            jumpLeft: 150,
+            jumpRight: 165,
+
+            highKickLeft: 170,
+            highKickRight: 170,
+
             duckLeft: 150,
+            duckRight: 150,
+
             blockLeft: 382,
-            deadLeft: 303
+            blockRight: 378,
+
+            deadLeft: 303,
+            deadRight: 294
         };
 
         this.heightOptions = {
+            walkLeft: 300,
             walkRight: 292,
-            standRight: 292,
-            punchRight: 310,
-            lowKickRight:315 ,
-            jumpRight: 311,
-            highKickRight: 317,
-            duckRight: 294,
-            blockRight: 319,
-            walkLeft: 309,
+
             standLeft: 292,
+            standRight: 292,
+
             punchLeft: 319,
-            loKickLeft: 312,
-            jumpLeft: 311,
-            hiKickLeft: 316,
+            punchRight: 310,
+
+            lowKickLeft: 312,
+            lowKickRight:315,
+
+            jumpLeft: 300,
+            jumpRight: 310,
+
+            highKickLeft: 316,
+            highKickRight: 300,
+
             duckLeft: 230,
+            duckRight: 230,
+
             blockLeft: 311,
-            deadRight: 309,
-            deadLeft: 321
+            blockRight: 319,
+
+            deadLeft: 321,
+            deadRight: 309
         };
 
         // this.width = this.widthOptions.standingWidth;
@@ -93,25 +109,25 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
 
         this.standLeftX = function () {return this.x;};
 
-        this.jumpRightX = function () {return this.x - 50;};
+        this.jumpRightX = function () {return this.x -10;};
 
-        this.jumpLeftX = function () {return this.x - 50;};
+        this.jumpLeftX = function () {return this.x ;};
 
-        this.punchRightX = function () {return this.x - 85;};
+        this.punchRightX = function () {return this.x;};
 
-        this.punchLeftX = function () {return this.x - 70;};
+        this.punchLeftX = function () {return this.x;};
 
-        this.lowKickRightX = function () {return this.x - 54;};
+        this.lowKickRightX = function () {return this.x+100;};
 
-        this.lowKickLeftX = function () {return this.x;};
+        this.lowKickLeftX = function () {return this.x+ 50;};
 
-        this.duckRightX = function () {return this.x - 40;};
+        this.duckRightX = function () {return this.x - 10;};
 
         this.duckLeftX = function () {return this.x - 30;};
 
-        this.highKickRightX = function () {return this.x - 80;};
+        this.highKickRightX = function () {return this.x - 30;};
 
-        this.highKickLeftX = function () {return this.x - 35;};
+        this.highKickLeftX = function () {return this.x+ 20;};
 
         this.blockRightX = function () {return this.x - 135;};
 
@@ -119,14 +135,14 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
 
         this.walkRightX = function () {return this.x +5;};
 
-        this.walkLeftX = function () {return this.x - 5;};
+        this.walkLeftX = function () {return this.x +17;};
 
         /** Adjusts Y's */
         this.standRightY = function (){return this.y;};
 
         this.standLeftY = function () {return this.y;};
 
-        this.jumpRightY = function () {return this.y -15;};
+        this.jumpRightY = function () {return this.y -8;};
 
         this.jumpLeftY = function () {return this.y - 15;};
 
@@ -134,15 +150,15 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
 
         this.punchLeftY = function () {return this.y - 10;};
 
-        this.lowKickRightY = function () {return this.y -15;};
+        this.lowKickRightY = function () {return this.y -5;};
 
         this.lowKickLeftY = function () {return this.y - 15;};
 
         this.highKickLeftY = function () {return this.y -20;};
 
-        this.highKickRightY = function () {return this.y -20;};
+        this.highKickRightY = function () {return this.y -10;};
 
-        this.duckRightY = function () {return this.y -2;};
+        this.duckRightY = function () {return this.y +65;};
 
         this.duckLeftY = function () {return this.y +65;};
 
@@ -150,7 +166,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
 
         this.blockLeftY = function () {return this.y - 5;};
 
-        this.walkLeftY = function () {return this.y;};
+        this.walkLeftY = function () {return this.y + 10;};
 
         this.walkRightY = function () {return this.y;};
 
@@ -163,12 +179,12 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
         this.punchRightBox = {x: this.punchRightX(), y: this.punchRightY(), width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
         this.punchLeftBox = {x: this.punchLeftX(), y: this.punchLeftY(), width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
         this.lowKickRightBox = {x: this.lowKickRightX(), y: this.lowKickRightY(), width: this.widthOptions.lowKickRight, height: this.heightOptions.lowKickRight};
-        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
+        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.lowKickLeft, height:this.heightOptions.lowKickLeft};
         this.duckRightBox = {x: this.duckRightX(), y: this.duckRightY(), width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
         this.duckLeftBox = {x: this.duckLeftX(), y: this.duckLeftY(), width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
         this.walkRightBox = {x: this.walkRightX(), y: this.walkRightY(), width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
         this.walkLeftBox = {x: this.walkLeftX(), y: this.walkLeftY(), width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
-        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
+        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.highKickLeft, height: this.heightOptions.highKickLeft};
         this.highKickRightBox = {x: this.highKickRightX(), y: this.highKickRightY(), width: this.widthOptions.highKickRight, height:this.heightOptions.highKickRight};
         this.blockRightBox = {x: this.blockRightX(), y: this.blockRightY(), width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
         this.blockLeftBox = {x: this.blockLeftX(), y: this.blockLeftY(), width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
@@ -241,9 +257,9 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
             walkLeft: 296,
             standLeft: 184,
             punchLeft: 312,
-            loKickLeft: 270,
+            lowKickLeft: 270,
             jumpLeft: 292,
-            hiKickLeft: 349,
+            highKickLeft: 349,
             duckLeft: 162,
             blockLeft: 446,
             deadRight: 314,
@@ -263,9 +279,9 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
             walkLeft: 334,
             standLeft: 299,
             punchLeft: 297,
-            loKickLeft: 299,
+            lowKickLeft: 299,
             jumpLeft: 337,
-            hiKickLeft: 317,
+            highKickLeft: 317,
             duckLeft: 303,
             blockLeft:320 ,
             deadRight: 328,
@@ -308,7 +324,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
         this.walkRightX = function () {return this.x +5;};
 
         this.walkLeftX = function () {return this.x - 5;};
-        
+
         /**
          * Adjusts Y's
          */
@@ -356,12 +372,12 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
         this.punchRightBox = {x: this.punchRightX(), y: this.punchRightY(), width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
         this.punchLeftBox = {x: this.punchLeftX(), y: this.punchLeftY(), width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
         this.lowKickRightBox = {x: this.lowKickRightX(), y: this.lowKickRightY(), width: this.widthOptions.lowKickRight, height: this.heightOptions.lowKickRight};
-        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
+        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.lowKickLeft, height:this.heightOptions.lowKickLeft};
         this.duckRightBox = {x: this.duckRightX(), y: this.duckRightY(), width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
         this.duckLeftBox = {x: this.duckLeftX(), y: this.duckLeftY(), width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
         this.walkRightBox = {x: this.walkRightX(), y: this.walkRightY(), width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
         this.walkLeftBox = {x: this.walkLeftX(), y: this.walkLeftY(), width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
-        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
+        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.highKickLeft, height: this.heightOptions.highKickLeft};
         this.highKickRightBox = {x: this.highKickRightX(), y: this.highKickRightY(), width: this.widthOptions.highKickRight, height:this.heightOptions.highKickRight};
         this.blockRightBox = {x: this.blockRightX(), y: this.blockRightY(), width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
         this.blockLeftBox = {x: this.blockLeftX(), y: this.blockLeftY(), width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
@@ -429,9 +445,9 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
             walkLeft: 192,
             standLeft: 276,
             punchLeft: 422,
-            loKickLeft: 443,
+            lowKickLeft: 443,
             jumpLeft: 233,
-            hiKickLeft: 480,
+            highKickLeft: 480,
             duckLeft: 320,
             blockLeft: 372,
             deadRight: 476,
@@ -450,9 +466,9 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
             walkLeft: 326,
             standLeft: 320,
             punchLeft: 360,
-            loKickLeft: 335,
+            lowKickLeft: 335,
             jumpLeft: 355,
-            hiKickLeft: 377,
+            highKickLeft: 377,
             duckLeft: 324,
             blockLeft: 429,
             deadRight: 338,
@@ -533,12 +549,12 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
         this.punchRightBox = {x: this.punchRightX(), y: this.punchRightY(), width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
         this.punchLeftBox = {x: this.punchLeftX(), y: this.punchLeftY(), width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
         this.lowKickRightBox = {x: this.lowKickRightX(), y: this.lowKickRightY(), width: this.widthOptions.lowKickRight, height: this.heightOptions.lowKickRight};
-        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
+        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.lowKickLeft, height:this.heightOptions.lowKickLeft};
         this.duckRightBox = {x: this.duckRightX(), y: this.duckRightY(), width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
         this.duckLeftBox = {x: this.duckLeftX(), y: this.duckLeftY(), width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
         this.walkRightBox = {x: this.walkRightX(), y: this.walkRightY(), width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
         this.walkLeftBox = {x: this.walkLeftX(), y: this.walkLeftY(), width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
-        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
+        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.highKickLeft, height: this.heightOptions.highKickLeft};
         this.highKickRightBox = {x: this.highKickRightX(), y: this.highKickRightY(), width: this.widthOptions.highKickRight, height:this.heightOptions.highKickRight};
         this.blockRightBox = {x: this.blockRightX(), y: this.blockRightY(), width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
         this.blockLeftBox = {x: this.blockLeftX(), y: this.blockLeftY(), width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
@@ -602,9 +618,9 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
 
             punchRight: 200,
             punchLeft: 220,
-            loKickLeft: 250,
+            lowKickLeft: 250,
 
-            hiKickLeft: 250,
+            highKickLeft: 250,
             duckLeft: 247,
             blockLeft: 300,
             blockRight: 300,
@@ -624,9 +640,9 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
             walkLeft: 316,
             standLeft: 305,
             punchLeft: 335,
-            loKickLeft: 319,
+            lowKickLeft: 319,
             jumpLeft: 320,
-            hiKickLeft: 310,
+            highKickLeft: 310,
             duckRight: 230,
             duckLeft: 230 ,
             blockLeft: 342,
@@ -710,12 +726,12 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft) {
         this.punchRightBox = {x: this.punchRightX(), y: this.punchRightY(), width: this.widthOptions.punchRight, height: this.heightOptions.punchRight};
         this.punchLeftBox = {x: this.punchLeftX(), y: this.punchLeftY(), width: this.widthOptions.punchLeft, height:this.heightOptions.punchLeft};
         this.lowKickRightBox = {x: this.lowKickRightX(), y: this.lowKickRightY(), width: this.widthOptions.lowKickRight, height: this.heightOptions.lowKickRight};
-        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.loKickLeft, height:this.heightOptions.loKickLeft};
+        this.lowKickLeftBox = {x: this.lowKickLeftX(), y: this.lowKickLeftY(), width: this.widthOptions.lowKickLeft, height:this.heightOptions.lowKickLeft};
         this.duckRightBox = {x: this.duckRightX(), y: this.duckRightY(), width: this.widthOptions.duckRight, height: this.heightOptions.duckRight};
         this.duckLeftBox = {x: this.duckLeftX(), y: this.duckLeftY(), width:this.widthOptions.duckLeft, height: this.heightOptions.duckLeft};
         this.walkRightBox = {x: this.walkRightX(), y: this.walkRightY(), width:this.widthOptions.walkRight, height:this.heightOptions.walkRight};
         this.walkLeftBox = {x: this.walkLeftX(), y: this.walkLeftY(), width:this.widthOptions.walkLeft, height:this.heightOptions.walkLeft};
-        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.hiKickLeft, height: this.heightOptions.hiKickLeft};
+        this.highKickLeftBox = {x: this.highKickLeftX(), y: this.highKickLeftY(), width: this.widthOptions.highKickLeft, height: this.heightOptions.highKickLeft};
         this.highKickRightBox = {x: this.highKickRightX(), y: this.highKickRightY(), width: this.widthOptions.highKickRight, height:this.heightOptions.highKickRight};
         this.blockRightBox = {x: this.blockRightX(), y: this.blockRightY(), width:this.widthOptions.blockRight, height: this.heightOptions.blockRight};
         this.blockLeftBox = {x: this.blockLeftX(), y: this.blockLeftY(), width: this.widthOptions.blockLeft, height:this.heightOptions.blockLeft};
@@ -1054,7 +1070,7 @@ Fighter.prototype.draw = function (ctx) {
             }else if(this.fighter === CLINTON){
                 this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x , this.y);
             } else if (this.fighter === CRUZ) {
-                this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x - 85, this.y-10);
+                this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x - 75, this.y);
             }
             ctx.beginPath();
             ctx.rect(this.punchRightBox.x, this.punchRightBox.y, this.punchRightBox.width, this.punchRightBox.height);
@@ -1309,12 +1325,7 @@ Fighter.prototype.draw = function (ctx) {
     Entity.prototype.draw.call(this);
 };
 
-//TODO build bounding boxes after adding height arrays
-// checks to see if a punch has collided
-Fighter.prototype.punch = function (other) {
-    var thisBox = {x:this.x, y:this.y, width: this.width, height:this.height};
-    var otherBox = {x: other.x, y: other.y, width:other.width, height:other.height}
-};
+
 
 
 Fighter.prototype.highKick = function (other) {
