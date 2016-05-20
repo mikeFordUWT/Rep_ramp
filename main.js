@@ -184,7 +184,7 @@ ASSET_MANAGER.downloadAll(function () {
     var sanders = "bernieSanders"
 
     
-    var unicorn2 = new Fighter(gameEngine,cruz, ASSET_MANAGER, 200, 0, true);
+    var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 200, 0, true, false, 1);
     // var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 1000, 0, false);
 
 
@@ -203,15 +203,41 @@ ASSET_MANAGER.downloadAll(function () {
     gameEngine.addEntity(title);
 
     gameEngine.init(ctx);
+    //background music
+    var backgroundMusic = new Audio('./audio/songs/hailToTheChief.mp3');
+    backgroundMusic.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+    backgroundMusic.play();
+    //fight intro
+    var fightIntroMusic = new Audio('./audio/songs/fightIntro.mp3');
+    fightIntroMusic.volume = 0.5;
+    fightIntroMusic.addEventListener("ended", playNext);
+    function playNext() {
+        fightLoopMusic.play();
+    };
+    //fight loop
+    var fightLoopMusic = new Audio('./audio/songs/fightLoop.mp3');
+    fightLoopMusic.volume = 0.5;
+    fightLoopMusic.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
 
     canvas.addEventListener('focus', function (event) {
         var entities = gameEngine.entities;
         for(var i =0; i<entities.length; i++){
             if(entities[i] === title){
                 entities.splice(i,1);
+
                 break;
             }
+
+
         }
+        backgroundMusic.pause();
+        fightIntroMusic.play();
     });
 
     gameEngine.start();
