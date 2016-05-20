@@ -20,7 +20,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
     this.highKicking = false;
     this.blocking = false;
     this.AI = AI;
-    
+    this.canBeHit = true;
     this.fightNum = fighterNum;
     this.facing = faceLeft;
 
@@ -828,41 +828,95 @@ Fighter.prototype.constructor = Fighter;
 Fighter.prototype.update = function(){
     //jumping logic
     //jumping logic
-    if (this.game.w) {
-        this.jumping = true;
-    }else if(this.game.p){
-        this.punching = true;
-    } else if(this.game.i) {
-        this.lowKicking=true;
-    } else if(this.game.o) {
-        this.highKicking=true;
-    } else if(this.game.s) {
-        this.ducking=true;
-    } else if (this.game.d) {
-        //this.x + sprite width > canvas width
+    
+    if(this.punching){
+        var punchEnts = this.game.entities;
+        for(var i = 0; i< punchEnts.length; i++){
+            var entP = punchEnts[i];
+            if(this != entP && entP instanceof Fighter && this.collide(entP)){
+                var rand = Math.floor(Math.random() * 3) + 2;
+                if(entP.canBeHit){
+                    entP.health -= rand;
+                    entP.canBeHit = false;
+                }
 
-        if(this.x + 100 < 1180) {
-            this.walkRight = true;
-            this.facing = false;
+            }
+
         }
-    }else if(this.game.a){
-        /*
-         potentially seperaten for each character for better accuracy.
-         if(this.fighter === CLINTON) {
-         if(this.x - 50 > 0) {
-         this.walkLeft = true;
-         this.facing = true;
-         }
-         }
-         */
-        //this.x - sprite width > canvas left (0)
-        if(this.x - 50 > 0) {
-            this.walkLeft = true;
-            this.facing = true;
-        }
-    }else if(this.game.q){
-        this.blocking = true;
     }
+    
+    if(this.lowKicking){
+        var lowKickEnts = this.game.entities;
+        for(var i = 0; i< lowKickEnts.length; i++){
+            var entL = lowKickEnts[i];
+            if(this != entL && entL instanceof Fighter && this.collide(entL)){
+                var rand = Math.floor(Math.random() * 8) + 1;
+                if(entL.canBeHit){
+                    entL.health -= rand;
+                    entL.canBeHit = false;
+                }
+
+                if(entL.facing){
+
+                }
+            }
+
+        }
+    }
+    
+    if(this.highKicking){
+        var highKickEnts = this.game.entities;
+        for(var i = 0; i< highKickEnts.length; i++){
+            var entH = highKickEnts[i];
+            if(this != entH && entH instanceof Fighter){
+                var rand = Math.floor(Math.random() * 6) + 4;
+                if(entH.canBeHit){
+                    entH.health -= rand;
+                    entH.canBeHit = false;
+                }
+
+            }
+
+        }
+    }
+    if(this.fightNum ===1){
+        if (this.game.w) {
+            this.jumping = true;
+        }else if(this.game.p){
+            this.punching = true;
+        } else if(this.game.i) {
+            this.lowKicking=true;
+        } else if(this.game.o) {
+            this.highKicking=true;
+        } else if(this.game.s) {
+            this.ducking=true;
+        } else if (this.game.d) {
+            //this.x + sprite width > canvas width
+
+            if(this.x + 100 < 1180) {
+                this.walkRight = true;
+                this.facing = false;
+            }
+        }else if(this.game.a){
+            /*
+             potentially seperaten for each character for better accuracy.
+             if(this.fighter === CLINTON) {
+             if(this.x - 50 > 0) {
+             this.walkLeft = true;
+             this.facing = true;
+             }
+             }
+             */
+            //this.x - sprite width > canvas left (0)
+            if(this.x - 50 > 0) {
+                this.walkLeft = true;
+                this.facing = true;
+            }
+        }else if(this.game.q){
+            this.blocking = true;
+        }
+    }
+
 
     /**
      * Set all x's and y's of boxes
@@ -958,11 +1012,13 @@ Fighter.prototype.update = function(){
         this.punchingAnimationLeft.d;
 
         if(this.punchingAnimation.isDone()){
+
             this.punchingAnimation.elapsedTime = 0;
             this.punching = false;
 
         }
         if(this.punchingAnimationLeft.isDone()){
+
             this.punchingAnimationLeft.elapsedTime = 0;
             this.punching = false;
         }
@@ -971,10 +1027,12 @@ Fighter.prototype.update = function(){
         //Sets the width for the bounding box
         // this.width = this.widthOptions.lowKickingWidth;
         if(this.lowKickingAnimation.isDone()){
+
             this.lowKickingAnimation.elapsedTime = 0;
             this.lowKicking = false;
         }
         if(this.lowKickingAnimationLeft.isDone()){
+
             this.lowKickingAnimationLeft.elapsedTime = 0;
             this.lowKicking = false;
         }
@@ -1545,25 +1603,24 @@ Fighter.prototype.lowKick = function (other) {
 };
 
 Fighter.prototype.collide = function (other) {
-    var fighter1Box = this.boundBox;
-    var fighter2Box = other.boundBox;
+    
 
     var otherBox = {x: other.boundBox.x, y: other.boundBox.y, width: other.boundBox.width, height: other.boundBox.height};
     if(this.fightNum === 1){
-        console.log("Fighter 1 Health: " + this.health);
+        console.log("Fighter 2 Health: " + other.health);
     } else{
-        console.log("Fighter 2 Health: " + this.health);
+        console.log("Fighter 1 Health: " + other.health);
     }
 
 
     if(this.punching){
         if(this.facing){
             var punchBox = {x: this.fistLeftBox.x, y: this.fistLeftBox.y, width: 20, height: this.fistLeftBox.height}
-
+            return (punchBox.x <= otherBox.x+otherBox.width && punchBox.x+ punchBox.width>= otherBox.x);
             
         }else{
             var punchBox = {x: this.fistRightBox.x + this.fistRightBox.width -20, y: this.fistRightBox.y, width: 20, height: this.fistRightBox.height};
-
+            return (punchBox.x+punchBox.width >= otherBox.x && punchBox.x <= otherBox.x+ otherBox.width);
         }
 
 
@@ -1582,9 +1639,10 @@ Fighter.prototype.collide = function (other) {
 
         if(this.facing){
             var kickBox = {x: this.lowKickLeftBox.x, y: this.lowFootLeftBox.y, width: 20, height: this.lowFootLeftBox.height};
+            return (kickBox.x <= otherBox.x+otherBox.width && kickBox.x+ kickBox.width >= otherBox.x);
         }else{
             var kickBox = {x: this.lowFootRightBox.x + this.lowFootRightBox.width -20, y: this.lowFootRightBox.y, width: 20, height: this.lowFootRightBox.height};
-
+            return (kickBox.x + kickBox.width >= otherBox.x && kickBox.x <= otherBox.x+ otherBox.width);
         }
         var lowKickEnts = this.game.entities;
         for(var i = 0; i< lowKickEnts.length; i++){
@@ -1601,12 +1659,12 @@ Fighter.prototype.collide = function (other) {
         if(this.facing){
             var kickBox = {x: this.highFootLeftBox.x, y: this.highFootLeftBox.y,
                 width: 20, height: this.highFootLeftBox.height};
-            
+            return (kickBox.x <= otherBox.x+otherBox.width && kickBox.x+ kickBox.width >= otherBox.x);
 
         } else{
             var kickBox = {x: this.highFootRightBox.x + this.highFootRightBox.width -20, y: this.highFootRightBox.y,
                 width: 20, height: this.highFootRightBox.height};
-
+            return (kickBox.x + kickBox.width >= otherBox.x && kickBox.x <= otherBox.x+ otherBox.width);
 
         }
         var highKickEnts = this.game.entities;

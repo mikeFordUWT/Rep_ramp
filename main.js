@@ -185,7 +185,7 @@ ASSET_MANAGER.downloadAll(function () {
 
     
     var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 200, 0, true, false, 1);
-    // var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 1000, 0, false);
+    var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 500, 0, false, false, 2);
 
 
     // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
@@ -196,7 +196,7 @@ ASSET_MANAGER.downloadAll(function () {
     var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
 
     //gameEngine.addEntity(unicorn);
-    // gameEngine.addEntity(unicorn);
+    gameEngine.addEntity(unicorn);
     gameEngine.addEntity(unicorn2);
 
 
