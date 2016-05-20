@@ -178,14 +178,13 @@ ASSET_MANAGER.downloadAll(function () {
 
     //var unicorn = new TedCruz(gameEngine);
 
-    var trump = "donaldTrump"
-    var cruz = "tedCruz"
-    var clinton = "hillaryClinton"
-    var sanders = "bernieSanders"
+    var trump = "TRUMP"
+    var cruz = "CRUZ"
+    var clinton = "CLINTON"
+    var sanders = "SANDERS"
 
-    
     var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 200, 0, true, false, 1);
-    var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 500, 0, false, false, 2);
+    var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 1000, 0, false, true, 2);
 
 
     // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
