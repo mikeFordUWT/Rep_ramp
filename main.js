@@ -187,6 +187,9 @@ ASSET_MANAGER.downloadAll(function () {
     var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 1000, 0, false, true, 2);
 
 
+    var health = new Health("left", unicorn2);
+    var health2 = new Health("right", unicorn);
+
     // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
     // var unicorn = new AIFighter(gameEngine, "donaldTrump", ASSET_MANAGER, 1000, 0, false);
 
@@ -197,6 +200,8 @@ ASSET_MANAGER.downloadAll(function () {
     //gameEngine.addEntity(unicorn);
     gameEngine.addEntity(unicorn);
     gameEngine.addEntity(unicorn2);
+    gameEngine.addEntity(health);
+    gameEngine.addEntity(health2);
 
 
     gameEngine.addEntity(title);

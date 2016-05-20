@@ -36,8 +36,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
     this.highFootLeftBox = {x:0, y: 0, width: 0, height:0};
 
 
-    //health variable
-    this.health  = 100;
+    //healthBar variable
+    this.healthBar  = 100;
 
     //speed variable
     this.speed = 2;
@@ -838,7 +838,7 @@ Fighter.prototype.update = function(){
             if(this != entP && entP instanceof Fighter && this.collide(entP)){
                 var rand = Math.floor(Math.random() * 3) + 2;
                 if(this.canHit){
-                    entP.health -= rand;
+                    entP.healthBar -= rand;
                     this.canHit = false;
                 }
 
@@ -854,7 +854,7 @@ Fighter.prototype.update = function(){
             if(this != entL && entL instanceof Fighter && this.collide(entL)){
                 var rand = Math.floor(Math.random() * 8) + 1;
                 if(this.canHit){
-                    entL.health -= rand;
+                    entL.healthBar -= rand;
                     this.canHit = false;
                 }
 
@@ -873,7 +873,7 @@ Fighter.prototype.update = function(){
             if(this != entH && entH instanceof Fighter && this.collide(entH)){
                 var rand = Math.floor(Math.random() * 6) + 4;
                 if(this.canHit){
-                    entH.health -= rand;
+                    entH.healthBar -= rand;
                     this.canHit = false;
                 }
 
@@ -1131,14 +1131,14 @@ Fighter.prototype.update = function(){
 
 
 Fighter.prototype.draw = function (ctx) {
-    if(this.health<= 0){
-
-        if(this.facing){
-            this.deadLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-        }else{
-            this.deadAnimation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-        }
-    }
+    // if(this.healthBar<= 0){
+    //
+    //     if(this.facing){
+    //         this.deadLeftAnimation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+    //     }else{
+    //         this.deadAnimation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+    //     }
+    // }
 
     if (this.jumping) {
         // this.jumpAnimation.d
@@ -1648,9 +1648,9 @@ Fighter.prototype.collide = function (other) {
 
     var otherBox = {x: other.boundBox.x, y: other.boundBox.y, width: other.boundBox.width, height: other.boundBox.height};
     if(this.fightNum === 1){
-        console.log("Fighter 2 Health: " + other.health);
+        console.log("Fighter 2 Health: " + other.healthBar);
     } else{
-        console.log("Fighter 1 Health: " + other.health);
+        console.log("Fighter 1 Health: " + other.healthBar);
     }
 
 
@@ -1695,7 +1695,7 @@ Fighter.prototype.collide = function (other) {
 Fighter.prototype.search = function(other){
 
 
-        if(this.health > 25) {
+        if(this.healthBar > 25) {
 
             var moves = [this.punching, this.highKicking, this.blocking, this.lowKicking];
             if (this.x > other.x) {
