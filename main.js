@@ -1,68 +1,3 @@
-// function Animation(spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse) {
-//     this.spriteSheet = spriteSheet;
-//     this.startX = startX;
-//     this.startY = startY;
-//     this.frameWidth = frameWidth;
-//     this.frameDuration = frameDuration;
-//     this.frameHeight = frameHeight;
-//     this.frames = frames;
-//     this.totalTime = frameDuration * frames;
-//     this.elapsedTime = 0;
-//     this.loop = loop;
-//     this.reverse = reverse;
-// }
-//
-// Animation.prototype.drawFrame = function (tick, ctx, x, y, scaleBy) {
-//     var scaleBy = scaleBy || 1;
-//     this.elapsedTime += tick;
-//     if (this.loop) {
-//         if (this.isDone()) {
-//             this.elapsedTime = 0;
-//         }
-//     } else if (this.isDone()) {
-//         return;
-//     }
-//     var index = this.reverse ? this.frames - this.currentFrame() - 1 : this.currentFrame();
-//     var vindex = 0;
-//     if ((index + 1) * this.frameWidth + this.startX > this.spriteSheet.width) {
-//         index -= Math.floor((this.spriteSheet.width - this.startX) / this.frameWidth);
-//         vindex++;
-//     }
-//     while ((index + 1) * this.frameWidth > this.spriteSheet.width) {
-//         index -= Math.floor(this.spriteSheet.width / this.frameWidth);
-//         vindex++;
-//     }
-//
-//     var locX = x;
-//     var locY = y;
-//     var offset = vindex === 0 ? this.startX : 0;
-//     ctx.drawImage(this.spriteSheet,
-//         index * this.frameWidth + offset, vindex * this.frameHeight + this.startY,  // source from sheet
-//         this.frameWidth, this.frameHeight,
-//         locX, locY,
-//         this.frameWidth * scaleBy,
-//         this.frameHeight * scaleBy);
-// }
-//
-// Animation.prototype.currentFrame = function () {
-//     return Math.floor(this.elapsedTime / this.frameDuration);
-// }
-//
-// Animation.prototype.isDone = function () {
-//     return (this.elapsedTime >= this.totalTime);
-// }
-
-// An array of _sounds
-
-// var SOUNDS = {
-//     titleScreenMusic: new Howl({
-//         src:['./audio/songs/hailToTheChief.mp3'],
-//         loop:true
-//     })
-//
-//
-// };
-
 function Background(game, spriteSheet) {
     this.spriteSheet = spriteSheet;
     this.x = 0;
@@ -96,6 +31,8 @@ ASSET_MANAGER.queueDownload("./img/Cruz/CruzDuckLeft.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzWalkLeft.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzHiKickLeft.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzBlockLeft.png");
+ASSET_MANAGER.queueDownload("./img/Cruz/CruzDeadLeft.png");
+
 //Right
 ASSET_MANAGER.queueDownload("./img/Cruz/cruzStanding.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/cruzJump.png");
@@ -105,6 +42,7 @@ ASSET_MANAGER.queueDownload("./img/Cruz/CruzDuck.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/cruzWalkRight.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzHiKick.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzBlock.png");
+ASSET_MANAGER.queueDownload("./img/Cruz/CruzDead.png");
 
 //Hillary Clinton Left
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonStandingLeft.png");
@@ -115,6 +53,8 @@ ASSET_MANAGER.queueDownload("./img/Clinton/ClintonDuckLeft.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonWalkLeft.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonHiKickLeft.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonBlockLeft.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonDeadLeft.png");
+
 //Right
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonStanding.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonJump.png");
@@ -124,6 +64,7 @@ ASSET_MANAGER.queueDownload("./img/Clinton/ClintonDuck.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonWalkRight.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonHiKick.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonBlock.png");
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonDead.png");
 
 //Donald Trump Left
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpStandingLeft.png");
@@ -134,6 +75,7 @@ ASSET_MANAGER.queueDownload("./img/Trump/TrumpDuckLeft.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpWalkLeft.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpHiKickLeft.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpBlockLeft.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpDeadLeft.png");
 //Right
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpStanding.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpJump.png");
@@ -143,6 +85,7 @@ ASSET_MANAGER.queueDownload("./img/Trump/TrumpDuck.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpWalkRight.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpHiKick.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpBlock.png");
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpDead.png");
 
 //Bernie Sanders Left
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersStandingLeft.png");
@@ -153,6 +96,7 @@ ASSET_MANAGER.queueDownload("./img/Sanders/SandersDuckLeft.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersWalkLeft.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersHiKickLeft.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersBlockLeft.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersDeadLeft.png");
 //Right
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersStanding.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersJump.png");
@@ -162,6 +106,7 @@ ASSET_MANAGER.queueDownload("./img/Sanders/SandersDuck.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersWalkRight.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersHiKick.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersBlock.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersDead.png");
 
 //Background
 ASSET_MANAGER.queueDownload("./img/whiteHouse.jpg");
@@ -183,10 +128,10 @@ ASSET_MANAGER.downloadAll(function () {
     var clinton = "CLINTON"
     var sanders = "SANDERS"
 
-    var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 200, 0, true, false, 1);
-    var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 1000, 0, false, true, 2);
+    var unicorn2 = new Fighter(gameEngine,sanders, ASSET_MANAGER, 200, 0, true, false, 1);
+    var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 500, 0, false, true, 2);
 
-
+    unicorn2.healthBar =10;
     var health = new Health("left", unicorn2);
     var health2 = new Health("right", unicorn);
 
