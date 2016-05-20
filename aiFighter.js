@@ -201,8 +201,8 @@ function AIFighter(game, fighterName, ASSET_MANAGER, x, y, aiStatus) {
     this.y = y;
     this.facing = aiStatus;
     this.fightRadius = 200;
-    //health variable
-    this.health  = 100;
+    //healthBar variable
+    this.healthBar  = 100;
 
     //speed variable
     this.speed = 0;
