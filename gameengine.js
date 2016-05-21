@@ -2,13 +2,13 @@
 
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.oRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            function (/* function */ callback, /* DOMElement */ element) {
-                window.setTimeout(callback, 1000 / 60);
-            };
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (/* function */ callback, /* DOMElement */ element) {
+            window.setTimeout(callback, 1000 / 60);
+        };
 })();
 
 
@@ -79,7 +79,6 @@ GameEngine.prototype.startInput = function () {
 
         if(String.fromCharCode(e.which).toLowerCase() === 'a'){
             that.a = true;
-            
         }
         if(String.fromCharCode(e.which).toLowerCase() === 's') {
             that.s = true;
@@ -90,27 +89,56 @@ GameEngine.prototype.startInput = function () {
         if(String.fromCharCode(e.which).toLowerCase() === 'w') {
             that.w = true;
         }
-        if(String.fromCharCode(e.which).toLowerCase() === 'i') {
+        if(String.fromCharCode(e.which).toLowerCase() === 'i') {//N?A
             that.i = true;
         }
         if(String.fromCharCode(e.which).toLowerCase() === 'o') {
             that.o = true;
         }
-        if(String.fromCharCode(e.which).toLowerCase() === 'p') {
-
+        if(String.fromCharCode(e.which).toLowerCase() === 'p') {//N?A
             that.p = true;
-
         }
-        if(String.fromCharCode(e.which).toLowerCase() === 'm') {
+        if(String.fromCharCode(e.which).toLowerCase() === 'm') {//N?A
             that.m = true;
         }
         if(String.fromCharCode(e.which).toLowerCase() === 'l'){
             that.lKey = true;
         }
-
         if(String.fromCharCode(e.which).toLowerCase() === 'q'){
             that.q = true;
         }
+        if(String.fromCharCode(e.which).toLowerCase() === 'r'){//New Below the Waist
+            that.r = true;
+        }
+        if(String.fromCharCode(e.which).toLowerCase() === 't'){
+            that.t = true;
+        }
+        if(String.fromCharCode(e.which).toLowerCase() === 'y'){
+            that.y = true;
+        }
+        if(String.fromCharCode(e.which).toLowerCase() === 'k'){
+            that.k = true;
+        }
+        if(e.which === 186|| e.which === 59){
+            that.pasta = true;
+        }
+        if(e.which === 219){
+            that.leftB = true;
+        }
+        if(e.which === 221){
+            that.rightB = true;
+        }
+        if(e.which === 220){
+            that.backS = true;
+        }
+        if(e.which === 16){//SHIFT
+            if(e.location === 1) {//LEFT
+                that.leftShift = true;
+            } else if(e.location === 2) {//RIGHT
+                that.rightShift = true;
+            }
+        }
+
         //console.log(e);
         //e.preventDefault();
     }, false);
@@ -118,7 +146,6 @@ GameEngine.prototype.startInput = function () {
     this.ctx.canvas.addEventListener("keyup",function(f){
         var h = that.o;
         var keyStrokes = [that.a, that.s, that.d, that.w, that.i, that.o, that.p,that.m, that.lKey];
-
 
         if(String.fromCharCode(f.which).toLowerCase() === 'a'){
             that.a = false;
@@ -132,16 +159,16 @@ GameEngine.prototype.startInput = function () {
         if(String.fromCharCode(f.which).toLowerCase() === 'w') {
             that.w = false;
         }
-        if(String.fromCharCode(f.which).toLowerCase() === 'i') {
+        if(String.fromCharCode(f.which).toLowerCase() === 'i') {//N?A
             that.i = false;
         }
         if(String.fromCharCode(f.which).toLowerCase() === 'o') {
             that.o = false;
         }
-        if(String.fromCharCode(f.which).toLowerCase() === 'p') {
+        if(String.fromCharCode(f.which).toLowerCase() === 'p') {//N?A
             that.p = false;
         }
-        if(String.fromCharCode(f.which).toLowerCase() === 'm') {
+        if(String.fromCharCode(f.which).toLowerCase() === 'm') {//N?A
             that.m = false;
         }
         if(String.fromCharCode(f.which).toLowerCase() === 'l'){
@@ -150,7 +177,38 @@ GameEngine.prototype.startInput = function () {
         if(String.fromCharCode(f.which).toLowerCase() === 'q'){
             that.q = false;
         }
-        console.log( "RELEASE");
+        if(String.fromCharCode(f.which).toLowerCase() === 'r'){// NEW Below the Waist
+            that.r = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 't'){
+            that.t = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'y'){
+            that.y = false;
+        }
+        if(String.fromCharCode(f.which).toLowerCase() === 'k'){
+            that.k = false;
+        }
+        if(f.which === 186 || f.which === 59){// ;
+            that.pasta = false;
+        }
+        if(f.which === 219){//Left Bracket
+            that.leftB = false;
+        }
+        if(f.which === 221){//Right Bracket
+            that.rightB = false;
+        }
+        if(f.which === 220){//Back Slash
+            that.backS = false;
+        }
+        if(f.which === 16) {//Shift
+            if(f.location === 1) {//LEFT
+                that.leftShift = false;
+            } else if(f.location === 2) {//RIGHT
+                that.rightShift = false;
+            }
+        }
+        //console.log( "RELEASE");
         //e.preventDefault();
     },false);
 
@@ -193,6 +251,7 @@ GameEngine.prototype.loop = function () {
     this.clockTick = this.timer.tick();
     this.update();
     this.draw();
+
     this.p = null;
     this.a = null;
     this.s = null;
@@ -202,6 +261,14 @@ GameEngine.prototype.loop = function () {
     this.o = null;
     this.q = null;
     this.lKey = null;
+    this.t = null;
+    this.y = null;
+    this.k = null;
+    this.pasta = null;
+    this.leftB = null;
+    this.rightB = null;
+    this.backS = null;
+    this.rightShift = null;
+    this.leftShift = null;
 
 }
-

@@ -44,6 +44,8 @@ ASSET_MANAGER.queueDownload("./img/Cruz/CruzHiKick.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzBlock.png");
 ASSET_MANAGER.queueDownload("./img/Cruz/CruzDead.png");
 
+ASSET_MANAGER.queueDownload("./img/Cruz/CruzWinDance.png");
+
 //Hillary Clinton Left
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonStandingLeft.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonJumpLeft.png");
@@ -66,6 +68,8 @@ ASSET_MANAGER.queueDownload("./img/Clinton/ClintonHiKick.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonBlock.png");
 ASSET_MANAGER.queueDownload("./img/Clinton/ClintonDead.png");
 
+ASSET_MANAGER.queueDownload("./img/Clinton/ClintonWinDance.png");
+
 //Donald Trump Left
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpStandingLeft.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpJumpLeft.png");
@@ -87,6 +91,8 @@ ASSET_MANAGER.queueDownload("./img/Trump/TrumpHiKick.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpBlock.png");
 ASSET_MANAGER.queueDownload("./img/Trump/TrumpDead.png");
 
+ASSET_MANAGER.queueDownload("./img/Trump/TrumpWinDance.png");
+
 //Bernie Sanders Left
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersStandingLeft.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersJumpLeft.png");
@@ -107,6 +113,7 @@ ASSET_MANAGER.queueDownload("./img/Sanders/SandersWalkRight.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersHiKick.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersBlock.png");
 ASSET_MANAGER.queueDownload("./img/Sanders/SandersDead.png");
+ASSET_MANAGER.queueDownload("./img/Sanders/SandersWinDance.png");
 
 //Background
 ASSET_MANAGER.queueDownload("./img/whiteHouse.jpg");
@@ -127,13 +134,14 @@ ASSET_MANAGER.downloadAll(function () {
     var cruz = "CRUZ"
     var clinton = "CLINTON"
     var sanders = "SANDERS"
+Animation()
+    var unicorn2 = new Fighter(gameEngine,clinton, ASSET_MANAGER, 200, 0, true, false, 1);
+    var unicorn = new Fighter(gameEngine, clinton, ASSET_MANAGER, 500, 0, false, false, 2);
 
-    var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 200, 0, true, false, 1);
-    var unicorn = new Fighter(gameEngine, trump, ASSET_MANAGER, 500, 0, false, true, 2);
-
-    unicorn2.healthBar =10;
+    
     var health = new Health("left", unicorn2);
     var health2 = new Health("right", unicorn);
+    unicorn.healthBar = 100;
 
     // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
     // var unicorn = new AIFighter(gameEngine, "donaldTrump", ASSET_MANAGER, 1000, 0, false);
@@ -184,6 +192,13 @@ ASSET_MANAGER.downloadAll(function () {
             }
 
 
+        }
+
+        for(var i = 0; i< entities.length; i++){
+            if(entities[i].AI){
+                entities[i].move = true;
+                break;
+            }
         }
         backgroundMusic.pause();
         fightIntroMusic.play();
