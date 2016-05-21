@@ -1297,7 +1297,7 @@ Fighter.prototype.draw = function (ctx) {
             }
             ctx.beginPath();
             ctx.rect(this.jumpLeftBox.x, this.jumpLeftBox.y, this.jumpLeftBox.width, this.jumpLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         } else{
             // this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.jumpRightX, this.yOptions.jumpRightY);
@@ -1312,7 +1312,7 @@ Fighter.prototype.draw = function (ctx) {
             }
             ctx.beginPath();
             ctx.rect(this.jumpRightBox.x, this.jumpRightBox.y, this.jumpRightBox.width, this.jumpRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }
 
@@ -1353,17 +1353,17 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.fillStyle = "Black";
             ctx.rect((this.fistLeftBox.x), this.fistLeftBox.y, 20, this.fistLeftBox.height);
-            ctx.fill();
+            // ctx.fill();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.rect(this.fistLeftBox.x, this.fistLeftBox.y, this.fistLeftBox.width, this.fistLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.punchLeftBox.y, this.punchLeftBox.width, this.punchLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }else{
             // this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.xOptions.punchRightX , this.yOptions.blockRightY);
@@ -1397,19 +1397,19 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.rect(this.fistRightBox.x + this.fistRightBox.width - 20, this.fistRightBox.y, 20, this.fistRightBox.height);
             ctx.fillStyle = "Red";
-            ctx.fill();
+            // ctx.fill();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.rect(this.fistRightBox.x, this.fistRightBox.y, this.fistRightBox.width, this.fistRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
 
 
 
             ctx.beginPath();
             ctx.rect(this.punchRightBox.x, this.punchRightBox.y, this.punchRightBox.width, this.punchRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }
 
@@ -1448,18 +1448,18 @@ Fighter.prototype.draw = function (ctx) {
 
             ctx.beginPath();
             ctx.rect(this.lowFootLeftBox.x, this.lowFootLeftBox.y, this.lowFootLeftBox.width, this.lowFootLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.rect(this.lowFootLeftBox.x, this.lowFootLeftBox.y, 20, this.lowFootLeftBox.height);
             ctx.fillStyle = "Red";
-            ctx.fill();
+            // ctx.fill();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.rect(this.lowKickLeftBox.x, this.lowKickLeftBox.y, this.lowKickLeftBox.width, this.lowKickLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }else{
             // this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.xOptions.lowKickRightX,this.yOptions.lowKickRightY);
@@ -1492,20 +1492,20 @@ Fighter.prototype.draw = function (ctx) {
 
             ctx.beginPath();
             ctx.rect(this.lowFootRightBox.x, this.lowFootRightBox.y, this.lowFootRightBox.width, this.lowFootRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.rect(this.lowFootRightBox.x + this.lowFootRightBox.width - 20, this.lowFootRightBox.y, 20, this.lowFootRightBox.height);
             ctx.fillStyle = "Red";
-            ctx.fill();
+            // ctx.fill();
             ctx.closePath();
 
 
 
             ctx.beginPath();
             ctx.rect(this.lowKickRightBox.x, this.lowKickRightBox.y, this.lowKickRightBox.width, this. lowKickRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }
 
@@ -1548,18 +1548,18 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.fillStyle = "Black";
             ctx.rect((this.highFootLeftBox.x), this.highFootLeftBox.y, 20, this.highFootLeftBox.height);
-            ctx.fill();
+            // ctx.fill();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.rect(this.highFootLeftBox.x, this.highFootLeftBox.y, this.highFootLeftBox.width, this.highFootLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
             // ctx.rect(this.highKickLeftBox.x, this.highKickLeftBox.y, this.highKickLeftBox.width, this.highKickLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }else{
             this.boundBox = this.highKickRightBox;
@@ -1591,20 +1591,20 @@ Fighter.prototype.draw = function (ctx) {
             }
             ctx.beginPath();
             ctx.rect(this.highFootRightBox.x, this.highFootRightBox.y, this.highFootRightBox.width, this.highFootRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
 
             ctx.beginPath();
             ctx.fillStyle = "Black";
             ctx.rect((this.highFootRightBox.x + this.highFootRightBox.width - 20), this.highFootRightBox.y, 20, this.highFootRightBox.height);
-            ctx.fill();
+            // ctx.fill();
             ctx.closePath();
 
 
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
             // ctx.rect(this.highKickRightBox.x, this. highKickRightBox.y, this.highKickRightBox.width, this.highKickRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }
 
@@ -1626,7 +1626,7 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
             // ctx.rect(this.duckLeftBox.x, this.duckLeftBox.y, this.duckLeftBox.width, this.duckLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }else{
             this.boundBox = this.duckRightBox;
@@ -1643,7 +1643,7 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
             // ctx.rect(this.duckRightBox.x, this.duckRighBox.y, this.duckRightBox.width, this.duckRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }
 
@@ -1663,7 +1663,7 @@ Fighter.prototype.draw = function (ctx) {
         ctx.beginPath();
         ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
         // ctx.rect(this.walkRightBox.x, this.walkRightBox.y, this.walkRightBox.width, this.walkRightBox.height);
-        ctx.stroke();
+        // ctx.stroke();
         ctx.closePath();
 
     } else if (this.walkLeft ){
@@ -1683,7 +1683,7 @@ Fighter.prototype.draw = function (ctx) {
         ctx.beginPath();
         ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
         // ctx.rect(this.walkLeftBox.x, this.walkLeftBox.y, this.walkLeftBox.width, this.walkLeftBox.height);
-        ctx.stroke();
+        // ctx.stroke();
         ctx.closePath();
 
     }else if(this.blocking) {
@@ -1706,7 +1706,7 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
             // ctx.rect(this.walkLeftBox.x, this.walkLeftBox.y, this.walkLeftBox.width, this.walkLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }else{
             this.boundBox = this.blockRightBox;
@@ -1723,7 +1723,7 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
             // ctx.rect(this.walkRightBox.x, this.walkRightBox.y, this.walkRightBox.width, this.walkRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
         }
 
@@ -1743,7 +1743,7 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
             // ctx.rect(this.standLeftBox.x, this.standLeftBox.y, this.standLeftBox.width, this.standLeftBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
             // this.animationLeft.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         } else {
@@ -1760,7 +1760,7 @@ Fighter.prototype.draw = function (ctx) {
             ctx.beginPath();
             ctx.rect(this.boundBox.x, this.boundBox.y, this.boundBox.width, this.boundBox.height);
             // ctx.rect(this.standRightBox.x, this.standRightBox.y, this.standRightBox.width, this.standRightBox.height);
-            ctx.stroke();
+            // ctx.stroke();
             ctx.closePath();
             // this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         }
