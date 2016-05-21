@@ -3,12 +3,36 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Game Project Shell</title>
+    <title>Representative Rumble</title>
+    <img id = "clintonHead" src="./img/Clinton/ClintonHead.png" width = "200" height = "200" style="display: none">
+    <img id = "cruzHead" src = "./img/Cruz/CruzHead.png" width="200" height="200" style="display: none">
+    <img id = "trumpHead" src="./img/Trump/TrumpHead.png" width="200" height = "200" style="display: none">
+    <img id = "sandersHead" src="./img/Sanders/SandersHead.png" width="200" height="200" style="display: none">
+    <img id = "titleImage" src = "./img/title2.png" width="600" height="150" style="display: none">
+    <img id = "titleBattle" src = "./img/title3.png" width="880" height="40" style="display: none">
+
     <script type="text/javascript" src="./gameengine.js"></script>
+
     <script type="text/javascript" src="./assetmanager.js"></script>
+    <script type="text/javascript" src="./timer.js"></script>
+    <script type="text/javascript" src="./howler.js"></script>
+    <script type="text/javascript" src="./Animation.js"></script>
+    <script type="text/javascript" src="./timer.js"></script>
+    <script type="text/javascript" src="./entity.js"></script>
+    <script type="text/javascript" src="./Fighter.js"></script>
+    <script type="text/javascript" src = "./Health.js"></script>
+    <script type="text/javascript" src="./titleScreen.js"></script>
+
     <script type="text/javascript" src="./main.js"></script>
 </head>
 <body>
-    <canvas id="gameWorld" tabindex="1" width="1280" height="632" style="border: 1px solid brown; background: lightskyblue"></canvas>
+<audio src="./audio/songs/hailToTheChief.mp3" preload="auto"></audio>
+<canvas id="gameWorld" tabindex="1" width="1280" height="632" style="border: 1px solid brown;
+    background: lightskyblue;">
+
+</canvas>
+
+
+
 </body>
 </html>
