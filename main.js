@@ -128,8 +128,8 @@ ASSET_MANAGER.downloadAll(function () {
     var clinton = "CLINTON"
     var sanders = "SANDERS"
 
-    var unicorn2 = new Fighter(gameEngine,sanders, ASSET_MANAGER, 200, 0, true, false, 1);
-    var unicorn = new Fighter(gameEngine, cruz, ASSET_MANAGER, 500, 0, false, true, 2);
+    var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 200, 0, true, false, 1);
+    var unicorn = new Fighter(gameEngine, trump, ASSET_MANAGER, 500, 0, false, true, 2);
 
     unicorn2.healthBar =10;
     var health = new Health("left", unicorn2);
