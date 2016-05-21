@@ -905,7 +905,32 @@ Fighter.prototype.update = function(){
     var truths = 0;
     var moves = [this.punching, this.highKicking, this.blocking, this.lowKicking, this.walkLeft, this.walkRight, this.ducking];
 
-    if(this.fightNum ===1){
+    if(this.AI && this.move){
+        var ents = this.game.entities;
+        for(var i =0; i< ents.length; i++){
+            var ent = this.game.entities[i];
+            if(this != ent && ent.fightNum === 1){
+                this.search(ent);
+            }
+        }
+
+        for(var i = 0; i< ents.length; i++){
+            var ent = ents[i];
+            if(this!= ent && ent.fightNum ===1){
+                var truths = 0;
+                var moves = [this.punching, this.highKicking, this.blocking];
+                for(var i = 0; i< moves.length; i++){
+                    if(moves[i] == true){
+                        truths++;
+                    }
+                }
+                if(truths ===0){
+                    this.fight(ent);
+                }
+
+            }
+        }
+    }else if(this.fightNum ===1){
         if (this.game.w) {
 
             if(!(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
@@ -933,7 +958,7 @@ Fighter.prototype.update = function(){
 
         } else if (this.game.d) {
 
-            if((this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
+            if((this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft)){
                 this.walkRight = false;
             }else{
                 if(this.x + 100 < 1180) {
@@ -953,7 +978,7 @@ Fighter.prototype.update = function(){
              }
              */
             //this.x - sprite width > canvas left (0)
-            if(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight){
+            if(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking||this.walkRight){
                 this.walkLeft = false;
             }else{
                 if(this.x - 50 > 0) {
@@ -992,7 +1017,7 @@ Fighter.prototype.update = function(){
         } else if (this.game.pasta) {
             //this.x + sprite width > canvas width
 
-            if((this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
+            if((this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft)){
                 this.walkRight = false;
             }else{
                 if(this.x + 100 < 1180) {
@@ -1011,7 +1036,7 @@ Fighter.prototype.update = function(){
              }
              */
             //this.x - sprite width > canvas left (0)
-            if(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight){
+            if(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking ||this.walkRight){
                 this.walkLeft = false;
             }else{
                 if(this.x - 50 > 0) {
@@ -1026,32 +1051,7 @@ Fighter.prototype.update = function(){
         }
     }
 
-    if(this.AI && this.move){
-        var ents = this.game.entities;
-        for(var i =0; i< ents.length; i++){
-            var ent = this.game.entities[i];
-            if(this != ent && ent.fightNum === 1){
-                this.search(ent);
-            }
-        }
 
-        for(var i = 0; i< ents.length; i++){
-            var ent = ents[i];
-            if(this!= ent && ent.fightNum ===1){
-                var truths = 0;
-                var moves = [this.punching, this.highKicking, this.blocking];
-                for(var i = 0; i< moves.length; i++){
-                    if(moves[i] == true){
-                        truths++;
-                    }
-                }
-                if(truths ===0){
-                    this.fight(ent);
-                }
-
-            }
-        }
-    }
 
 
 
