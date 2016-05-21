@@ -1216,7 +1216,7 @@ Fighter.prototype.update = function(){
             this.walkRightAnimation.elapsedTime = 0;
             this.walkRight = false;
         }
-        this.x = this.x + 1;
+        this.x = this.x + 2;
         this.y = this.ground;
 
     }else if (this.walkLeft){
@@ -1226,7 +1226,7 @@ Fighter.prototype.update = function(){
             this.walkLeftAnimation.elapsedTime = 0;
             this.walkLeft = false;
         }
-        this.x = this.x - 1;
+        this.x = this.x - 2;
         this.y = this.ground;
     }else if (this.blocking){
         if(this.blockingAnimation.isDone()) {
@@ -1858,7 +1858,7 @@ Fighter.prototype.search = function(other){
         if (this.boundBox.x > other.boundBox.x) {// if you are right of other
             this.facing = true;
             //if other is in your fightrange
-            if (other.boundBox.x + other.boundBox.width > this.boundBox.x - this.fightRadius) {
+            if (other.boundBox.x  > this.boundBox.x - this.fightRadius) {
                 var truths = 0;
                 var rand = Math.floor(Math.random() * (5));
 
@@ -1884,6 +1884,7 @@ Fighter.prototype.search = function(other){
                 if (!(this.highKicking || this.punching || this.blocking || this.lowKicking)) {
                     if(this.boundBox.x > 150) {//don't run off screen, pleb.
                         this.facing = true;
+                        this.walkLeft = true;
                         this.x = this.x - this.speed;
                     }
                 }
@@ -1891,7 +1892,7 @@ Fighter.prototype.search = function(other){
         } else { //if you're left of the other
             this.facing = false;
             //if other is in your fight zone
-            if (other.boundBox.x - other.boundBox.width < this.boundBox.x + this.fightRadius) {
+            if (other.boundBox.x < this.boundBox.x + this.fightRadius) {
                 var truths = 0;
                 var rand = Math.floor(Math.random() * (5));
 
@@ -1917,6 +1918,7 @@ Fighter.prototype.search = function(other){
                 if (!(this.highKicking || this.punching || this.blocking || this.highKicking)) {
                     if(this.boundBox.x + this.boundBox.width < 11500) {//don't run off screen
                         this.facing = false;
+                        this.walkRight = true;
                         this.x = this.x + this.speed;
                     }
                 }
@@ -1928,7 +1930,7 @@ Fighter.prototype.search = function(other){
         if (this.boundBox.x > other.boundBox.x) {// if you are right of other
             this.facing = true;
             //if other is in your fightrange
-            if (other.boundBox.x + other.boundBox.width > this.boundBox.x - this.fightRadius) {
+            if (other.boundBox.x  > this.boundBox.x - this.fightRadius) {
                 var truths = 0;
                 var rand = Math.floor(Math.random() * (5));
 
@@ -1954,6 +1956,7 @@ Fighter.prototype.search = function(other){
                 if (!(this.highKicking || this.punching || this.blocking || this.highKicking || this.lowKicking)) {
                     if(this.boundBox.x + this.boundBox.width < 1150) {//don't run off screen
                         this.facing = false;
+                        this.walkRight = true;
                         this.x = this.x + this.speed;
                     }
                 }
@@ -1961,7 +1964,7 @@ Fighter.prototype.search = function(other){
         } else {//if you're left of other
             this.facing = false;
             //if other is in your fightrange
-            if (other.boundBox.x - other.boundBox.width < this.boundBox.x + this.fightRadius) {
+            if (other.boundBox.x< this.boundBox.x + this.fightRadius) {
                 var truths = 0;
                 var rand = Math.floor(Math.random() * (5));
 
@@ -1987,6 +1990,7 @@ Fighter.prototype.search = function(other){
                 if (!(this.highKicking || this.punching || this.blocking || this.lowKicking)) {
                     if(this.boundBox.x > 150) {//don't run off screen
                         this.facing = true;
+                        this.walkLeft = true;
                         this.x = this.x - this.speed;
                     }
                 }
