@@ -1212,7 +1212,7 @@ Fighter.prototype.update = function(){
     } else if(this.walkRight){
         // this.width = this.widthOptions.walkRightWidth;
 
-        if(this.walkRightAnimation.isDone() || this.game.d === false){
+        if(this.walkRightAnimation.isDone() || this.game.d === false || this.game.pasta === false){
             this.walkRightAnimation.elapsedTime = 0;
             this.walkRight = false;
         }
@@ -1222,7 +1222,7 @@ Fighter.prototype.update = function(){
     }else if (this.walkLeft){
         // this.width = this.widthOptions.walkingLeftWidth;
 
-        if(this.walkLeftAnimation.isDone() || this.game.a === false){
+        if(this.walkLeftAnimation.isDone() || this.game.a === false || this.game.k === false){
             this.walkLeftAnimation.elapsedTime = 0;
             this.walkLeft = false;
         }
