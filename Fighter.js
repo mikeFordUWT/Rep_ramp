@@ -1203,24 +1203,32 @@ Fighter.prototype.update = function(){
             this.jumping = false;
             if(this.fighter==="TRUMP") {
                 trumpJump.pause();
+                trumpJump.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
                 cruzJump.pause();
+                cruzJump.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
                 clintonJump.pause();
+                clintonJump.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
                 sandersJump.pause();
+                sandersJump.currentTime = 0;
             }
         }else if(this.jumpAnimationLeft.isDone()){
             this.jumpAnimationLeft.elapsedTime = 0;
             this.jumping = false;
             if(this.fighter==="TRUMP") {
                 trumpJump.pause();
+                trumpJump.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
                 cruzJump.pause();
+                cruzJump.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
                 clintonJump.pause();
+                clintonJump.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
                 sandersJump.pause();
+                sandersJump.currentTime = 0;
             }
         }
 
@@ -1260,12 +1268,16 @@ Fighter.prototype.update = function(){
             this.punching = false;
             if(this.fighter==="TRUMP") {
                 trumpPunch.pause();
+                trumpPunch.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
                 cruzPunch.pause();
+                cruzPunch.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
                 clintonPunch.pause();
+                clintonPunch.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
                 sandersPunch.pause();
+                sandersPunch.currentTime = 0;
             }
 
         }
@@ -1275,12 +1287,16 @@ Fighter.prototype.update = function(){
             this.punching = false;
             if(this.fighter==="TRUMP") {
                 trumpPunch.pause();
+                trumpPunch.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
                 cruzPunch.pause();
+                cruzPunch.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
                 clintonPunch.pause();
+                clintonPunch.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
                 sandersPunch.pause();
+                sandersPunch.currentTime = 0;
             }
         }
 
@@ -1293,12 +1309,16 @@ Fighter.prototype.update = function(){
             this.lowKicking = false;
             if(this.fighter==="TRUMP") {
                 trumpLoKick.pause();
+                trumpLoKick.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
                 cruzLoKick.pause();
+                cruzLoKick.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
                 clintonLoKick.pause();
+                clintonLoKick.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
                 sandersLoKick.pause();
+                sandersLoKick.currentTime = 0;
             }
         }
         if(this.lowKickingAnimationLeft.isDone()){
@@ -1307,12 +1327,16 @@ Fighter.prototype.update = function(){
             this.lowKicking = false;
             if(this.fighter==="TRUMP") {
                 trumpLoKick.pause();
+                trumpLoKick.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
                 cruzLoKick.pause();
+                cruzLoKick.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
                 clintonLoKick.pause();
+                clintonLoKick.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
                 sandersLoKick.pause();
+                sandersLoKick.currentTime = 0;
             }
         }
     }
@@ -1322,13 +1346,17 @@ Fighter.prototype.update = function(){
             this.duckingAnimation.elapsedTime=0;
             this.ducking=false;
             if(this.fighter==="TRUMP") {
-                trumpDucking.pause();
+                //trumpDucking.pause();
+                //trumpDucking.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
-                cruzDucking.pause();
+                //cruzDucking.pause();
+                //cruzDucking.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
-                clintonDucking.pause();
+                //clintonDucking.pause();
+                //clintonDucking.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
-                sandersDucking.pause();
+                //sandersDucking.pause();
+                //sandersDucking.currentTime = 0;
             }
         }
 
@@ -1336,13 +1364,17 @@ Fighter.prototype.update = function(){
             this.duckingAnimationLeft.elapsedTime = 0;
             this.ducking = false;
             if(this.fighter==="TRUMP") {
-                trumpDucking.pause();
+                //trumpDucking.pause();
+                //trumpDucking.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
-                cruzDucking.pause();
+                //cruzDucking.pause();
+                //cruzDucking.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
-                clintonDucking.pause();
+                //clintonDucking.pause();
+                //clintonDucking.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
-                sandersDucking.pause();
+                //sandersDucking.pause();
+                //sandersDucking.currentTime = 0;
             }
         }
     }
@@ -1355,12 +1387,16 @@ Fighter.prototype.update = function(){
             this.highKicking=false;
             if(this.fighter==="TRUMP") {
                 trumpHiKick.pause();
+                trumpHiKick.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
                 cruzHiKick.pause();
+                cruzHiKick.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
                 clintonHiKick.pause();
+                clintonHiKick.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
                 sandersHiKick.pause();
+                sandersHiKick.currentTime = 0;
             }
         }
         if(this.highKickAnimationLeft.isDone()){
@@ -1369,12 +1405,16 @@ Fighter.prototype.update = function(){
             this.highKicking = false;
             if(this.fighter==="TRUMP") {
                 trumpHiKick.pause();
+                trumpHiKick.currentTime = 0;
             } else if(this.fighter==="CRUZ") {
                 cruzHiKick.pause();
+                cruzHiKick.currentTime = 0;
             } else if(this.fighter==="CLINTON") {
                 clintonHiKick.pause();
+                clintonHiKick.currentTime = 0;
             } else if(this.fighter==="SANDERS") {
                 sandersHiKick.pause();
+                sandersHiKick.currentTime = 0;
             }
         }
     } else if(this.walkRight){
