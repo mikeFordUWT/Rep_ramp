@@ -16,10 +16,6 @@ Health.prototype = new Entity();
 
 Health.prototype.constructor = Health;
 
-Health.attacked = function (pts) {
-    this.healthPoints -= pts;
-}
-
 Health.prototype.draw = function (ctx) {
     var canvas = document.getElementById('gameWorld');
     this.ctx = ctx;
