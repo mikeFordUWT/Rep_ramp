@@ -16,6 +16,8 @@ var trumpPunch = new Audio("./audio/punch/Punch_HD-Mark_DiAngelo-1718986183.mp3"
 var trumpLoKick = new Audio("./audio/loKick/Right Hook-SoundBible.com-1406389182.mp3");
 var trumpHiKick = new Audio("./audio/hiKick/Upper Cut-SoundBible.com-1272257235.mp3");
 var trumpDucking = new Audio("./audio/duck/Snorting-SoundBible.com-748123769.mp3");
+var trumpDeath = new Audio("./audio/death/Evil Yelling-SoundBible.com-1774362373.mp3");
+var trumpBlock = new Audio("./audio/blocking/Welcome to the Boardroom.mp3");
 
 
 //Cruz SFX
@@ -24,6 +26,8 @@ var cruzPunch = new Audio("./audio/punch/Realistic_Punch-Mark_DiAngelo-160946233
 var cruzLoKick = new Audio("./audio/loKick/Right Cross-SoundBible.com-1721311663.mp3");
 var cruzHiKick = new Audio("./audio/hiKick/Sweep Kick-SoundBible.com-808409893.mp3");
 var cruzDucking = new Audio("./audio/duck/Jolly Laugh-SoundBible.com-874430997.mp3");
+var cruzDeath = new Audio("./audio/death/Female_Scream_Horror-NeoPhyTe-138499973.mp3");
+var cruzBlock = new Audio("./audio/blocking/Smashing-Yuri_Santana-1233262689.mp3");
 
 //Clinton SFX
 var clintonJump = new Audio("./audio/jump/Catapult-SoundBible.com-829548288.mp3");
@@ -31,6 +35,8 @@ var clintonPunch = new Audio("./audio/punch/Strong_Punch-Mike_Koenig-574430706.m
 var clintonLoKick = new Audio("./audio/loKick/Left Hook-SoundBible.com-516660386.mp3");
 var clintonHiKick = new Audio("./audio/hiKick/Spin Kick-SoundBible.com-1263586030.mp3");
 var clintonDucking = new Audio("./audio/duck/Maniacal Witches Laugh-SoundBible.com-262127569.mp3");
+var clintonDeath = new Audio("./audio/death/Evil Laugh Cackle-SoundBible.com-957382653.mp3");
+var clintonBlock = new Audio("./audio/blocking/clinton_exhausted.mp3");
 
 //Sanders SFX
 var sandersJump = new Audio("./audio/jump/spin_jump-Brandino480-2020916281.mp3");
@@ -38,6 +44,8 @@ var sandersPunch = new Audio("./audio/punch/Woosh-Mark_DiAngelo-4778593.mp3");
 var sandersLoKick = new Audio("./audio/loKick/Kick-SoundBible.com-1331196005.mp3");
 var sandersHiKick = new Audio("./audio/hiKick/Roundhouse Kick-SoundBible.com-1663225804.mp3");
 var sandersDucking = new Audio("./audio/duck/Commedy_Punch-Poorna_RAo-1017287436.mp3");
+var sandersDeath = new Audio("./audio/death/Dying Soul-SoundBible.com-1682971511.mp3");
+var sandersBlock = new Audio("./audio/blocking/punch_or_whack_-Vladimir-403040765.mp3");
 
 
 function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNum) {
@@ -1068,6 +1076,15 @@ Fighter.prototype.update = function(){
         }else if(this.game.leftShift){
             if(!(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
                 this.blocking = true;
+                if(this.fighter==="TRUMP") {
+                    trumpBlock.play();
+                } else if(this.fighter==="CRUZ") {
+                    cruzBlock.play();
+                } else if(this.fighter==="CLINTON") {
+                    clintonBlock.play();
+                } else if(this.fighter==="SANDERS") {
+                    sandersBlock.play();
+                }
             }
 
         }
@@ -1075,22 +1092,68 @@ Fighter.prototype.update = function(){
         if (this.game.o) {
             if(!(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
                 this.jumping = true;
+                if(this.fighter==="TRUMP") {
+                    trumpJump.play();
+                } else if(this.fighter==="CRUZ") {
+                    cruzJump.play();
+                } else if(this.fighter==="CLINTON") {
+                    clintonJump.play();
+                } else if(this.fighter==="SANDERS") {
+                    sandersJump.play();
+                }
             }
         }else if(this.game.leftB){
             if(!(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
                 this.punching = true;
+                if(this.fighter==="TRUMP") {
+                    console.log("ai punch")
+                    trumpPunch.play();
+                } else if(this.fighter==="CRUZ") {
+                    cruzPunch.play();
+                } else if(this.fighter==="CLINTON") {
+                    clintonPunch.play();
+                } else if(this.fighter==="SANDERS") {
+                    sandersPunch.play();
+                }
             }
         } else if(this.game.backS) {
             if(!(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
                 this.lowKicking=true;
+                if(this.fighter==="TRUMP") {
+                    trumpLoKick.play();
+                } else if(this.fighter==="CRUZ") {
+                    cruzLoKick.play();
+                } else if(this.fighter==="CLINTON") {
+                    clintonLoKick.play();
+                } else if(this.fighter==="SANDERS") {
+                    sandersLoKick.play();
+                }
             }
         } else if(this.game.rightB) {
             if(!(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
                 this.highKicking=true;
+                if(this.fighter==="TRUMP") {
+                    trumpHiKick.play();
+                } else if(this.fighter==="CRUZ") {
+                    cruzHiKick.play();
+                } else if(this.fighter==="CLINTON") {
+                    clintonHiKick.play();
+                } else if(this.fighter==="SANDERS") {
+                    sandersHiKick.play();
+                }
             }
         } else if(this.game.lKey) {
             if(!(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
                 this.ducking=true;
+                if(this.fighter==="TRUMP") {
+                    trumpDucking.play();
+                } else if(this.fighter==="CRUZ") {
+                    cruzDucking.play();
+                } else if(this.fighter==="CLINTON") {
+                    clintonDucking.play();
+                } else if(this.fighter==="SANDERS") {
+                    sandersDucking.play();
+                }
             }
         } else if (this.game.pasta) {
             //this.x + sprite width > canvas width
@@ -1125,6 +1188,15 @@ Fighter.prototype.update = function(){
         }else if(this.game.rightShift){
             if(!(this.jumping || this.punching || this.highKicking || this.lowKicking || this.blocking || this.walkLeft||this.walkRight)){
                 this.blocking = true;
+                if(this.fighter==="TRUMP") {
+                    trumpBlock.play();
+                } else if(this.fighter==="CRUZ") {
+                    cruzBlock.play();
+                } else if(this.fighter==="CLINTON") {
+                    clintonBlock.play();
+                } else if(this.fighter==="SANDERS") {
+                    sandersBlock.play();
+                }
             }
         }
     }
@@ -1441,10 +1513,39 @@ Fighter.prototype.update = function(){
             // console.log("blocking is done");
             this.blockingAnimation.elapsedTime=0;
             this.blocking=false;
+            /*
+            if(this.fighter==="TRUMP") {
+                trumpBlock.pause();
+                trumpBlock.currentTime = 0;
+            } else if(this.fighter==="CRUZ") {
+                cruzBlock.pause();
+                cruzBlock.currentTime = 0;
+            } else if(this.fighter==="CLINTON") {
+                //clintonBlock.pause();
+                //clintonBlock.currentTime = 0;
+            } else if(this.fighter==="SANDERS") {
+                sandersBlock.pause();
+                sandersBlock.currentTime = 0;
+            }
+            */
         }
         if(this.blockingLeftAnimation.isDone()){
             this.blockingLeftAnimation.elapsedTime = 0;
             this.blocking = false;
+            /*
+            if(this.fighter==="TRUMP") {
+                trumpBlock.pause();
+                trumpBlock.currentTime = 0;
+            } else if(this.fighter==="CRUZ") {
+                cruzBlock.pause();
+                cruzBlock.currentTime = 0;
+            } else if(this.fighter==="CLINTON") {
+                //clintonBlock.pause();
+                //clintonBlock.currentTime = 0;
+            } else if(this.fighter==="SANDERS") {
+                sandersBlock.pause();
+                sandersBlock.currentTime = 0;
+            } */
         }
     }
 
@@ -2079,12 +2180,48 @@ Fighter.prototype.search = function(other){
                 if (truths == 0) {
                     if (rand == 2) {
                         this.highKicking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpHiKick.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzHiKick.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonHiKick.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersHiKick.play();
+                        }
                     } else if (rand == 1) {
                         this.punching = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpPunch.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzPunch.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonPunch.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersPunch.play();
+                        }
                     } else if (rand == 3) {
                         this.blocking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpBlock.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzBlock.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonBlock.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersBlock.play();
+                        }
                     } else if (rand == 4) {
                         this.lowKicking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpLoKick.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzLoKick.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonLoKick.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersLoKick.play();
+                        }
                     }
                 }
                 // if they're running away left, follow
@@ -2113,12 +2250,48 @@ Fighter.prototype.search = function(other){
                 if (truths == 0) {
                     if (rand == 2) {
                         this.highKicking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpHiKick.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzHiKick.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonHiKick.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersHiKick.play();
+                        }
                     } else if (rand == 1) {
                         this.punching = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpPunch.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzPunch.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonPunch.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersPunch.play();
+                        }
                     } else if (rand == 3) {
                         this.blocking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpBlock.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzBlock.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonBlock.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersBlock.play();
+                        }
                     } else if (rand == 4) {
                         this.lowKicking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpLoKick.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzLoKick.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonLoKick.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersLoKick.play();
+                        }
                     }
                 }
                 //if they're running away right, follow
@@ -2151,12 +2324,48 @@ Fighter.prototype.search = function(other){
                 if (truths == 0) {
                     if (rand == 2) {
                         this.highKicking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpHiKick.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzHiKick.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonHiKick.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersHiKick.play();
+                        }
                     } else if (rand == 1) {
                         this.punching = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpPunch.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzPunch.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonPunch.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersPunch.play();
+                        }
                     } else if (rand == 3) {
                         this.blocking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpBlock.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzBlock.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonBlock.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersBlock.play();
+                        }
                     } else if (rand == 4) {
                         this.lowKicking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpLoKick.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzLoKick.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonLoKick.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersLoKick.play();
+                        }
                     }
                 }
                 //if they're out of your fightrange, run
@@ -2185,12 +2394,48 @@ Fighter.prototype.search = function(other){
                 if (truths == 0) {
                     if (rand == 2) {
                         this.highKicking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpHiKick.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzHiKick.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonHiKick.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersHiKick.play();
+                        }
                     } else if (rand == 1) {
                         this.punching = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpPunch.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzPunch.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonPunch.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersPunch.play();
+                        }
                     } else if (rand == 3) {
                         this.blocking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpBlock.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzBlock.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonBlock.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersBlock.play();
+                        }
                     } else if (rand == 4) {
-                        this.highKicking = true;
+                        this.loKicking = true;
+                        if(this.fighter==="TRUMP") {
+                            trumpLoKick.play();
+                        } else if(this.fighter==="CRUZ") {
+                            cruzLoKick.play();
+                        } else if(this.fighter==="CLINTON") {
+                            clintonLoKick.play();
+                        } else if(this.fighter==="SANDERS") {
+                            sandersLoKick.play();
+                        }
                     }
                 }
                 //if they're not in your fightrange, run
