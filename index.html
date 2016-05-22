@@ -28,9 +28,23 @@
 <body>
 <audio src="./audio/songs/hailToTheChief.mp3" preload="auto"></audio>
 <canvas id="gameWorld" tabindex="1" width="1280" height="632" style="border: 1px solid brown;
-    background: lightskyblue;">
-
+    background: lightskyblue;" >
 </canvas>
+
+<script>
+    var canvas = document.getElementById("gameWorld");
+    var context = canvas.getContext("2d");
+
+    /*context.strokeStyle="red";
+    context.moveTo(canvas.width/2,0);
+    context.lineTo(canvas.width/2,canvas.height);
+    context.stroke();*/
+
+    context.fillStyle = "blue";
+    context.font = "bold 50px Arial";
+    context.textAlign="center";
+    context.fillText("Loading...", canvas.width/2, canvas.height/2);
+</script>
 
 <h1>The Controls:</h1>
 <p><b>Move left:</b> A  <b>Duck:</b> S  <b>Move right:</b> D  <b>Jump:</b> W  <b>Punch:</b> R  <b>High Kick:</b> T
