@@ -64,7 +64,7 @@ Health.prototype.draw = function (ctx) {
         //Display Names
         ctx.font = "30px Arial";
         ctx.fillStyle = "white";
-        ctx.fillText(this.fighter.fighter, BUFFER*3, BAR_HEIGHT*1.25);
+        ctx.fillText(this.fighter.fighter, BUFFER*14, BAR_HEIGHT*1.25);
 
     } else { //Right Player Logic
         //Outer Frame
