@@ -173,64 +173,68 @@ ASSET_MANAGER.downloadAll(function () {
         this.currentTime = 0;
         this.play();
     }, false);
-
+    var firstClick = true
 
     canvas.addEventListener('click', function (event) {
+        console.log(firstClick)
+        if(firstClick === true) {
 
-        this.playerVsPlayer = {left: 1, right: 250, top: 123, bottom: 285};
-        this.playerVsAI = {left: 1045, right: 1275, top: 123, bottom: 285};
-        // gameEngine = new GameEngine();
-        if(gameEngine.click) {
-            console.log(gameEngine.click.x + "<" + this.playerVsPlayer.right)
-            console.log(gameEngine.click.x + ">" + this.playerVsPlayer.left)
-            console.log(gameEngine.click.y + "<" + this.playerVsPlayer.bottom)
-            console.log(gameEngine.click.y+ ">" + this.playerVsPlayer.top)
+            this.playerVsPlayer = {left: 1, right: 250, top: 123, bottom: 285};
+            this.playerVsAI = {left: 1045, right: 1275, top: 123, bottom: 285};
+            // gameEngine = new GameEngine();
+            /*
+             if(gameEngine.click) {
+             console.log(gameEngine.click.x + "<" + this.playerVsPlayer.right)
+             console.log(gameEngine.click.x + ">" + this.playerVsPlayer.left)
+             console.log(gameEngine.click.y + "<" + this.playerVsPlayer.bottom)
+             console.log(gameEngine.click.y+ ">" + this.playerVsPlayer.top)
 
-            console.log("Click : " + gameEngine.click.y)
-            //if click is in top left between rep rumble text, trump's hand, and bernie's head
-            if (gameEngine.click.x < this.playerVsPlayer.right && gameEngine.click.x > this.playerVsPlayer.left &&
-                gameEngine.click.y < this.playerVsPlayer.bottom && gameEngine.click.y > this.playerVsPlayer.top) {
-                console.log("player vs player")
+             console.log("Click : " + gameEngine.click.y)
+             //if click is in top left between rep rumble text, trump's hand, and bernie's head
+             if (gameEngine.click.x < this.playerVsPlayer.right && gameEngine.click.x > this.playerVsPlayer.left &&
+             gameEngine.click.y < this.playerVsPlayer.bottom && gameEngine.click.y > this.playerVsPlayer.top) {
+             console.log("player vs player")
 
-                // Animation()
-                var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, false, false, 1);
-                var unicorn = new Fighter(gameEngine, sanders, ASSET_MANAGER, canvas.width-200, 0, false, false, 2);
-
-
-                var health = new Health("left", unicorn2);
-                var health2 = new Health("right", unicorn);
-
-                gameEngine.addEntity(unicorn);
-                gameEngine.addEntity(unicorn2);
-                gameEngine.addEntity(health);
-                gameEngine.addEntity(health2);
+             // Animation()
+             var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, false, false, 1);
+             var unicorn = new Fighter(gameEngine, sanders, ASSET_MANAGER, canvas.width-200, 0, false, false, 2);
 
 
+             var health = new Health("left", unicorn2);
+             var health2 = new Health("right", unicorn);
+
+             gameEngine.addEntity(unicorn);
+             gameEngine.addEntity(unicorn2);
+             gameEngine.addEntity(health);
+             gameEngine.addEntity(health2);
 
 
-                var entities = gameEngine.entities;
-                for(var i =0; i<entities.length; i++){
-                    if(entities[i] === title){
-                        entities.splice(i,1);
-
-                        break;
-                    }
 
 
-                }
+             var entities = gameEngine.entities;
+             for(var i =0; i<entities.length; i++){
+             if(entities[i] === title){
+             entities.splice(i,1);
 
-                for(var i = 0; i< entities.length; i++){
-                    if(entities[i].AI){
-                        entities[i].move = true;
-                        break;
-                    }
-                }
-
-                backgroundMusic.pause();
-                fightIntroMusic.play();
+             break;
+             }
 
 
-            } else if (gameEngine.click.x < this.playerVsAI.right && gameEngine.click.x > this.playerVsAI.left &&
+             }
+
+             for(var i = 0; i< entities.length; i++){
+             if(entities[i].AI){
+             entities[i].move = true;
+             break;
+             }
+             }
+
+             backgroundMusic.pause();
+             fightIntroMusic.play();
+
+
+             } */
+            if (gameEngine.click.x < this.playerVsAI.right && gameEngine.click.x > this.playerVsAI.left &&
                 gameEngine.click.y < this.playerVsAI.bottom && gameEngine.click.y > this.playerVsAI.top) {
                 console.log("player vs ai")
 
@@ -269,30 +273,71 @@ ASSET_MANAGER.downloadAll(function () {
                 backgroundMusic.pause();
                 fightIntroMusic.play();
 
+            } else {
+
+                // Animation()
+                var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, false, false, 1);
+                var unicorn = new Fighter(gameEngine, sanders, ASSET_MANAGER, canvas.width-200, 0, false, false, 2);
+
+
+                var health = new Health("left", unicorn2);
+                var health2 = new Health("right", unicorn);
+
+                gameEngine.addEntity(unicorn);
+                gameEngine.addEntity(unicorn2);
+                gameEngine.addEntity(health);
+                gameEngine.addEntity(health2);
+
+
+
+
+                var entities = gameEngine.entities;
+                for(var i =0; i<entities.length; i++){
+                    if(entities[i] === title){
+                        entities.splice(i,1);
+
+                        break;
+                    }
+
+
+                }
+
+                for(var i = 0; i< entities.length; i++){
+                    if(entities[i].AI){
+                        entities[i].move = true;
+                        break;
+                    }
+                }
+
+                backgroundMusic.pause();
+                fightIntroMusic.play();
+
             }
+            /*
+             var entities = gameEngine.entities;
+             for(var i =0; i<entities.length; i++){
+             if(entities[i] === title){
+             entities.splice(i,1);
+
+             break;
+             }
+
+
+             }
+
+             for(var i = 0; i< entities.length; i++){
+             if(entities[i].AI){
+             entities[i].move = true;
+             break;
+             }
+             }
+
+             backgroundMusic.pause();
+             fightIntroMusic.play();
+             */
         }
-        /*
-        var entities = gameEngine.entities;
-        for(var i =0; i<entities.length; i++){
-            if(entities[i] === title){
-                entities.splice(i,1);
 
-                break;
-            }
-
-
-        }
-
-        for(var i = 0; i< entities.length; i++){
-            if(entities[i].AI){
-                entities[i].move = true;
-                break;
-            }
-        }
-
-        backgroundMusic.pause();
-        fightIntroMusic.play();
-        */
+        firstClick = false;
     });
 
     gameEngine.start();
