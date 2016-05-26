@@ -690,7 +690,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDeadLeft.png"),0,0, 478, 338, 0.09, 28, false, false);
 
         //Victory
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 0, 440, 382, 0.07, 9, true, false);
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 13, 440, 382, 1, 9, true, false);
     }else if(fighterName === SANDERS){
         //height and widths for bounding boxes
 
@@ -868,7 +868,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
 
 
         //VICTORY
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWinDance.png"), 0, 0, 325, 352, 0.06, 12, true, false);
+        //spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWinDance.png"), 0, 0, 746, 630, 0.08, 12, true, false);
 
     }
     if(faceLeft){this.boundBox = this.standLeftBox;}
@@ -2021,11 +2022,11 @@ Fighter.prototype.draw = function (ctx) {
         this.animationLeft.spriteSheet = this.victoryDance.spriteSheet;
         if(this.fighter === TRUMP){
             // if(this.facing){
-            this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+            this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y-100);
             // }
             // this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         }else if(this.fighter ===SANDERS){
-            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x-355, this.y-180);
         } else if(this.fighter === CLINTON){
             this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y-75);
         }else if(this.fighter === CRUZ){
