@@ -690,7 +690,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDeadLeft.png"),0,0, 478, 338, 0.09, 28, false, false);
 
         //Victory
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 13, 440, 382, 1, 9, true, false);
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 0, 440, 382, .07, 9, true, false);
     }else if(fighterName === SANDERS){
         //height and widths for bounding boxes
 
@@ -2022,7 +2022,7 @@ Fighter.prototype.draw = function (ctx) {
         this.animationLeft.spriteSheet = this.victoryDance.spriteSheet;
         if(this.fighter === TRUMP){
             // if(this.facing){
-            this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y-100);
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x-43, this.y-28);
             // }
             // this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         }else if(this.fighter ===SANDERS){
