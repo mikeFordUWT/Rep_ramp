@@ -297,7 +297,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDeadLeft.png"),0,0, 303, 321, 0.09, 28, false, false);
 
         //VICTORY
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWinDance.png"), 0, 0, 325, 352, 0.06, 12, true, false);
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWinDance.png"), 0, 0, 618, 667, 0.07, 11, true, false);
 
     }else if(fighterName === CLINTON){
 
@@ -504,7 +504,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDeadLeft.png"),0,0, 313, 327, 0.09, 28, false, false);
 
         //VICTORY
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWinDance.png"), 0, 0, 300, 410, 0.06, 12, true, false);
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWinDance.png"), 0, 0, 300, 405, 0.08, 11, true, false);
     }else if(fighterName === TRUMP){
         //height and widths for bounding boxes
         this.widthOptions = {
@@ -690,8 +690,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDeadLeft.png"),0,0, 478, 338, 0.09, 28, false, false);
 
         //Victory
-        // this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 0, 444, 373, 0.075, 9, true, false);
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 0, 444, 373, 0.07, 10, true, false);
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 0, 440, 382, .07, 9, true, false);
     }else if(fighterName === SANDERS){
         //height and widths for bounding boxes
 
@@ -869,7 +868,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
 
 
         //VICTORY
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWinDance.png"), 0, 0, 325, 352, 0.06, 12, true, false);
+        //spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWinDance.png"), 0, 0, 746, 630, 0.08, 12, true, false);
 
     }
     if(faceLeft){this.boundBox = this.standLeftBox;}
@@ -2017,7 +2017,22 @@ Fighter.prototype.draw = function (ctx) {
         }
 
 
-    }else {
+    } else if(this.win){
+        this.animation.spriteSheet = this.victoryDance.spriteSheet;
+        this.animationLeft.spriteSheet = this.victoryDance.spriteSheet;
+        if(this.fighter === TRUMP){
+            // if(this.facing){
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x-43, this.y-28);
+            // }
+            // this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+        }else if(this.fighter ===SANDERS){
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x-355, this.y-180);
+        } else if(this.fighter === CLINTON){
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y-75);
+        }else if(this.fighter === CRUZ){
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y - 200);
+        }
+    } else {
         if (this.facing === true) {
             this.boundBox = this.standLeftBox;
             if (this.fighter === TRUMP) {
@@ -2054,22 +2069,7 @@ Fighter.prototype.draw = function (ctx) {
             // this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         }
     }
-    // if(this.win){
-    //     this.animation.spriteSheet = this.victoryDance.spriteSheet;
-    //     this.animationLeft.spriteSheet = this.victoryDance.spriteSheet;
-    //     if(this.fighter === TRUMP){
-    //         // if(this.facing){
-    //             this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //         // }
-    //         // this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //     }else if(this.fighter ===SANDERS){
-    //         this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //     } else if(this.fighter === CLINTON){
-    //         this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //     }else if(this.fighter === CRUZ){
-    //         this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //     }
-    // }
+
 
     Entity.prototype.draw.call(this);
 };

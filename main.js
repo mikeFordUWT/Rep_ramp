@@ -135,13 +135,13 @@ ASSET_MANAGER.downloadAll(function () {
     var clinton = "CLINTON"
     var sanders = "SANDERS"
 // Animation()
-    var unicorn2 = new Fighter(gameEngine,cruz, ASSET_MANAGER, 100, 0, false, false, 1);
+    var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, false, false, 1);
     var unicorn = new Fighter(gameEngine, trump, ASSET_MANAGER, canvas.width-200, 0, false, false, 2);
 
     
     var health = new Health("left", unicorn2);
     var health2 = new Health("right", unicorn);
-    unicorn.healthBar = 100;
+    unicorn.healthBar = -10;
 
     // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
     // var unicorn = new AIFighter(gameEngine, "donaldTrump", ASSET_MANAGER, 1000, 0, false);
