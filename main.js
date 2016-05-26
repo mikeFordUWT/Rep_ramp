@@ -134,14 +134,9 @@ ASSET_MANAGER.downloadAll(function () {
     var cruz = "CRUZ"
     var clinton = "CLINTON"
     var sanders = "SANDERS"
-// Animation()
-    var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, false, false, 1);
-    var unicorn = new Fighter(gameEngine, trump, ASSET_MANAGER, canvas.width-200, 0, false, false, 2);
 
-    
-    var health = new Health("left", unicorn2);
-    var health2 = new Health("right", unicorn);
-    unicorn.healthBar = -10;
+    //animation was here
+
 
     // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
     // var unicorn = new AIFighter(gameEngine, "donaldTrump", ASSET_MANAGER, 1000, 0, false);
@@ -151,10 +146,7 @@ ASSET_MANAGER.downloadAll(function () {
     var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
 
     //gameEngine.addEntity(unicorn);
-    gameEngine.addEntity(unicorn);
-    gameEngine.addEntity(unicorn2);
-    gameEngine.addEntity(health);
-    gameEngine.addEntity(health2);
+    //add entities was here
 
 
     gameEngine.addEntity(title);
@@ -182,7 +174,104 @@ ASSET_MANAGER.downloadAll(function () {
         this.play();
     }, false);
 
-    canvas.addEventListener('focus', function (event) {
+
+    canvas.addEventListener('click', function (event) {
+
+        this.playerVsPlayer = {left: 1, right: 250, top: 123, bottom: 285};
+        this.playerVsAI = {left: 1045, right: 1275, top: 123, bottom: 285};
+        // gameEngine = new GameEngine();
+        if(gameEngine.click) {
+            console.log(gameEngine.click.x + "<" + this.playerVsPlayer.right)
+            console.log(gameEngine.click.x + ">" + this.playerVsPlayer.left)
+            console.log(gameEngine.click.y + "<" + this.playerVsPlayer.bottom)
+            console.log(gameEngine.click.y+ ">" + this.playerVsPlayer.top)
+
+            console.log("Click : " + gameEngine.click.y)
+            //if click is in top left between rep rumble text, trump's hand, and bernie's head
+            if (gameEngine.click.x < this.playerVsPlayer.right && gameEngine.click.x > this.playerVsPlayer.left &&
+                gameEngine.click.y < this.playerVsPlayer.bottom && gameEngine.click.y > this.playerVsPlayer.top) {
+                console.log("player vs player")
+
+                // Animation()
+                var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, false, false, 1);
+                var unicorn = new Fighter(gameEngine, sanders, ASSET_MANAGER, canvas.width-200, 0, false, false, 2);
+
+
+                var health = new Health("left", unicorn2);
+                var health2 = new Health("right", unicorn);
+
+                gameEngine.addEntity(unicorn);
+                gameEngine.addEntity(unicorn2);
+                gameEngine.addEntity(health);
+                gameEngine.addEntity(health2);
+
+
+
+
+                var entities = gameEngine.entities;
+                for(var i =0; i<entities.length; i++){
+                    if(entities[i] === title){
+                        entities.splice(i,1);
+
+                        break;
+                    }
+
+
+                }
+
+                for(var i = 0; i< entities.length; i++){
+                    if(entities[i].AI){
+                        entities[i].move = true;
+                        break;
+                    }
+                }
+
+                backgroundMusic.pause();
+                fightIntroMusic.play();
+
+
+            } else if (gameEngine.click.x < this.playerVsAI.right && gameEngine.click.x > this.playerVsAI.left &&
+                gameEngine.click.y < this.playerVsAI.bottom && gameEngine.click.y > this.playerVsAI.top) {
+                console.log("player vs ai")
+
+                // Animation()
+                var unicorn2 = new Fighter(gameEngine,trump, ASSET_MANAGER, 100, 0, false, false, 1);
+                var unicorn = new Fighter(gameEngine, sanders, ASSET_MANAGER, canvas.width-200, 0, false, true, 2);
+
+
+                var health = new Health("left", unicorn2);
+                var health2 = new Health("right", unicorn);
+
+                gameEngine.addEntity(unicorn);
+                gameEngine.addEntity(unicorn2);
+                gameEngine.addEntity(health);
+                gameEngine.addEntity(health2);
+
+
+                var entities = gameEngine.entities;
+                for(var i =0; i<entities.length; i++){
+                    if(entities[i] === title){
+                        entities.splice(i,1);
+
+                        break;
+                    }
+
+
+                }
+
+                for(var i = 0; i< entities.length; i++){
+                    if(entities[i].AI){
+                        entities[i].move = true;
+                        break;
+                    }
+                }
+
+                backgroundMusic.pause();
+                fightIntroMusic.play();
+
+            }
+        }
+        /*
         var entities = gameEngine.entities;
         for(var i =0; i<entities.length; i++){
             if(entities[i] === title){
@@ -200,8 +289,10 @@ ASSET_MANAGER.downloadAll(function () {
                 break;
             }
         }
+
         backgroundMusic.pause();
         fightIntroMusic.play();
+        */
     });
 
     gameEngine.start();
