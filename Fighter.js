@@ -1476,7 +1476,7 @@ Fighter.prototype.update = function(){
             this.walkRightAnimation.elapsedTime = 0;
             this.walkRight = false;
         }
-        this.x = this.x + 2;
+        this.x = this.x + 4;
         this.y = this.ground;
 
     }else if (this.walkLeft){
@@ -1486,7 +1486,7 @@ Fighter.prototype.update = function(){
             this.walkLeftAnimation.elapsedTime = 0;
             this.walkLeft = false;
         }
-        this.x = this.x - 2;
+        this.x = this.x - 4;
         this.y = this.ground;
     }else if (this.blocking){
         if(this.blockingAnimation.isDone()) {
@@ -2157,17 +2157,20 @@ Fighter.prototype.search = function(other){
                     }
                 }
 
-                if (truths == 0) {
-                    if (rand == 2) {
-                        this.highKicking = true;
-                    } else if (rand == 1) {
-                        this.punching = true;
-                    } else if (rand == 3) {
-                        this.blocking = true;
-                    } else if (rand == 4) {
-                        this.lowKicking = true;
+                if(!this.win){
+                    if (truths == 0) {
+                        if (rand == 2) {
+                            this.highKicking = true;
+                        } else if (rand == 1) {
+                            this.punching = true;
+                        } else if (rand == 3) {
+                            this.blocking = true;
+                        } else if (rand == 4) {
+                            this.lowKicking = true;
+                        }
                     }
                 }
+
                 // if they're running away left, follow
             } else {
                 if (!(this.highKicking || this.punching || this.blocking || this.lowKicking)) {
@@ -2190,18 +2193,20 @@ Fighter.prototype.search = function(other){
                         truths++;
                     }
                 }
-
-                if (truths == 0) {
-                    if (rand == 2) {
-                        this.highKicking = true;
-                    } else if (rand == 1) {
-                        this.punching = true;
-                    } else if (rand == 3) {
-                        this.blocking = true;
-                    } else if (rand == 4) {
-                        this.lowKicking = true;
+                if(!this.win){
+                    if (truths == 0) {
+                        if (rand == 2) {
+                            this.highKicking = true;
+                        } else if (rand == 1) {
+                            this.punching = true;
+                        } else if (rand == 3) {
+                            this.blocking = true;
+                        } else if (rand == 4) {
+                            this.lowKicking = true;
+                        }
                     }
                 }
+
                 //if they're running away right, follow
             } else {
                 if (!(this.highKicking || this.punching || this.blocking || this.highKicking)) {
@@ -2228,18 +2233,20 @@ Fighter.prototype.search = function(other){
                         truths++;
                     }
                 }
-
-                if (truths == 0) {
-                    if (rand == 2) {
-                        this.highKicking = true;
-                    } else if (rand == 1) {
-                        this.punching = true;
-                    } else if (rand == 3) {
-                        this.blocking = true;
-                    } else if (rand == 4) {
-                        this.lowKicking = true;
+                if(!this.win){
+                    if (truths == 0) {
+                        if (rand == 2) {
+                            this.highKicking = true;
+                        } else if (rand == 1) {
+                            this.punching = true;
+                        } else if (rand == 3) {
+                            this.blocking = true;
+                        } else if (rand == 4) {
+                            this.lowKicking = true;
+                        }
                     }
                 }
+
                 //if they're out of your fightrange, run
             } else {
                 if (!(this.highKicking || this.punching || this.blocking || this.highKicking || this.lowKicking)) {
@@ -2263,17 +2270,20 @@ Fighter.prototype.search = function(other){
                     }
                 }
 
-                if (truths == 0) {
-                    if (rand == 2) {
-                        this.highKicking = true;
-                    } else if (rand == 1) {
-                        this.punching = true;
-                    } else if (rand == 3) {
-                        this.blocking = true;
-                    } else if (rand == 4) {
-                        this.loKicking = true;
+                if(!this.win){
+                    if (truths == 0) {
+                        if (rand == 2) {
+                            this.highKicking = true;
+                        } else if (rand == 1) {
+                            this.punching = true;
+                        } else if (rand == 3) {
+                            this.blocking = true;
+                        } else if (rand == 4) {
+                            this.loKicking = true;
+                        }
                     }
                 }
+
                 //if they're not in your fightrange, run
             } else {
                 if (!(this.highKicking || this.punching || this.blocking || this.lowKicking)) {
