@@ -1664,8 +1664,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.fistRightBox.height = 30;
             }else if(this.fighter === SANDERS){
                 this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x-110 , this.y-105);
-                this.fistRightBox.x = this.boundBox.x + this.boundBox.width - 70;
-                this.fistRightBox.y = this.boundBox.y + (this.boundBox.height/2);
+                this.fistRightBox.x = this.boundBox.x + this.boundBox.width;
+                this.fistRightBox.y = this.boundBox.y + (this.boundBox.height/2) - 30;
                 this.fistRightBox.width = 100;
                 this.fistRightBox.height = 30;
             }else if(this.fighter === CLINTON){
@@ -1676,8 +1676,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.fistRightBox.height = 30;
             } else if (this.fighter === CRUZ) {
                 this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x - 75, this.y);
-                this.fistRightBox.x = this.boundBox.x + this.boundBox.width - 70;
-                this.fistRightBox.y = this.boundBox.y + (this.boundBox.height/2);
+                this.fistRightBox.x = this.boundBox.x + this.boundBox.width -60;
+                this.fistRightBox.y = this.boundBox.y + (this.boundBox.height/2) +30;
                 this.fistRightBox.width = 100;
                 this.fistRightBox.height = 30;
             }
@@ -1714,8 +1714,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowFootLeftBox.height = 30;
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x,this.y-10);
             }else if(this.fighter === SANDERS){
-                this.lowFootLeftBox.x = this.boundBox.x - 20;
-                this.lowFootLeftBox.y = this.boundBox.y + (this.boundBox.height - 50);
+                this.lowFootLeftBox.x = this.boundBox.x - 35;
+                this.lowFootLeftBox.y = this.boundBox.y + (this.boundBox.height - 60);
                 this.lowFootLeftBox.width = 100;
                 this.lowFootLeftBox.height = 30;
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x - 15,this.y - 13);
@@ -1726,8 +1726,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowFootLeftBox.height = 30;
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x -60,this.y);
             } else if (this.fighter === CRUZ) {
-                this.lowFootLeftBox.x = this.boundBox.x - 20;
-                this.lowFootLeftBox.y = this.boundBox.y + (this.boundBox.height - 50);
+                this.lowFootLeftBox.x = this.boundBox.x;
+                this.lowFootLeftBox.y = this.boundBox.y + (this.boundBox.height) - 109;
                 this.lowFootLeftBox.width = 100;
                 this.lowFootLeftBox.height = 30;
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x,this.y-15);
@@ -1759,8 +1759,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowFootRightBox.height = 30;
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-155,this.y-5);
             }else if(this.fighter === SANDERS){
-                this.lowFootRightBox.x = this.boundBox.x + this.boundBox.width;
-                this.lowFootRightBox.y = this.boundBox.y + this.boundBox.height;
+                this.lowFootRightBox.x = this.boundBox.x + this.boundBox.width - 50;
+                this.lowFootRightBox.y = this.boundBox.y + this.boundBox.height - 50;
                 this.lowFootRightBox.width = 100;
                 this.lowFootRightBox.height = 30;
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-150,this.y);
@@ -1771,8 +1771,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowFootRightBox.height = 30;
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-30,this.y);
             } else if (this.fighter === CRUZ) {
-                this.lowFootRightBox.x = this.boundBox.x + this.boundBox.width;
-                this.lowFootRightBox.y = this.boundBox.y + this.boundBox.height;
+                this.lowFootRightBox.x = this.boundBox.x + this.boundBox.width -30;
+                this.lowFootRightBox.y = this.boundBox.y + this.boundBox.height - 60;
                 this.lowFootRightBox.width = 100;
                 this.lowFootRightBox.height = 30;
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-54,this.y-15);
@@ -1814,8 +1814,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.highFootLeftBox.height = 30;
                 this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-60,this.y-5);
             }else if(this.fighter === SANDERS){
-                this.highFootLeftBox.x = this.boundBox.x - 100;
-                this.highFootLeftBox.y = this.boundBox.y + (this.boundBox.height/2);
+                this.highFootLeftBox.x = this.boundBox.x - 70;
+                this.highFootLeftBox.y = this.boundBox.y + (this.boundBox.height/2) +35;
                 this.highFootLeftBox.width = 100;
                 this.highFootLeftBox.height = 30;
                 this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-40,this.y-13);
@@ -1826,7 +1826,7 @@ Fighter.prototype.draw = function (ctx) {
                 this.highFootLeftBox.height = 30;
                 this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-25,this.y-20);
             } else if (this.fighter === CRUZ) {
-                this.highFootLeftBox.x = this.boundBox.x - 100;
+                this.highFootLeftBox.x = this.boundBox.x - 50;
                 this.highFootLeftBox.y = this.boundBox.y + (this.boundBox.height/2);
                 this.highFootLeftBox.width = 100;
                 this.highFootLeftBox.height = 30;
@@ -1861,8 +1861,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-160,this.y);
             }else if(this.fighter === SANDERS){
                 this.highFootRightBox.x = this.boundBox.x + this.boundBox.width;
-                this.highFootRightBox.y = this.boundBox.y + (this.boundBox.height/2);
-                this.highFootRightBox.width = 50;
+                this.highFootRightBox.y = this.boundBox.y + (this.boundBox.height/2) + 45;
+                this.highFootRightBox.width = 120;
                 this.highFootRightBox.height = 30;
                 this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-160,this.y-10);
             }else if(this.fighter === CLINTON){
@@ -2287,8 +2287,8 @@ Fighter.prototype.search = function(other){
         }
     }
 
-}
+};
 
 Fighter.prototype.fight = function(other){
 
-}
+};
