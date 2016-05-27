@@ -297,7 +297,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDeadLeft.png"),0,0, 303, 321, 0.09, 28, false, false);
 
         //VICTORY
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWinDance.png"), 0, 0, 325, 352, 0.06, 12, true, false);
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWinDance.png"), 0, 0, 618, 667, 0.07, 11, true, false);
 
     }else if(fighterName === CLINTON){
 
@@ -504,7 +504,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonDeadLeft.png"),0,0, 313, 327, 0.09, 28, false, false);
 
         //VICTORY
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWinDance.png"), 0, 0, 300, 410, 0.06, 12, true, false);
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWinDance.png"), 0, 0, 300, 405, 0.08, 11, true, false);
     }else if(fighterName === TRUMP){
         //height and widths for bounding boxes
         this.widthOptions = {
@@ -690,8 +690,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.deadLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpDeadLeft.png"),0,0, 478, 338, 0.09, 28, false, false);
 
         //Victory
-        // this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 0, 444, 373, 0.075, 9, true, false);
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 0, 444, 373, 0.07, 10, true, false);
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Trump/TrumpWinDance.png"), 0, 0, 440, 382, .07, 9, true, false);
     }else if(fighterName === SANDERS){
         //height and widths for bounding boxes
 
@@ -869,7 +868,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
 
 
         //VICTORY
-        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWinDance.png"), 0, 0, 325, 352, 0.06, 12, true, false);
+        //spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse
+        this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Sanders/SandersWinDance.png"), 0, 0, 746, 630, 0.08, 12, true, false);
 
     }
     if(faceLeft){this.boundBox = this.standLeftBox;}
@@ -1476,7 +1476,7 @@ Fighter.prototype.update = function(){
             this.walkRightAnimation.elapsedTime = 0;
             this.walkRight = false;
         }
-        this.x = this.x + 2;
+        this.x = this.x + 4;
         this.y = this.ground;
 
     }else if (this.walkLeft){
@@ -1486,7 +1486,7 @@ Fighter.prototype.update = function(){
             this.walkLeftAnimation.elapsedTime = 0;
             this.walkLeft = false;
         }
-        this.x = this.x - 2;
+        this.x = this.x - 4;
         this.y = this.ground;
     }else if (this.blocking){
         if(this.blockingAnimation.isDone()) {
@@ -1664,8 +1664,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.fistRightBox.height = 30;
             }else if(this.fighter === SANDERS){
                 this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x-110 , this.y-105);
-                this.fistRightBox.x = this.boundBox.x + this.boundBox.width - 70;
-                this.fistRightBox.y = this.boundBox.y + (this.boundBox.height/2);
+                this.fistRightBox.x = this.boundBox.x + this.boundBox.width;
+                this.fistRightBox.y = this.boundBox.y + (this.boundBox.height/2) - 30;
                 this.fistRightBox.width = 100;
                 this.fistRightBox.height = 30;
             }else if(this.fighter === CLINTON){
@@ -1676,8 +1676,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.fistRightBox.height = 30;
             } else if (this.fighter === CRUZ) {
                 this.punchingAnimation.drawFrame(this.game.clockTick, ctx, this.x - 75, this.y);
-                this.fistRightBox.x = this.boundBox.x + this.boundBox.width - 70;
-                this.fistRightBox.y = this.boundBox.y + (this.boundBox.height/2);
+                this.fistRightBox.x = this.boundBox.x + this.boundBox.width -60;
+                this.fistRightBox.y = this.boundBox.y + (this.boundBox.height/2) +30;
                 this.fistRightBox.width = 100;
                 this.fistRightBox.height = 30;
             }
@@ -1714,8 +1714,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowFootLeftBox.height = 30;
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x,this.y-10);
             }else if(this.fighter === SANDERS){
-                this.lowFootLeftBox.x = this.boundBox.x - 20;
-                this.lowFootLeftBox.y = this.boundBox.y + (this.boundBox.height - 50);
+                this.lowFootLeftBox.x = this.boundBox.x - 35;
+                this.lowFootLeftBox.y = this.boundBox.y + (this.boundBox.height - 60);
                 this.lowFootLeftBox.width = 100;
                 this.lowFootLeftBox.height = 30;
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x - 15,this.y - 13);
@@ -1726,8 +1726,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowFootLeftBox.height = 30;
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x -60,this.y);
             } else if (this.fighter === CRUZ) {
-                this.lowFootLeftBox.x = this.boundBox.x - 20;
-                this.lowFootLeftBox.y = this.boundBox.y + (this.boundBox.height - 50);
+                this.lowFootLeftBox.x = this.boundBox.x;
+                this.lowFootLeftBox.y = this.boundBox.y + (this.boundBox.height) - 109;
                 this.lowFootLeftBox.width = 100;
                 this.lowFootLeftBox.height = 30;
                 this.lowKickingAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x,this.y-15);
@@ -1759,8 +1759,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowFootRightBox.height = 30;
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-155,this.y-5);
             }else if(this.fighter === SANDERS){
-                this.lowFootRightBox.x = this.boundBox.x + this.boundBox.width;
-                this.lowFootRightBox.y = this.boundBox.y + this.boundBox.height;
+                this.lowFootRightBox.x = this.boundBox.x + this.boundBox.width - 50;
+                this.lowFootRightBox.y = this.boundBox.y + this.boundBox.height - 50;
                 this.lowFootRightBox.width = 100;
                 this.lowFootRightBox.height = 30;
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-150,this.y);
@@ -1771,8 +1771,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.lowFootRightBox.height = 30;
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-30,this.y);
             } else if (this.fighter === CRUZ) {
-                this.lowFootRightBox.x = this.boundBox.x + this.boundBox.width;
-                this.lowFootRightBox.y = this.boundBox.y + this.boundBox.height;
+                this.lowFootRightBox.x = this.boundBox.x + this.boundBox.width -30;
+                this.lowFootRightBox.y = this.boundBox.y + this.boundBox.height - 60;
                 this.lowFootRightBox.width = 100;
                 this.lowFootRightBox.height = 30;
                 this.lowKickingAnimation.drawFrame(this.game.clockTick,ctx,this.x-54,this.y-15);
@@ -1814,8 +1814,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.highFootLeftBox.height = 30;
                 this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-60,this.y-5);
             }else if(this.fighter === SANDERS){
-                this.highFootLeftBox.x = this.boundBox.x - 100;
-                this.highFootLeftBox.y = this.boundBox.y + (this.boundBox.height/2);
+                this.highFootLeftBox.x = this.boundBox.x - 70;
+                this.highFootLeftBox.y = this.boundBox.y + (this.boundBox.height/2) +35;
                 this.highFootLeftBox.width = 100;
                 this.highFootLeftBox.height = 30;
                 this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-40,this.y-13);
@@ -1826,7 +1826,7 @@ Fighter.prototype.draw = function (ctx) {
                 this.highFootLeftBox.height = 30;
                 this.highKickAnimationLeft.drawFrame(this.game.clockTick,ctx,this.x-25,this.y-20);
             } else if (this.fighter === CRUZ) {
-                this.highFootLeftBox.x = this.boundBox.x - 100;
+                this.highFootLeftBox.x = this.boundBox.x - 50;
                 this.highFootLeftBox.y = this.boundBox.y + (this.boundBox.height/2);
                 this.highFootLeftBox.width = 100;
                 this.highFootLeftBox.height = 30;
@@ -1861,8 +1861,8 @@ Fighter.prototype.draw = function (ctx) {
                 this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-160,this.y);
             }else if(this.fighter === SANDERS){
                 this.highFootRightBox.x = this.boundBox.x + this.boundBox.width;
-                this.highFootRightBox.y = this.boundBox.y + (this.boundBox.height/2);
-                this.highFootRightBox.width = 50;
+                this.highFootRightBox.y = this.boundBox.y + (this.boundBox.height/2) + 45;
+                this.highFootRightBox.width = 120;
                 this.highFootRightBox.height = 30;
                 this.highKickAnimation.drawFrame(this.game.clockTick,ctx,this.x-160,this.y-10);
             }else if(this.fighter === CLINTON){
@@ -2017,7 +2017,22 @@ Fighter.prototype.draw = function (ctx) {
         }
 
 
-    }else {
+    } else if(this.win){
+        this.animation.spriteSheet = this.victoryDance.spriteSheet;
+        this.animationLeft.spriteSheet = this.victoryDance.spriteSheet;
+        if(this.fighter === TRUMP){
+            // if(this.facing){
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x-43, this.y-28);
+            // }
+            // this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
+        }else if(this.fighter ===SANDERS){
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x-355, this.y-180);
+        } else if(this.fighter === CLINTON){
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y-75);
+        }else if(this.fighter === CRUZ){
+            this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y - 200);
+        }
+    } else {
         if (this.facing === true) {
             this.boundBox = this.standLeftBox;
             if (this.fighter === TRUMP) {
@@ -2054,22 +2069,7 @@ Fighter.prototype.draw = function (ctx) {
             // this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
         }
     }
-    // if(this.win){
-    //     this.animation.spriteSheet = this.victoryDance.spriteSheet;
-    //     this.animationLeft.spriteSheet = this.victoryDance.spriteSheet;
-    //     if(this.fighter === TRUMP){
-    //         // if(this.facing){
-    //             this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //         // }
-    //         // this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //     }else if(this.fighter ===SANDERS){
-    //         this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //     } else if(this.fighter === CLINTON){
-    //         this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //     }else if(this.fighter === CRUZ){
-    //         this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-    //     }
-    // }
+
 
     Entity.prototype.draw.call(this);
 };
@@ -2157,17 +2157,20 @@ Fighter.prototype.search = function(other){
                     }
                 }
 
-                if (truths == 0) {
-                    if (rand == 2) {
-                        this.highKicking = true;
-                    } else if (rand == 1) {
-                        this.punching = true;
-                    } else if (rand == 3) {
-                        this.blocking = true;
-                    } else if (rand == 4) {
-                        this.lowKicking = true;
+                if(!this.win){
+                    if (truths == 0) {
+                        if (rand == 2) {
+                            this.highKicking = true;
+                        } else if (rand == 1) {
+                            this.punching = true;
+                        } else if (rand == 3) {
+                            this.blocking = true;
+                        } else if (rand == 4) {
+                            this.lowKicking = true;
+                        }
                     }
                 }
+
                 // if they're running away left, follow
             } else {
                 if (!(this.highKicking || this.punching || this.blocking || this.lowKicking)) {
@@ -2190,18 +2193,20 @@ Fighter.prototype.search = function(other){
                         truths++;
                     }
                 }
-
-                if (truths == 0) {
-                    if (rand == 2) {
-                        this.highKicking = true;
-                    } else if (rand == 1) {
-                        this.punching = true;
-                    } else if (rand == 3) {
-                        this.blocking = true;
-                    } else if (rand == 4) {
-                        this.lowKicking = true;
+                if(!this.win){
+                    if (truths == 0) {
+                        if (rand == 2) {
+                            this.highKicking = true;
+                        } else if (rand == 1) {
+                            this.punching = true;
+                        } else if (rand == 3) {
+                            this.blocking = true;
+                        } else if (rand == 4) {
+                            this.lowKicking = true;
+                        }
                     }
                 }
+
                 //if they're running away right, follow
             } else {
                 if (!(this.highKicking || this.punching || this.blocking || this.highKicking)) {
@@ -2228,18 +2233,20 @@ Fighter.prototype.search = function(other){
                         truths++;
                     }
                 }
-
-                if (truths == 0) {
-                    if (rand == 2) {
-                        this.highKicking = true;
-                    } else if (rand == 1) {
-                        this.punching = true;
-                    } else if (rand == 3) {
-                        this.blocking = true;
-                    } else if (rand == 4) {
-                        this.lowKicking = true;
+                if(!this.win){
+                    if (truths == 0) {
+                        if (rand == 2) {
+                            this.highKicking = true;
+                        } else if (rand == 1) {
+                            this.punching = true;
+                        } else if (rand == 3) {
+                            this.blocking = true;
+                        } else if (rand == 4) {
+                            this.lowKicking = true;
+                        }
                     }
                 }
+
                 //if they're out of your fightrange, run
             } else {
                 if (!(this.highKicking || this.punching || this.blocking || this.highKicking || this.lowKicking)) {
@@ -2263,17 +2270,20 @@ Fighter.prototype.search = function(other){
                     }
                 }
 
-                if (truths == 0) {
-                    if (rand == 2) {
-                        this.highKicking = true;
-                    } else if (rand == 1) {
-                        this.punching = true;
-                    } else if (rand == 3) {
-                        this.blocking = true;
-                    } else if (rand == 4) {
-                        this.loKicking = true;
+                if(!this.win){
+                    if (truths == 0) {
+                        if (rand == 2) {
+                            this.highKicking = true;
+                        } else if (rand == 1) {
+                            this.punching = true;
+                        } else if (rand == 3) {
+                            this.blocking = true;
+                        } else if (rand == 4) {
+                            this.loKicking = true;
+                        }
                     }
                 }
+
                 //if they're not in your fightrange, run
             } else {
                 if (!(this.highKicking || this.punching || this.blocking || this.lowKicking)) {
@@ -2287,8 +2297,8 @@ Fighter.prototype.search = function(other){
         }
     }
 
-}
+};
 
 Fighter.prototype.fight = function(other){
 
-}
+};

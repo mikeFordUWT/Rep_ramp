@@ -130,18 +130,33 @@ ASSET_MANAGER.downloadAll(function () {
 
     //var unicorn = new TedCruz(gameEngine);
 
+
     var trump = "TRUMP"
     var cruz = "CRUZ"
     var clinton = "CLINTON"
     var sanders = "SANDERS"
-Animation()
-    var unicorn2 = new Fighter(gameEngine,clinton, ASSET_MANAGER, 100, 0, false, false, 1);
-    var unicorn = new Fighter(gameEngine, trump, ASSET_MANAGER, canvas.width-200, 0, false, true, 2);
+    var candidates = [clinton, sanders, cruz, trump];
+
+    var rand1 = Math.floor(Math.random()*4);
+    // var rand1 = 2;
+    var rand2;
+    if(rand1<=1){
+        rand2 = Math.floor(Math.random()*2) + 2;
+    }else if(rand1>=2){
+        rand2 = Math.floor(Math.random() * 2);
+    }
+
+    var fighter1 = candidates[rand1];
+    var fighter2 = candidates[rand2];
+// Animation()
+    var unicorn2 = new Fighter(gameEngine,fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
+    var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-200, 0, false, true, 2);
 
     
     var health = new Health("left", unicorn2);
     var health2 = new Health("right", unicorn);
-    unicorn.healthBar = 100;
+    // unicorn2.healthBar = 10;
+    // unicorn.healthBar = -10;
 
     // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
     // var unicorn = new AIFighter(gameEngine, "donaldTrump", ASSET_MANAGER, 1000, 0, false);
@@ -162,6 +177,7 @@ Animation()
     gameEngine.init(ctx);
     //background music
     var backgroundMusic = new Audio('./audio/songs/hailToTheChief.mp3');
+    // backgroundMusic.volume =0;
     backgroundMusic.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
@@ -170,6 +186,7 @@ Animation()
     //fight intro
     var fightIntroMusic = new Audio('./audio/songs/fightIntro.mp3');
     fightIntroMusic.volume = 0.5;
+    // fightIntroMusic.volume = 0;
     fightIntroMusic.addEventListener("ended", playNext);
     function playNext() {
         fightLoopMusic.play();
@@ -177,6 +194,7 @@ Animation()
     //fight loop
     var fightLoopMusic = new Audio('./audio/songs/fightLoop.mp3');
     fightLoopMusic.volume = 0.5;
+    // fightLoopMusic.volume = 0;
     fightLoopMusic.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
