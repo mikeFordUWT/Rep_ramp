@@ -128,17 +128,11 @@ ASSET_MANAGER.downloadAll(function () {
 
     var gameEngine = new GameEngine();
 
-    //var unicorn = new TedCruz(gameEngine);
+    //Candidate array
+    var candidates = ["CLINTON", "SANDERS", "CRUZ", "TRUMP"];
 
-
-    var trump = "TRUMP"
-    var cruz = "CRUZ"
-    var clinton = "CLINTON"
-    var sanders = "SANDERS"
-    var candidates = [clinton, sanders, cruz, trump];
-
+    //Pick a random fighter
     var rand1 = Math.floor(Math.random()*4);
-    // var rand1 = 2;
     var rand2;
     if(rand1<=1){
         rand2 = Math.floor(Math.random()*2) + 2;
@@ -146,26 +140,21 @@ ASSET_MANAGER.downloadAll(function () {
         rand2 = Math.floor(Math.random() * 2);
     }
 
+    //Select the random candidate from the array
     var fighter1 = candidates[rand1];
     var fighter2 = candidates[rand2];
-// Animation()
-    var unicorn2 = new Fighter(gameEngine,fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
+
+    var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
     var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-200, 0, false, true, 2);
 
-    
+    //Give them health bars!
     var health = new Health("left", unicorn2);
     var health2 = new Health("right", unicorn);
-    // unicorn2.healthBar = 10;
-    // unicorn.healthBar = -10;
-
-    // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
-    // var unicorn = new AIFighter(gameEngine, "donaldTrump", ASSET_MANAGER, 1000, 0, false);
 
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
 
     var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
 
-    //gameEngine.addEntity(unicorn);
     gameEngine.addEntity(unicorn);
     gameEngine.addEntity(unicorn2);
     gameEngine.addEntity(health);
@@ -205,7 +194,6 @@ ASSET_MANAGER.downloadAll(function () {
         for(var i =0; i<entities.length; i++){
             if(entities[i] === title){
                 entities.splice(i,1);
-
                 break;
             }
 
