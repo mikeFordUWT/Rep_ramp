@@ -91,63 +91,13 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
 
     if(fighterName === CRUZ){
         //height and widths for bounding boxes
-        this.widthOptions = {
-            walkLeft: 150,
-            walkRight: 144,
+        this.widthOptions = {walkLeft: 150, walkRight: 144, standLeft: 150, standRight: 157, punchLeft: 150,
+            punchRight: 140, lowKickLeft: 200, lowKickRight: 200, jumpLeft: 150, jumpRight: 165, highKickLeft: 170,
+            highKickRight: 170, duckLeft: 150, duckRight: 150, blockLeft: 382, blockRight: 378, deadLeft: 303, deadRight: 294};
 
-            standLeft: 150,
-            standRight: 157,
-
-            punchLeft: 150,
-            punchRight: 140,
-
-            lowKickLeft: 200,
-            lowKickRight: 200,
-
-            jumpLeft: 150,
-            jumpRight: 165,
-
-            highKickLeft: 170,
-            highKickRight: 170,
-
-            duckLeft: 150,
-            duckRight: 150,
-
-            blockLeft: 382,
-            blockRight: 378,
-
-            deadLeft: 303,
-            deadRight: 294
-        };
-
-        this.heightOptions = {
-            walkLeft: 300,
-            walkRight: 292,
-
-            standLeft: 292,
-            standRight: 292,
-
-            punchLeft: 319,
-            punchRight: 310,
-
-            lowKickLeft: 312,
-            lowKickRight:315,
-
-            jumpLeft: 300,
-            jumpRight: 310,
-
-            highKickLeft: 316,
-            highKickRight: 300,
-
-            duckLeft: 230,
-            duckRight: 230,
-
-            blockLeft: 311,
-            blockRight: 319,
-
-            deadLeft: 321,
-            deadRight: 309
-        };
+        this.heightOptions = {walkLeft: 300, walkRight: 292, standLeft: 292, standRight: 292, punchLeft: 319,
+            punchRight: 310, lowKickLeft: 312, lowKickRight:315, jumpLeft: 300, jumpRight: 310, highKickLeft: 316,
+            highKickRight: 300, duckLeft: 230, duckRight: 230, blockLeft: 311, blockRight: 319, deadLeft: 321, deadRight: 309};
 
         // this.width = this.widthOptions.standingWidth;
         // this.height = this.heightOptions.standingHeight;
@@ -158,72 +108,40 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
          */
 
         //for adjusting x's
-
         this.standRightX = function () {return this.x;};
-
         this.standLeftX = function () {return this.x;};
-
         this.jumpRightX = function () {return this.x -10;};
-
         this.jumpLeftX = function () {return this.x ;};
-
         this.punchRightX = function () {return this.x;};
-
         this.punchLeftX = function () {return this.x;};
-
         this.lowKickRightX = function () {return this.x+100;};
-
         this.lowKickLeftX = function () {return this.x+ 50;};
-
         this.duckRightX = function () {return this.x - 10;};
-
         this.duckLeftX = function () {return this.x - 30;};
-
         this.highKickRightX = function () {return this.x - 30;};
-
         this.highKickLeftX = function () {return this.x+ 20;};
-
         this.blockRightX = function () {return this.x - 135;};
-
         this.blockLeftX = function () {return this.x - 70;};
-
         this.walkRightX = function () {return this.x +5;};
-
         this.walkLeftX = function () {return this.x +17;};
 
         /** Adjusts Y's */
         this.standRightY = function (){return this.y;};
-
         this.standLeftY = function () {return this.y;};
-
         this.jumpRightY = function () {return this.y -8;};
-
         this.jumpLeftY = function () {return this.y - 15;};
-
         this.punchRightY = function () {return this.y -10;};
-
         this.punchLeftY = function () {return this.y - 10;};
-
         this.lowKickRightY = function () {return this.y -5;};
-
         this.lowKickLeftY = function () {return this.y - 15;};
-
         this.highKickLeftY = function () {return this.y -20;};
-
         this.highKickRightY = function () {return this.y -10;};
-
         this.duckRightY = function () {return this.y +65;};
-
         this.duckLeftY = function () {return this.y +65;};
-
         this.blockRightY = function () {return this.y - 15;};
-
         this.blockLeftY = function () {return this.y - 5;};
-
         this.walkLeftY = function () {return this.y + 10;};
-
         this.walkRightY = function () {return this.y;};
-
 
         //Bounding Boxes
         this.standRightBox = {x: this.standRightX() , y: this.standRightY(), width:this.widthOptions.standRight, height: this.heightOptions.standRight};
@@ -247,50 +165,33 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
         this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStandingLeft.png"), 0, 0, 147, 293, 0.099, 6, true, false);
 
-
-
         //JUMP
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
-
         this.jumpAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJumpLeft.png"), 0, 0, 237, 311, 0.06, 20, false, false);
-
 
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
-
         this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunchLeft.png"), 0, 0, 386, 319, 0.06, 12, false, false);
-
 
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzLoKick.png"), 0, 0, 285, 315, 0.06, 12, false, false);
-
         this.lowKickingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzLoKickLeft.png"), 0, 0, 296, 312, 0.06, 12, false, false);
-
 
         //DUCK
         this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);
-
         this.duckingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuckLeft.png"), 0, 0, 145, 294, 0.06, 16, false, false);
-
 
         //WALKING
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWalkLeft.png"), 0, 0, 246, 309, 0.06, 20, false, false);
-
         this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
-
 
         //HIGH KICK
         this.highKickAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKickLeft.png"), 0, 0, 280, 316, 0.06, 12, false, false);
-
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
-
-
 
         //BLOCK
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlock.png"),0,0, 378, 319, 0.06, 12, false, false);
-
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlockLeft.png"),0,0, 382, 311, 0.06, 12, false, false);
-
 
         //DEAD
         this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDead.png"),0,0, 294, 309, 0.09, 28, false, false);
@@ -302,69 +203,13 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
     }else if(fighterName === CLINTON){
 
         //height and widths for bounding boxes
-        this.widthOptions = {
+        this.widthOptions = {standLeft: 160, standRight: 160, highKickLeft: 200, highKickRight: 180, punchLeft: 170,
+            punchRight: 160, lowKickLeft: 160, lowKickRight: 170, jumpLeft: 160, jumpRight: 160, duckRight: 162,
+            blockRight:436, walkRight: 170, walkLeft: 180, duckLeft: 162, blockLeft: 446, deadRight: 314, deadLeft: 313};
 
-
-            standLeft: 160,
-            standRight: 160,
-
-            highKickLeft: 200,
-            highKickRight: 180,
-
-            punchLeft: 170,
-            punchRight: 160,
-
-            lowKickLeft: 160,
-            lowKickRight: 170,
-
-            jumpLeft: 160,
-            jumpRight: 160,
-
-            duckRight: 162,
-            blockRight:436,
-
-            walkRight: 170,
-            walkLeft: 180,
-
-            duckLeft: 162,
-            blockLeft: 446,
-
-            deadRight: 314,
-            deadLeft: 313
-        };
-
-
-        this.heightOptions = {
-
-            standRight: 299,
-            punchRight: 297,
-
-            lowKickLeft: 320,
-            lowKickRight: 299,
-
-            highKickRight: 322,
-
-            duckLeft: 220,
-            duckRight: 220,
-
-            jumpLeft: 300,
-            jumpRight: 300,
-
-            blockRight:321,
-
-            walkLeft: 305,
-            walkRight: 305,
-
-            standLeft: 299,
-            punchLeft: 297,
-
-
-            highKickLeft: 317,
-
-            blockLeft:320 ,
-            deadRight: 328,
-            deadLeft: 327
-        };
+        this.heightOptions = {standRight: 299, punchRight: 297, lowKickLeft: 320, lowKickRight: 299, highKickRight: 322,
+            duckLeft: 220, duckRight: 220, jumpLeft: 300, jumpRight: 300, blockRight:321, walkLeft: 305, walkRight: 305,
+            standLeft: 299, punchLeft: 297, highKickLeft: 317, blockLeft:320 , deadRight: 328, deadLeft: 327};
 
         /**
          * Adjusts X
@@ -372,35 +217,20 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
          */
 
         this.standRightX = function () {return this.x+20;};
-
         this.standLeftX = function () {return this.x;};
-
         this.jumpRightX = function () {return this.x + 25;};
-
         this.jumpLeftX = function () {return this.x ;};
-
         this.punchRightX = function () {return this.x;};
-
         this.punchLeftX = function () {return this.x;};
-
         this.lowKickRightX = function () {return this.x + 200;};
-
         this.lowKickLeftX = function () {return this.x + 40;};
-
         this.duckRightX = function () {return this.x;};
-
         this.duckLeftX = function () {return this.x;};
-
         this.highKickRightX = function () {return this.x - 20;};
-
         this.highKickLeftX = function () {return this.x + 30;};
-
         this.blockRightX = function () {return this.x - 135;};
-
         this.blockLeftX = function () {return this.x - 135;};
-
         this.walkRightX = function () {return this.x + 50;};
-
         this.walkLeftX = function () {return this.x + 50;};
 
         /**
@@ -408,35 +238,20 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
          */
         //for adjusting y's
         this.standRightY = function (){return this.y;};
-
         this.standLeftY = function () {return this.y;};
-
         this.jumpRightY = function () {return this.y + 10;};
-
         this.jumpLeftY = function () {return this.y ;};
-
         this.punchRightY = function () {return this.y;};
-
         this.punchLeftY = function () {return this.y;};
-
         this.lowKickRightY = function () {return this.y+30;};
-
         this.lowKickLeftY = function () {return this.y;};
-
         this.highKickLeftY = function () {return this.y -10;};
-
         this.highKickRightY = function () {return this.y -10;};
-
         this.duckRightY = function () {return this.y + 85;};
-
         this.duckLeftY = function () {return this.y + 85;};
-
         this.blockRightY = function () {return this.y - 15;};
-
         this.blockLeftY = function () {return this.y - 15;};
-
         this.walkLeftY = function () {return this.y ;};
-
         this.walkRightY = function () {return this.y;};
 
         /**
