@@ -46,7 +46,12 @@ var sandersHiKick = new Audio("./audio/hiKick/Roundhouse Kick-SoundBible.com-166
 var sandersDucking = new Audio("./audio/duck/Commedy_Punch-Poorna_RAo-1017287436.mp3");
 var sandersDeath = new Audio("./audio/death/Dying Soul-SoundBible.com-1682971511.mp3");
 var sandersBlock = new Audio("./audio/blocking/punch_or_whack_-Vladimir-403040765.mp3");
-
+sound_effects = [
+    trumpJump, trumpPunch, trumpLoKick, trumpHiKick, trumpDucking, trumpDeath, trumpBlock,
+    cruzJump, cruzPunch, cruzLoKick, cruzHiKick, cruzDucking, cruzDeath, cruzBlock,
+    clintonJump, clintonPunch, clintonLoKick, clintonHiKick, clintonDucking, clintonDeath, clintonBlock,
+    sandersJump, sandersPunch, sandersLoKick, sandersHiKick, sandersDucking, sandersDeath
+];
 
 function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNum) {
     this.fighter = fighterName;
@@ -322,59 +327,15 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWinDance.png"), 0, 0, 300, 405, 0.08, 11, true, false);
     }else if(fighterName === TRUMP){
         //height and widths for bounding boxes
-        this.widthOptions = {standLeft: 150, standRight: 160, jumpLeft: 160,
-            jumpRight: 160,
-
-            walkLeft: 160,
-            walkRight: 160,
-
-            punchLeft: 160,
-            punchRight: 160,
-
-            lowKickLeft: 140,
-            lowKickRight: 160,
-
-
-            highKickLeft: 160,
-            highKickRight: 160,
-
-
-            duckLeft: 180,
-            duckRight: 160,
-            blockRight: 360,
-
-            blockLeft: 372,
-            deadRight: 476,
-            deadLeft: 478
+        this.widthOptions = {standLeft: 150, standRight: 160, jumpLeft: 160, jumpRight: 160, walkLeft: 160,
+            walkRight: 160, punchLeft: 160, punchRight: 160, lowKickLeft: 140, lowKickRight: 160, highKickLeft: 160,
+            highKickRight: 160, duckLeft: 180, duckRight: 160, blockRight: 360, blockLeft: 372, deadRight: 476, deadLeft: 478
         };
 
         this.heightOptions = {
-            jumpLeft: 325,
-            jumpRight: 325,
-
-            walkRight: 326,
-            standRight: 325,
-
-            punchLeft: 325,
-            punchRight: 325,
-            lowKickRight: 321,
-
-            highKickLeft: 325,
-            highKickRight: 325,
-
-            duckLeft: 240,
-            duckRight: 240,
-            blockRight: 424,
-            walkLeft: 326,
-            standLeft: 320,
-
-            lowKickLeft: 335,
-
-
-
-            blockLeft: 429,
-            deadRight: 338,
-            deadLeft: 338
+            jumpLeft: 325, jumpRight: 325, walkRight: 326, standRight: 325, punchLeft: 325, punchRight: 325, lowKickRight: 321,
+            highKickLeft: 325, highKickRight: 325, duckLeft: 240, duckRight: 240, blockRight: 424, walkLeft: 326,
+            standLeft: 320, lowKickLeft: 335, blockLeft: 429, deadRight: 338, deadLeft: 338
         };
 
         /** X's */
@@ -505,23 +466,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         //height and widths for bounding boxes
 
         this.widthOptions = {
-            jumpRight: 135,
-            jumpLeft: 135,
-            standRight: 135,
-            standLeft: 130,
-
-            walkRight: 135,
-            walkLeft: 140,
-
-
-            lowKickRight: 180,
-
-            highKickRight: 195,
-            duckRight: 210,
-
-
-            punchRight: 200,
-            punchLeft: 220,
+            jumpRight: 135, jumpLeft: 135, standRight: 135, standLeft: 130, walkRight: 135, walkLeft: 140, lowKickRight: 180,
+            highKickRight: 195, duckRight: 210, punchRight: 200, punchLeft: 220,
             lowKickLeft: 250,
 
             highKickLeft: 250,
@@ -740,7 +686,7 @@ Fighter.prototype.update = function(){
             if(this != entL && entL instanceof Fighter && this.collide(entL)){
                 if(this.canHit && entL.healthBar > 0){
                     if(entL.blocking){
-                        entL.healthBar -=3;
+                        entL.healthBar -=1;
                         if(entL.fighter==="TRUMP") {
                             trumpBlock.play();
                         } else if(entL.fighter==="CRUZ") {
@@ -753,6 +699,7 @@ Fighter.prototype.update = function(){
                     }else{
                         var rand = Math.floor(Math.random() * 8) + 3;
                         entL.healthBar -= rand;
+                        
                     }
                     this.canHit = false;
                     if(this.fighter==="TRUMP") {

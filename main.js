@@ -210,5 +210,8 @@ ASSET_MANAGER.downloadAll(function () {
         fightIntroMusic.play();
     });
 
+    for(var i = 0; i<sound_effects.length; i++){
+        sound_effects[i].volume =0;
+    }
     gameEngine.start();
 });
