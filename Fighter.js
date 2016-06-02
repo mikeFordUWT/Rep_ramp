@@ -322,12 +322,7 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWinDance.png"), 0, 0, 300, 405, 0.08, 11, true, false);
     }else if(fighterName === TRUMP){
         //height and widths for bounding boxes
-        this.widthOptions = {
-            standLeft: 150,
-            standRight: 160,
-
-
-            jumpLeft: 160,
+        this.widthOptions = {standLeft: 150, standRight: 160, jumpLeft: 160,
             jumpRight: 160,
 
             walkLeft: 160,

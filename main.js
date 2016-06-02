@@ -206,7 +206,7 @@ ASSET_MANAGER.downloadAll(function () {
                 break;
             }
         }
-        backgroundMusic.pause();
+        backgroundMusic.volume =0;
         fightIntroMusic.play();
     });
 
