@@ -1271,7 +1271,10 @@ Fighter.prototype.update = function(){
             this.walkRightAnimation.elapsedTime = 0;
             this.walkRight = false;
         }
-        this.x = this.x + 5;
+        if(this.x + this.boundBox.width< 1180){
+            this.x = this.x + 5;
+        }
+
         this.y = this.ground;
 
     }else if (this.walkLeft){
@@ -1281,7 +1284,11 @@ Fighter.prototype.update = function(){
             this.walkLeftAnimation.elapsedTime = 0;
             this.walkLeft = false;
         }
-        this.x = this.x - 5;
+
+        if(this.x>0){
+            this.x = this.x - 5;
+        }
+
         this.y = this.ground;
     }else if (this.blocking){
         if(this.blockingAnimation.isDone()) {

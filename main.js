@@ -242,6 +242,7 @@ ASSET_MANAGER.downloadAll(function () {
                 var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
                 var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-250, 0, true, onePlayer, 2);
 
+                unicorn.healthBar = 30;
                 //Give them health bars!
                 var health = new Health("left", unicorn2);
                 var health2 = new Health("right", unicorn);
