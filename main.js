@@ -189,7 +189,23 @@ ASSET_MANAGER.downloadAll(function () {
         this.play();
     }, false);
 
+
+    var firstClick = true;
     canvas.addEventListener('focus', function (event) {
+
+        if(firstClick){
+            var onePlayerBox = {x: 501, y: 448, width: 263, height: 42};
+            var twoPlayerBox = {x: 504, y: 512, width: 260, height: 36};
+
+            var onePlayer = true;
+            if(gameEngine.click.x > onePlayerBox.x && gameEngine.click.y > onePlayerBox.y
+                && gameEngine.click.x < onePlayerBox.x+ onePlayerBox.width && gameEngine.click.y < onePlayerBox.y + onePlayerBox.height){
+                console.log("ONE!")
+            }else if(gameEngine.click.x > twoPlayerBox.x && gameEngine.clicky > twoPlayerBox.y
+                && gameEngine.click.x < twoPlayerBox.x + twoPlayerBox.width && gameEngine.click.y < twoPlayerBox.y + twoPlayerBox.height){
+                console.log("TWO!")
+            }
+        }
         var entities = gameEngine.entities;
         for(var i =0; i<entities.length; i++){
             if(entities[i] === title){

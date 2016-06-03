@@ -70,7 +70,24 @@ GameEngine.prototype.start = function () {
 GameEngine.prototype.startInput = function () {
     console.log('Starting input');
     var that = this;
+    var getXandY = function (e) {
+        var x = e.clientX - that.ctx.canvas.getBoundingClientRect().left;
+        var y = e.clientY - that.ctx.canvas.getBoundingClientRect().top;
 
+        if (x < 1024) {
+            x = Math.floor(x / 32);
+            y = Math.floor(y / 32);
+        }
+
+        return { x: x, y: y };
+    }
+
+    this.ctx.canvas.addEventListener("click", function (e) {
+        
+        that.click = getXandY(e);
+        console.log(e);
+        console.log("Left Click Event - X,Y " + e.clientX + ", " + e.clientY);
+    }, false);
     this.ctx.canvas.addEventListener("keydown", function (e) {
         var h = that.o;
         var keyStrokes = [that.a, that.s, that.d, that.w, that.i, that.o, that.p,that.m, that.lKey];
@@ -269,5 +286,6 @@ GameEngine.prototype.loop = function () {
     this.backS = null;
     this.rightShift = null;
     this.leftShift = null;
+    this.click = null;
 
 }
