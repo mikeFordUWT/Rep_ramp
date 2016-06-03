@@ -165,7 +165,7 @@ ASSET_MANAGER.downloadAll(function () {
 
     gameEngine.init(ctx);
     //background music
-    var backgroundMusic = new Audio('./audio/songs/hailToTheChief.mp3');
+    backgroundMusic = new Audio('./audio/songs/hailToTheChief.mp3');
     // backgroundMusic.volume =0;
     backgroundMusic.addEventListener('ended', function() {
         this.currentTime = 0;
@@ -173,7 +173,7 @@ ASSET_MANAGER.downloadAll(function () {
     }, false);
     backgroundMusic.play();
     //fight intro
-    var fightIntroMusic = new Audio('./audio/songs/fightIntro.mp3');
+    fightIntroMusic = new Audio('./audio/songs/fightIntro.mp3');
     fightIntroMusic.volume = 0.5;
     // fightIntroMusic.volume = 0;
     fightIntroMusic.addEventListener("ended", playNext);
@@ -181,7 +181,7 @@ ASSET_MANAGER.downloadAll(function () {
         fightLoopMusic.play();
     };
     //fight loop
-    var fightLoopMusic = new Audio('./audio/songs/fightLoop.mp3');
+    fightLoopMusic = new Audio('./audio/songs/fightLoop.mp3');
     fightLoopMusic.volume = 0.5;
     // fightLoopMusic.volume = 0;
     fightLoopMusic.addEventListener('ended', function() {
@@ -210,8 +210,34 @@ ASSET_MANAGER.downloadAll(function () {
         fightIntroMusic.play();
     });
 
-    for(var i = 0; i<sound_effects.length; i++){
-        sound_effects[i].volume =0;
-    }
+    // for(var i = 0; i<sound_effects.length; i++){
+    //     sound_effects[i].volume =0;
+    // }
+
+    mute = 1;
     gameEngine.start();
 });
+
+function functionVolume() {
+    if(mute === 0){
+        fightLoopMusic.volume = 1;
+        if(!backgroundMusic.paused){
+            backgroundMusic.volume = 1;
+        }
+        for(i=0; i<sound_effects.length; i++){
+            sound_effects[i].volume = 1;
+        }
+        mute = 1;
+
+    } else {
+        backgroundMusic.volume = 0;
+        fightIntroMusic.volume = 0;
+        fightLoopMusic.volume = 0;
+        for(var i=0; i<sound_effects.length; i++){
+            sound_effects[i].volume = 0;
+        }
+        mute = 0;
+    }
+
+
+}
