@@ -11,42 +11,49 @@ var SANDERS = "SANDERS";
 //Audio File Variables
 
 //Trump SFX
-var trumpJump = new Audio("./audio/jump/Mario_Jumping-Mike_Koenig-989896458.mp3");
-var trumpPunch = new Audio("./audio/punch/Punch_HD-Mark_DiAngelo-1718986183.mp3");
-var trumpLoKick = new Audio("./audio/loKick/Right Hook-SoundBible.com-1406389182.mp3");
-var trumpHiKick = new Audio("./audio/hiKick/Upper Cut-SoundBible.com-1272257235.mp3");
-var trumpDucking = new Audio("./audio/duck/Snorting-SoundBible.com-748123769.mp3");
-var trumpDeath = new Audio("./audio/death/Evil Yelling-SoundBible.com-1774362373.mp3");
-var trumpBlock = new Audio("./audio/blocking/Welcome to the Boardroom.mp3");
+trumpJump = new Audio("./audio/jump/Mario_Jumping-Mike_Koenig-989896458.mp3");
+trumpPunch = new Audio("./audio/punch/Punch_HD-Mark_DiAngelo-1718986183.mp3");
+trumpLoKick = new Audio("./audio/loKick/Right Hook-SoundBible.com-1406389182.mp3");
+trumpHiKick = new Audio("./audio/hiKick/Upper Cut-SoundBible.com-1272257235.mp3");
+trumpDucking = new Audio("./audio/duck/Snorting-SoundBible.com-748123769.mp3");
+trumpDeath = new Audio("./audio/death/Evil Yelling-SoundBible.com-1774362373.mp3");
+trumpBlock = new Audio("./audio/blocking/Welcome to the Boardroom.mp3");
 
 
 //Cruz SFX
-var cruzJump = new Audio("./audio/jump/Jump-SoundBible.com-1007297584.mp3");
-var cruzPunch = new Audio("./audio/punch/Realistic_Punch-Mark_DiAngelo-1609462330.mp3");
-var cruzLoKick = new Audio("./audio/loKick/Right Cross-SoundBible.com-1721311663.mp3");
-var cruzHiKick = new Audio("./audio/hiKick/Sweep Kick-SoundBible.com-808409893.mp3");
-var cruzDucking = new Audio("./audio/duck/Jolly Laugh-SoundBible.com-874430997.mp3");
-var cruzDeath = new Audio("./audio/death/Female_Scream_Horror-NeoPhyTe-138499973.mp3");
-var cruzBlock = new Audio("./audio/blocking/Smashing-Yuri_Santana-1233262689.mp3");
+cruzJump = new Audio("./audio/jump/Jump-SoundBible.com-1007297584.mp3");
+cruzPunch = new Audio("./audio/punch/Realistic_Punch-Mark_DiAngelo-1609462330.mp3");
+cruzLoKick = new Audio("./audio/loKick/Right Cross-SoundBible.com-1721311663.mp3");
+cruzHiKick = new Audio("./audio/hiKick/Sweep Kick-SoundBible.com-808409893.mp3");
+cruzDucking = new Audio("./audio/duck/Jolly Laugh-SoundBible.com-874430997.mp3");
+cruzDeath = new Audio("./audio/death/Female_Scream_Horror-NeoPhyTe-138499973.mp3");
+cruzBlock = new Audio("./audio/blocking/Smashing-Yuri_Santana-1233262689.mp3");
 
 //Clinton SFX
-var clintonJump = new Audio("./audio/jump/Catapult-SoundBible.com-829548288.mp3");
-var clintonPunch = new Audio("./audio/punch/Strong_Punch-Mike_Koenig-574430706.mp3");
-var clintonLoKick = new Audio("./audio/loKick/Left Hook-SoundBible.com-516660386.mp3");
-var clintonHiKick = new Audio("./audio/hiKick/Spin Kick-SoundBible.com-1263586030.mp3");
-var clintonDucking = new Audio("./audio/duck/Maniacal Witches Laugh-SoundBible.com-262127569.mp3");
-var clintonDeath = new Audio("./audio/death/Evil Laugh Cackle-SoundBible.com-957382653.mp3");
-var clintonBlock = new Audio("./audio/blocking/clinton_exhausted.mp3");
+clintonJump = new Audio("./audio/jump/Catapult-SoundBible.com-829548288.mp3");
+clintonPunch = new Audio("./audio/punch/Strong_Punch-Mike_Koenig-574430706.mp3");
+clintonLoKick = new Audio("./audio/loKick/Left Hook-SoundBible.com-516660386.mp3");
+clintonHiKick = new Audio("./audio/hiKick/Spin Kick-SoundBible.com-1263586030.mp3");
+clintonDucking = new Audio("./audio/duck/Maniacal Witches Laugh-SoundBible.com-262127569.mp3");
+clintonDeath = new Audio("./audio/death/Evil Laugh Cackle-SoundBible.com-957382653.mp3");
+clintonBlock = new Audio("./audio/blocking/clinton_exhausted.mp3");
 
 //Sanders SFX
-var sandersJump = new Audio("./audio/jump/spin_jump-Brandino480-2020916281.mp3");
-var sandersPunch = new Audio("./audio/punch/Woosh-Mark_DiAngelo-4778593.mp3");
-var sandersLoKick = new Audio("./audio/loKick/Kick-SoundBible.com-1331196005.mp3");
-var sandersHiKick = new Audio("./audio/hiKick/Roundhouse Kick-SoundBible.com-1663225804.mp3");
-var sandersDucking = new Audio("./audio/duck/Commedy_Punch-Poorna_RAo-1017287436.mp3");
-var sandersDeath = new Audio("./audio/death/Dying Soul-SoundBible.com-1682971511.mp3");
-var sandersBlock = new Audio("./audio/blocking/punch_or_whack_-Vladimir-403040765.mp3");
+sandersJump = new Audio("./audio/jump/spin_jump-Brandino480-2020916281.mp3");
+sandersPunch = new Audio("./audio/punch/Woosh-Mark_DiAngelo-4778593.mp3");
+sandersLoKick = new Audio("./audio/loKick/Kick-SoundBible.com-1331196005.mp3");
+sandersHiKick = new Audio("./audio/hiKick/Roundhouse Kick-SoundBible.com-1663225804.mp3");
+sandersDucking = new Audio("./audio/duck/Commedy_Punch-Poorna_RAo-1017287436.mp3");
+sandersDeath = new Audio("./audio/death/Dying Soul-SoundBible.com-1682971511.mp3");
+sandersBlock = new Audio("./audio/blocking/punch_or_whack_-Vladimir-403040765.mp3");
 
+//Audio files
+sound_effects = [
+    trumpJump, trumpPunch, trumpLoKick, trumpHiKick, trumpDucking, trumpDeath, trumpBlock,
+    cruzJump, cruzPunch, cruzLoKick, cruzHiKick, cruzDucking, cruzDeath, cruzBlock,
+    clintonJump, clintonPunch, clintonLoKick, clintonHiKick, clintonDucking, clintonDeath, clintonBlock,
+    sandersJump, sandersPunch, sandersLoKick, sandersHiKick, sandersDucking, sandersDeath
+];
 
 function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNum) {
     this.fighter = fighterName;
@@ -91,63 +98,13 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
 
     if(fighterName === CRUZ){
         //height and widths for bounding boxes
-        this.widthOptions = {
-            walkLeft: 150,
-            walkRight: 144,
+        this.widthOptions = {walkLeft: 150, walkRight: 144, standLeft: 150, standRight: 157, punchLeft: 150,
+            punchRight: 140, lowKickLeft: 200, lowKickRight: 200, jumpLeft: 150, jumpRight: 165, highKickLeft: 170,
+            highKickRight: 170, duckLeft: 150, duckRight: 150, blockLeft: 382, blockRight: 378, deadLeft: 303, deadRight: 294};
 
-            standLeft: 150,
-            standRight: 157,
-
-            punchLeft: 150,
-            punchRight: 140,
-
-            lowKickLeft: 200,
-            lowKickRight: 200,
-
-            jumpLeft: 150,
-            jumpRight: 165,
-
-            highKickLeft: 170,
-            highKickRight: 170,
-
-            duckLeft: 150,
-            duckRight: 150,
-
-            blockLeft: 382,
-            blockRight: 378,
-
-            deadLeft: 303,
-            deadRight: 294
-        };
-
-        this.heightOptions = {
-            walkLeft: 300,
-            walkRight: 292,
-
-            standLeft: 292,
-            standRight: 292,
-
-            punchLeft: 319,
-            punchRight: 310,
-
-            lowKickLeft: 312,
-            lowKickRight:315,
-
-            jumpLeft: 300,
-            jumpRight: 310,
-
-            highKickLeft: 316,
-            highKickRight: 300,
-
-            duckLeft: 230,
-            duckRight: 230,
-
-            blockLeft: 311,
-            blockRight: 319,
-
-            deadLeft: 321,
-            deadRight: 309
-        };
+        this.heightOptions = {walkLeft: 300, walkRight: 292, standLeft: 292, standRight: 292, punchLeft: 319,
+            punchRight: 310, lowKickLeft: 312, lowKickRight:315, jumpLeft: 300, jumpRight: 310, highKickLeft: 316,
+            highKickRight: 300, duckLeft: 230, duckRight: 230, blockLeft: 311, blockRight: 319, deadLeft: 321, deadRight: 309};
 
         // this.width = this.widthOptions.standingWidth;
         // this.height = this.heightOptions.standingHeight;
@@ -158,72 +115,40 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
          */
 
         //for adjusting x's
-
         this.standRightX = function () {return this.x;};
-
         this.standLeftX = function () {return this.x;};
-
         this.jumpRightX = function () {return this.x -10;};
-
         this.jumpLeftX = function () {return this.x ;};
-
         this.punchRightX = function () {return this.x;};
-
         this.punchLeftX = function () {return this.x;};
-
         this.lowKickRightX = function () {return this.x+100;};
-
         this.lowKickLeftX = function () {return this.x+ 50;};
-
         this.duckRightX = function () {return this.x - 10;};
-
         this.duckLeftX = function () {return this.x - 30;};
-
         this.highKickRightX = function () {return this.x - 30;};
-
         this.highKickLeftX = function () {return this.x+ 20;};
-
         this.blockRightX = function () {return this.x - 135;};
-
         this.blockLeftX = function () {return this.x - 70;};
-
         this.walkRightX = function () {return this.x +5;};
-
         this.walkLeftX = function () {return this.x +17;};
 
         /** Adjusts Y's */
         this.standRightY = function (){return this.y;};
-
         this.standLeftY = function () {return this.y;};
-
         this.jumpRightY = function () {return this.y -8;};
-
         this.jumpLeftY = function () {return this.y - 15;};
-
         this.punchRightY = function () {return this.y -10;};
-
         this.punchLeftY = function () {return this.y - 10;};
-
         this.lowKickRightY = function () {return this.y -5;};
-
         this.lowKickLeftY = function () {return this.y - 15;};
-
         this.highKickLeftY = function () {return this.y -20;};
-
         this.highKickRightY = function () {return this.y -10;};
-
         this.duckRightY = function () {return this.y +65;};
-
         this.duckLeftY = function () {return this.y +65;};
-
         this.blockRightY = function () {return this.y - 15;};
-
         this.blockLeftY = function () {return this.y - 5;};
-
         this.walkLeftY = function () {return this.y + 10;};
-
         this.walkRightY = function () {return this.y;};
-
 
         //Bounding Boxes
         this.standRightBox = {x: this.standRightX() , y: this.standRightY(), width:this.widthOptions.standRight, height: this.heightOptions.standRight};
@@ -247,50 +172,33 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.animation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStanding.png"), 0, 0, 157, 292, 0.099, 6, true, false);
         this.animationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzStandingLeft.png"), 0, 0, 147, 293, 0.099, 6, true, false);
 
-
-
         //JUMP
         this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJump.png"), 0, 0, 234, 311, 0.06, 20, false, false);
-
         this.jumpAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzJumpLeft.png"), 0, 0, 237, 311, 0.06, 20, false, false);
-
 
         //PUNCH
         this.punchingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunch.png"), 0, 0, 295, 317, 0.06, 12, false, false);
-
         this.punchingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzPunchLeft.png"), 0, 0, 386, 319, 0.06, 12, false, false);
-
 
         //LOW KICK
         this.lowKickingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzLoKick.png"), 0, 0, 285, 315, 0.06, 12, false, false);
-
         this.lowKickingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzLoKickLeft.png"), 0, 0, 296, 312, 0.06, 12, false, false);
-
 
         //DUCK
         this.duckingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuck.png"), 0, 0, 192, 294, 0.06, 12, false, false);
-
         this.duckingAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDuckLeft.png"), 0, 0, 145, 294, 0.06, 16, false, false);
-
 
         //WALKING
         this.walkLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzWalkLeft.png"), 0, 0, 246, 309, 0.06, 20, false, false);
-
         this.walkRightAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/cruzWalkRight.png"), 0, 0, 144, 292, 0.06, 20, false, false);
-
 
         //HIGH KICK
         this.highKickAnimationLeft = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKickLeft.png"), 0, 0, 280, 316, 0.06, 12, false, false);
-
         this.highKickAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzHiKick.png"), 0, 0, 276, 317, 0.06, 12, false, false);
-
-
 
         //BLOCK
         this.blockingAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlock.png"),0,0, 378, 319, 0.06, 12, false, false);
-
         this.blockingLeftAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzBlockLeft.png"),0,0, 382, 311, 0.06, 12, false, false);
-
 
         //DEAD
         this.deadAnimation = new Animation(ASSET_MANAGER.getAsset("./img/Cruz/CruzDead.png"),0,0, 294, 309, 0.09, 28, false, false);
@@ -302,69 +210,13 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
     }else if(fighterName === CLINTON){
 
         //height and widths for bounding boxes
-        this.widthOptions = {
+        this.widthOptions = {standLeft: 160, standRight: 160, highKickLeft: 200, highKickRight: 180, punchLeft: 170,
+            punchRight: 160, lowKickLeft: 160, lowKickRight: 170, jumpLeft: 160, jumpRight: 160, duckRight: 162,
+            blockRight:436, walkRight: 170, walkLeft: 180, duckLeft: 162, blockLeft: 446, deadRight: 314, deadLeft: 313};
 
-
-            standLeft: 160,
-            standRight: 160,
-
-            highKickLeft: 200,
-            highKickRight: 180,
-
-            punchLeft: 170,
-            punchRight: 160,
-
-            lowKickLeft: 160,
-            lowKickRight: 170,
-
-            jumpLeft: 160,
-            jumpRight: 160,
-
-            duckRight: 162,
-            blockRight:436,
-
-            walkRight: 170,
-            walkLeft: 180,
-
-            duckLeft: 162,
-            blockLeft: 446,
-
-            deadRight: 314,
-            deadLeft: 313
-        };
-
-
-        this.heightOptions = {
-
-            standRight: 299,
-            punchRight: 297,
-
-            lowKickLeft: 320,
-            lowKickRight: 299,
-
-            highKickRight: 322,
-
-            duckLeft: 220,
-            duckRight: 220,
-
-            jumpLeft: 300,
-            jumpRight: 300,
-
-            blockRight:321,
-
-            walkLeft: 305,
-            walkRight: 305,
-
-            standLeft: 299,
-            punchLeft: 297,
-
-
-            highKickLeft: 317,
-
-            blockLeft:320 ,
-            deadRight: 328,
-            deadLeft: 327
-        };
+        this.heightOptions = {standRight: 299, punchRight: 297, lowKickLeft: 320, lowKickRight: 299, highKickRight: 322,
+            duckLeft: 220, duckRight: 220, jumpLeft: 300, jumpRight: 300, blockRight:321, walkLeft: 305, walkRight: 305,
+            standLeft: 299, punchLeft: 297, highKickLeft: 317, blockLeft:320 , deadRight: 328, deadLeft: 327};
 
         /**
          * Adjusts X
@@ -372,35 +224,20 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
          */
 
         this.standRightX = function () {return this.x+20;};
-
         this.standLeftX = function () {return this.x;};
-
         this.jumpRightX = function () {return this.x + 25;};
-
         this.jumpLeftX = function () {return this.x ;};
-
         this.punchRightX = function () {return this.x;};
-
         this.punchLeftX = function () {return this.x;};
-
         this.lowKickRightX = function () {return this.x + 200;};
-
         this.lowKickLeftX = function () {return this.x + 40;};
-
         this.duckRightX = function () {return this.x;};
-
         this.duckLeftX = function () {return this.x;};
-
         this.highKickRightX = function () {return this.x - 20;};
-
         this.highKickLeftX = function () {return this.x + 30;};
-
         this.blockRightX = function () {return this.x - 135;};
-
         this.blockLeftX = function () {return this.x - 135;};
-
         this.walkRightX = function () {return this.x + 50;};
-
         this.walkLeftX = function () {return this.x + 50;};
 
         /**
@@ -408,35 +245,20 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
          */
         //for adjusting y's
         this.standRightY = function (){return this.y;};
-
         this.standLeftY = function () {return this.y;};
-
         this.jumpRightY = function () {return this.y + 10;};
-
         this.jumpLeftY = function () {return this.y ;};
-
         this.punchRightY = function () {return this.y;};
-
         this.punchLeftY = function () {return this.y;};
-
         this.lowKickRightY = function () {return this.y+30;};
-
         this.lowKickLeftY = function () {return this.y;};
-
         this.highKickLeftY = function () {return this.y -10;};
-
         this.highKickRightY = function () {return this.y -10;};
-
         this.duckRightY = function () {return this.y + 85;};
-
         this.duckLeftY = function () {return this.y + 85;};
-
         this.blockRightY = function () {return this.y - 15;};
-
         this.blockLeftY = function () {return this.y - 15;};
-
         this.walkLeftY = function () {return this.y ;};
-
         this.walkRightY = function () {return this.y;};
 
         /**
@@ -507,64 +329,15 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         this.victoryDance = new Animation(ASSET_MANAGER.getAsset("./img/Clinton/ClintonWinDance.png"), 0, 0, 300, 405, 0.08, 11, true, false);
     }else if(fighterName === TRUMP){
         //height and widths for bounding boxes
-        this.widthOptions = {
-            standLeft: 150,
-            standRight: 160,
-
-
-            jumpLeft: 160,
-            jumpRight: 160,
-
-            walkLeft: 160,
-            walkRight: 160,
-
-            punchLeft: 160,
-            punchRight: 160,
-
-            lowKickLeft: 140,
-            lowKickRight: 160,
-
-
-            highKickLeft: 160,
-            highKickRight: 160,
-
-
-            duckLeft: 180,
-            duckRight: 160,
-            blockRight: 360,
-
-            blockLeft: 372,
-            deadRight: 476,
-            deadLeft: 478
+        this.widthOptions = {standLeft: 150, standRight: 160, jumpLeft: 160, jumpRight: 160, walkLeft: 160,
+            walkRight: 160, punchLeft: 160, punchRight: 160, lowKickLeft: 140, lowKickRight: 160, highKickLeft: 160,
+            highKickRight: 160, duckLeft: 180, duckRight: 160, blockRight: 360, blockLeft: 372, deadRight: 476, deadLeft: 478
         };
 
         this.heightOptions = {
-            jumpLeft: 325,
-            jumpRight: 325,
-
-            walkRight: 326,
-            standRight: 325,
-
-            punchLeft: 325,
-            punchRight: 325,
-            lowKickRight: 321,
-
-            highKickLeft: 325,
-            highKickRight: 325,
-
-            duckLeft: 240,
-            duckRight: 240,
-            blockRight: 424,
-            walkLeft: 326,
-            standLeft: 320,
-
-            lowKickLeft: 335,
-
-
-
-            blockLeft: 429,
-            deadRight: 338,
-            deadLeft: 338
+            jumpLeft: 325, jumpRight: 325, walkRight: 326, standRight: 325, punchLeft: 325, punchRight: 325, lowKickRight: 321,
+            highKickLeft: 325, highKickRight: 325, duckLeft: 240, duckRight: 240, blockRight: 424, walkLeft: 326,
+            standLeft: 320, lowKickLeft: 335, blockLeft: 429, deadRight: 338, deadLeft: 338
         };
 
         /** X's */
@@ -695,23 +468,8 @@ function Fighter(game, fighterName, ASSET_MANAGER, x, y, faceLeft, AI, fighterNu
         //height and widths for bounding boxes
 
         this.widthOptions = {
-            jumpRight: 135,
-            jumpLeft: 135,
-            standRight: 135,
-            standLeft: 130,
-
-            walkRight: 135,
-            walkLeft: 140,
-
-
-            lowKickRight: 180,
-
-            highKickRight: 195,
-            duckRight: 210,
-
-
-            punchRight: 200,
-            punchLeft: 220,
+            jumpRight: 135, jumpLeft: 135, standRight: 135, standLeft: 130, walkRight: 135, walkLeft: 140, lowKickRight: 180,
+            highKickRight: 195, duckRight: 210, punchRight: 200, punchLeft: 220,
             lowKickLeft: 250,
 
             highKickLeft: 250,
@@ -887,6 +645,24 @@ Fighter.prototype.update = function(){
     //jumping logic
     //jumping logic
 
+    if(this.blocking){
+        var blockEnts = this.game.entities;
+        for(var i = 0; i<blockEnts.length; i++){
+            if(this != entP && entP instanceof Fighter && this.collide(entP)){
+                var entP = blockEnts[i];
+                if(entP.facing){
+                    if(this.x > this.boundBox.width){
+                        this.x = entP.x -this.boundBox.width;
+                    }
+                }else{
+                    if(this.x < canvas.width - this.boundBox.width){
+                        this.x = entP.x+ entP.boundBox.width;
+                    }
+                }
+            }
+
+        }
+    }
     if(this.punching){
         var punchEnts = this.game.entities;
         for(var i = 0; i< punchEnts.length; i++){
@@ -904,9 +680,16 @@ Fighter.prototype.update = function(){
                         } else if(entP.fighter==="SANDERS") {
                             sandersBlock.play();
                         }
+
                     }else{
                         var rand = Math.floor(Math.random() * 4) + 2;
                         entP.healthBar -= rand;
+
+                        if(entP.facing && (entP.x+entP.boundBox.width) < canvas.width - 50 ){
+                            entP.x += 50;
+                        }else if(entP.x > 20){
+                            entP.x-=50;
+                        }
                     }
                     this.canHit = false;
                     if(entP.fighter==="TRUMP") {
@@ -930,7 +713,7 @@ Fighter.prototype.update = function(){
             if(this != entL && entL instanceof Fighter && this.collide(entL)){
                 if(this.canHit && entL.healthBar > 0){
                     if(entL.blocking){
-                        entL.healthBar -=3;
+                        entL.healthBar -=1;
                         if(entL.fighter==="TRUMP") {
                             trumpBlock.play();
                         } else if(entL.fighter==="CRUZ") {
@@ -943,6 +726,13 @@ Fighter.prototype.update = function(){
                     }else{
                         var rand = Math.floor(Math.random() * 8) + 3;
                         entL.healthBar -= rand;
+                        if(entL.facing && (entL.x+entL.boundBox.width) < canvas.width - 50 ){
+                            entL.x += 50;
+                        }else if(entL.x > 20){
+                            entL.x-=50;
+                        }
+
+
                     }
                     this.canHit = false;
                     if(this.fighter==="TRUMP") {
@@ -979,6 +769,11 @@ Fighter.prototype.update = function(){
                     }else{
                         var rand = Math.floor(Math.random() * 6) + 2;
                         entH.healthBar -= rand;
+                        if(entH.facing && (entH.x+entH.boundBox.width) < canvas.width - 50 ){
+                            entH.x += 50;
+                        }else if(entH.x > 20){
+                            entH.x-=50;
+                        }
                     }
                     this.canHit = false;
                     if(this.fighter==="TRUMP") {
@@ -1476,7 +1271,10 @@ Fighter.prototype.update = function(){
             this.walkRightAnimation.elapsedTime = 0;
             this.walkRight = false;
         }
-        this.x = this.x + 4;
+        if(this.x + this.boundBox.width< 1180){
+            this.x = this.x + 5;
+        }
+
         this.y = this.ground;
 
     }else if (this.walkLeft){
@@ -1486,7 +1284,11 @@ Fighter.prototype.update = function(){
             this.walkLeftAnimation.elapsedTime = 0;
             this.walkLeft = false;
         }
-        this.x = this.x - 4;
+
+        if(this.x>0){
+            this.x = this.x - 5;
+        }
+
         this.y = this.ground;
     }else if (this.blocking){
         if(this.blockingAnimation.isDone()) {
@@ -2032,6 +1834,7 @@ Fighter.prototype.draw = function (ctx) {
         }else if(this.fighter === CRUZ){
             this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y - 200);
         }
+        setTimeout(TimerReset, 6000);
     } else {
         if (this.facing === true) {
             this.boundBox = this.standLeftBox;
@@ -2075,7 +1878,9 @@ Fighter.prototype.draw = function (ctx) {
 };
 
 
-
+TimerReset = function () {
+    location.reload();
+}
 
 Fighter.prototype.highKick = function (other) {
     if(this.highKicking){

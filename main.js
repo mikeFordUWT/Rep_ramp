@@ -128,55 +128,48 @@ ASSET_MANAGER.downloadAll(function () {
 
     var gameEngine = new GameEngine();
 
-    //var unicorn = new TedCruz(gameEngine);
-
-
-    var trump = "TRUMP"
-    var cruz = "CRUZ"
-    var clinton = "CLINTON"
-    var sanders = "SANDERS"
-    var candidates = [clinton, sanders, cruz, trump];
-
-    var rand1 = Math.floor(Math.random()*4);
-    // var rand1 = 2;
-    var rand2;
-    if(rand1<=1){
-        rand2 = Math.floor(Math.random()*2) + 2;
-    }else if(rand1>=2){
-        rand2 = Math.floor(Math.random() * 2);
-    }
-
-    var fighter1 = candidates[rand1];
-    var fighter2 = candidates[rand2];
-// Animation()
-    var unicorn2 = new Fighter(gameEngine,fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
-    var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-200, 0, false, true, 2);
-
-    
-    var health = new Health("left", unicorn2);
-    var health2 = new Health("right", unicorn);
-    // unicorn2.healthBar = 10;
-    // unicorn.healthBar = -10;
-
-    // var unicorn2 = new AIFighter(gameEngine,"bernieSanders", ASSET_MANAGER, 0, 0, false);
-    // var unicorn = new AIFighter(gameEngine, "donaldTrump", ASSET_MANAGER, 1000, 0, false);
-
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
-
     var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
-
-    //gameEngine.addEntity(unicorn);
-    gameEngine.addEntity(unicorn);
-    gameEngine.addEntity(unicorn2);
-    gameEngine.addEntity(health);
-    gameEngine.addEntity(health2);
-
-
     gameEngine.addEntity(title);
+
+    // //Candidate array
+    // var candidates = ["CLINTON", "SANDERS", "CRUZ", "TRUMP"];
+    //
+    // //Pick a random fighter
+    // var rand1 = Math.floor(Math.random()*4);
+    // var rand2;
+    // if(rand1<=1){
+    //     rand2 = Math.floor(Math.random()*2) + 2;
+    // }else if(rand1>=2){
+    //     rand2 = Math.floor(Math.random() * 2);
+    // }
+    // onePlayer = false;
+    // //Select the random candidate from the array
+    // var fighter1 = candidates[rand1];
+    // var fighter2 = candidates[rand2];
+    //
+    // var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
+    // var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-200, 0, false, true, 2);
+    //
+    // //Give them health bars!
+    // var health = new Health("left", unicorn2);
+    // var health2 = new Health("right", unicorn);
+    //
+    // gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
+    //
+    // var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
+    //
+    // gameEngine.addEntity(unicorn);
+    // gameEngine.addEntity(unicorn2);
+    // gameEngine.addEntity(health);
+    // gameEngine.addEntity(health2);
+    //
+    //
+    // gameEngine.addEntity(title);
 
     gameEngine.init(ctx);
     //background music
-    var backgroundMusic = new Audio('./audio/songs/hailToTheChief.mp3');
+    backgroundMusic = new Audio('./audio/songs/hailToTheChief.mp3');
     // backgroundMusic.volume =0;
     backgroundMusic.addEventListener('ended', function() {
         this.currentTime = 0;
@@ -184,7 +177,7 @@ ASSET_MANAGER.downloadAll(function () {
     }, false);
     backgroundMusic.play();
     //fight intro
-    var fightIntroMusic = new Audio('./audio/songs/fightIntro.mp3');
+    fightIntroMusic = new Audio('./audio/songs/fightIntro.mp3');
     fightIntroMusic.volume = 0.5;
     // fightIntroMusic.volume = 0;
     fightIntroMusic.addEventListener("ended", playNext);
@@ -192,7 +185,7 @@ ASSET_MANAGER.downloadAll(function () {
         fightLoopMusic.play();
     };
     //fight loop
-    var fightLoopMusic = new Audio('./audio/songs/fightLoop.mp3');
+    fightLoopMusic = new Audio('./audio/songs/fightLoop.mp3');
     fightLoopMusic.volume = 0.5;
     // fightLoopMusic.volume = 0;
     fightLoopMusic.addEventListener('ended', function() {
@@ -200,12 +193,76 @@ ASSET_MANAGER.downloadAll(function () {
         this.play();
     }, false);
 
-    canvas.addEventListener('focus', function (event) {
+    var firstClick = true;
+    canvas.addEventListener('click', function (event) {
+        console.log("X: " + gameEngine.click.x);
+        console.log("Y: " + gameEngine.click.y);
+            if(firstClick){
+                firstClick = false;
+                var onePlayerBox = {x: 501, y: 15, width: 263, height: 38};
+                var twoPlayerBox = {x: 504, y: 16, width: 260, height: 24};
+                var onePlayer = true;
+
+
+
+
+                var y = gameEngine.click.y;
+                console.log(y);
+                if( gameEngine.click.y < onePlayerBox.y){
+                    console.log("ONE!");
+                    onePlayer = true;
+
+                    play = false;
+                }else if( gameEngine.click.y >= twoPlayerBox.y){
+                    console.log("TWO!");
+                    play = false;
+                    onePlayer = false;
+                }
+
+
+
+
+                //Candidate array
+                var candidates = ["CLINTON", "SANDERS", "CRUZ", "TRUMP"];
+
+                //Pick a random fighter
+                var rand1 = Math.floor(Math.random()*4);
+                var rand2;
+                if(rand1<=1){
+                    rand2 = Math.floor(Math.random()*2) + 2;
+                }else if(rand1>=2){
+                    rand2 = Math.floor(Math.random() * 2);
+                }
+
+
+                //Select the random candidate from the array
+                var fighter1 = candidates[rand1];
+                var fighter2 = candidates[rand2];
+
+                var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
+                var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-250, 0, true, onePlayer, 2);
+
+                unicorn.healthBar = 30;
+                //Give them health bars!
+                var health = new Health("left", unicorn2);
+                var health2 = new Health("right", unicorn);
+
+                gameEngine.addEntity(unicorn);
+                gameEngine.addEntity(unicorn2);
+                gameEngine.addEntity(health);
+                gameEngine.addEntity(health2);
+
+
+            }
+
+
+
+
+
         var entities = gameEngine.entities;
         for(var i =0; i<entities.length; i++){
             if(entities[i] === title){
                 entities.splice(i,1);
-
                 break;
             }
 
@@ -218,9 +275,39 @@ ASSET_MANAGER.downloadAll(function () {
                 break;
             }
         }
-        backgroundMusic.pause();
+        backgroundMusic.volume =0;
         fightIntroMusic.play();
     });
 
+    // for(var i = 0; i<sound_effects.length; i++){
+    //     sound_effects[i].volume =0;
+    // }
+
+    mute = 1;
     gameEngine.start();
 });
+
+function functionVolume() {
+    if(mute === 0){
+        fightLoopMusic.volume = 1;
+        if(!backgroundMusic.paused){
+            fightIntroMusic.volume =1;
+            backgroundMusic.volume = 1;
+        }
+        for(i=0; i<sound_effects.length; i++){
+            sound_effects[i].volume = 1;
+        }
+        mute = 1;
+
+    } else {
+        backgroundMusic.volume = 0;
+        fightIntroMusic.volume = 0;
+        fightLoopMusic.volume = 0;
+        for(var i=0; i<sound_effects.length; i++){
+            sound_effects[i].volume = 0;
+        }
+        mute = 0;
+    }
+
+
+}
