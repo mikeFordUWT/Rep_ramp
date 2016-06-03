@@ -289,6 +289,7 @@ function functionVolume() {
     if(mute === 0){
         fightLoopMusic.volume = 1;
         if(!backgroundMusic.paused){
+            fightIntroMusic.volume =1;
             backgroundMusic.volume = 1;
         }
         for(i=0; i<sound_effects.length; i++){
