@@ -1834,7 +1834,7 @@ Fighter.prototype.draw = function (ctx) {
         }else if(this.fighter === CRUZ){
             this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y - 200);
         }
-        setTimeout(TimerReset, 6000);
+        setTimeout(TimerReset, 3000);
     } else {
         if (this.facing === true) {
             this.boundBox = this.standLeftBox;
