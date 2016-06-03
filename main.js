@@ -195,24 +195,25 @@ ASSET_MANAGER.downloadAll(function () {
 
     var firstClick = true;
     canvas.addEventListener('click', function (event) {
-
+        console.log("X: " + gameEngine.click.x);
+        console.log("Y: " + gameEngine.click.y);
             if(firstClick){
                 firstClick = false;
-                var onePlayerBox = {x: 501, y: 188, width: 263, height: 38};
-                var twoPlayerBox = {x: 504, y: 240, width: 260, height: 24};
+                var onePlayerBox = {x: 501, y: 15, width: 263, height: 38};
+                var twoPlayerBox = {x: 504, y: 16, width: 260, height: 24};
                 var onePlayer = true;
 
-                console.log("X: " + event.clientX);
-                console.log("Y: " + event.clientY);
 
 
 
-                if( event.clientY < onePlayerBox.y + onePlayerBox.height){
+                var y = gameEngine.click.y;
+                console.log(y);
+                if( gameEngine.click.y < onePlayerBox.y){
                     console.log("ONE!");
                     onePlayer = true;
 
                     play = false;
-                }else if( event.clientY > twoPlayerBox.y){
+                }else if( gameEngine.click.y >= twoPlayerBox.y){
                     console.log("TWO!");
                     play = false;
                     onePlayer = false;
@@ -239,7 +240,7 @@ ASSET_MANAGER.downloadAll(function () {
                 var fighter2 = candidates[rand2];
 
                 var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
-                var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-200, 0, false, onePlayer, 2);
+                var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-250, 0, true, onePlayer, 2);
 
                 //Give them health bars!
                 var health = new Health("left", unicorn2);
