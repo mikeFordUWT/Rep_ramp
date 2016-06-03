@@ -138,6 +138,11 @@ GameEngine.prototype.startInput = function () {
             }
         }
 
+        if(String.fromCharCode(e.which).toLowerCase() === 'm'){
+            functionVolume();
+            change();
+        }
+
         //console.log(e);
         //e.preventDefault();
     }, false);

@@ -24,6 +24,23 @@
     <script type="text/javascript" src="./titleScreen.js"></script>
 
     <script type="text/javascript" src="./main.js"></script>
+    <style id="keyboard">
+        #key {
+            display: inline-block;
+            margin: 0 .1em;
+            padding: .1em .6em;
+            font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #242729;
+            text-shadow: 0 1px 0 #FFF;
+            background-color: #e1e3e5;
+            border: 1px solid #adb3b9;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(12,13,14,0.2),0 0 0 2px #FFF inset;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
 <audio src="./audio/songs/hailToTheChief.mp3" preload="auto"></audio>
@@ -35,32 +52,36 @@
     var canvas = document.getElementById("gameWorld");
     var context = canvas.getContext("2d");
 
-
     context.fillStyle = "blue";
     context.font = "bold 50px Arial";
     context.textAlign="center";
     context.fillText("Loading...", canvas.width/2, canvas.height/2);
 </script>
 
-<p><a href="javascript:functionVolume();"><input onclick="return change(this);" type="button" value="Mute" id=mute"></a></p>
+<p><a href="javascript:functionVolume();" ><input onclick="change();" type="button" value="Mute" id="mute" ></a>
+    <a> (<a id="key">M</a>ute when in the context of game)</a>
+</p>
 
 <script>
-    function change(value) {
-        if(value.value === "Mute") value.value = "UnMute";
-        else value.value = "Mute";
+    function change() {
+        if(document.getElementById("mute").value === "Mute") document.getElementById("mute").value = "UnMute";
+        else document.getElementById("mute").value = "Mute";
     }
 </script>
 
+<p>The game will restart 6 seconds after the fight completes.</p>
+
 <h1>The Controls:</h1>
-<p><b>Move left:</b> A  <b>Duck:</b> S  <b>Move right:</b> D  <b>Jump:</b> W  <b>Punch:</b> R  <b>High Kick:</b> T
-    <b>Low Kick:</b> Y  <b>Block:</b> Left Shift.</p>
-<p>To restart game refresh page F5.</p>
+<p>
+    <b>Move left:</b> <a id="key">A</a>  <b>Duck:</b> <a id="key">S</a>  <b>Move right:</b> <a id="key">D</a>  <b>Jump:</b>
+    <a id="key">W</a>  <b>Punch:</b> <a id="key">R</a>  <b>High Kick:</b> <a id="key">T</a>
+    <b>Low Kick:</b> <a id="key">Y</a> Y  <b>Block:</b> <a id="key">Left Shift</a>.</p>
+
 
 <h1>Second Player Controls (if Multiplayer is being used):</h1>
-<p><b>Move left:</b> K  <b>Duck:</b> L  <b>Move right:</b> ;  <b>Jump:</b> O  <b>Punch:</b> [  <b>High Kick:</b> ]
-    <b>Low Kick:</b> \  <b>Block:</b> Right Shift.</p>
-<p>To restart game refresh page F5.</p>
-
+<p><b>Move left:</b> <a id="key">K</a>  <b>Duck:</b> <a id="key">L</a>  <b>Move right:</b> <a id="key">;</a>  <b>Jump:</b>
+    <a id="key">O</a>  <b>Punch:</b> <a id="key">[</a>  <b>High Kick:</b> <a id="key">]</a>
+    <b>Low Kick:</b> <a id="key">\</a>  <b>Block:</b> <a id="key">Right Shift</a>.</p>
 
 </body>
 </html>
