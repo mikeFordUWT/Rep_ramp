@@ -128,40 +128,44 @@ ASSET_MANAGER.downloadAll(function () {
 
     var gameEngine = new GameEngine();
 
-    //Candidate array
-    var candidates = ["CLINTON", "SANDERS", "CRUZ", "TRUMP"];
-
-    //Pick a random fighter
-    var rand1 = Math.floor(Math.random()*4);
-    var rand2;
-    if(rand1<=1){
-        rand2 = Math.floor(Math.random()*2) + 2;
-    }else if(rand1>=2){
-        rand2 = Math.floor(Math.random() * 2);
-    }
-
-    //Select the random candidate from the array
-    var fighter1 = candidates[rand1];
-    var fighter2 = candidates[rand2];
-
-    var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
-    var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-200, 0, false, true, 2);
-
-    //Give them health bars!
-    var health = new Health("left", unicorn2);
-    var health2 = new Health("right", unicorn);
-
     gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
-
     var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
-
-    gameEngine.addEntity(unicorn);
-    gameEngine.addEntity(unicorn2);
-    gameEngine.addEntity(health);
-    gameEngine.addEntity(health2);
-
-
     gameEngine.addEntity(title);
+
+    // //Candidate array
+    // var candidates = ["CLINTON", "SANDERS", "CRUZ", "TRUMP"];
+    //
+    // //Pick a random fighter
+    // var rand1 = Math.floor(Math.random()*4);
+    // var rand2;
+    // if(rand1<=1){
+    //     rand2 = Math.floor(Math.random()*2) + 2;
+    // }else if(rand1>=2){
+    //     rand2 = Math.floor(Math.random() * 2);
+    // }
+    // onePlayer = false;
+    // //Select the random candidate from the array
+    // var fighter1 = candidates[rand1];
+    // var fighter2 = candidates[rand2];
+    //
+    // var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
+    // var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-200, 0, false, true, 2);
+    //
+    // //Give them health bars!
+    // var health = new Health("left", unicorn2);
+    // var health2 = new Health("right", unicorn);
+    //
+    // gameEngine.addEntity(new Background(gameEngine, ASSET_MANAGER.getAsset("./img/whiteHouse.jpg")));
+    //
+    // var title = new Background(gameEngine, ASSET_MANAGER.getAsset("./img/titleScreen.png"));
+    //
+    // gameEngine.addEntity(unicorn);
+    // gameEngine.addEntity(unicorn2);
+    // gameEngine.addEntity(health);
+    // gameEngine.addEntity(health2);
+    //
+    //
+    // gameEngine.addEntity(title);
 
     gameEngine.init(ctx);
     //background music
@@ -189,23 +193,70 @@ ASSET_MANAGER.downloadAll(function () {
         this.play();
     }, false);
 
-
     var firstClick = true;
-    canvas.addEventListener('focus', function (event) {
+    canvas.addEventListener('click', function (event) {
 
-        if(firstClick){
-            var onePlayerBox = {x: 501, y: 448, width: 263, height: 42};
-            var twoPlayerBox = {x: 504, y: 512, width: 260, height: 36};
+            if(firstClick){
+                firstClick = false;
+                var onePlayerBox = {x: 501, y: 188, width: 263, height: 38};
+                var twoPlayerBox = {x: 504, y: 240, width: 260, height: 24};
+                var onePlayer = true;
 
-            var onePlayer = true;
-            if(gameEngine.click.x > onePlayerBox.x && gameEngine.click.y > onePlayerBox.y
-                && gameEngine.click.x < onePlayerBox.x+ onePlayerBox.width && gameEngine.click.y < onePlayerBox.y + onePlayerBox.height){
-                console.log("ONE!")
-            }else if(gameEngine.click.x > twoPlayerBox.x && gameEngine.clicky > twoPlayerBox.y
-                && gameEngine.click.x < twoPlayerBox.x + twoPlayerBox.width && gameEngine.click.y < twoPlayerBox.y + twoPlayerBox.height){
-                console.log("TWO!")
+                console.log("X: " + event.clientX);
+                console.log("Y: " + event.clientY);
+
+
+
+                if( event.clientY < onePlayerBox.y + onePlayerBox.height){
+                    console.log("ONE!");
+                    onePlayer = true;
+
+                    play = false;
+                }else if( event.clientY > twoPlayerBox.y){
+                    console.log("TWO!");
+                    play = false;
+                    onePlayer = false;
+                }
+
+
+
+
+                //Candidate array
+                var candidates = ["CLINTON", "SANDERS", "CRUZ", "TRUMP"];
+
+                //Pick a random fighter
+                var rand1 = Math.floor(Math.random()*4);
+                var rand2;
+                if(rand1<=1){
+                    rand2 = Math.floor(Math.random()*2) + 2;
+                }else if(rand1>=2){
+                    rand2 = Math.floor(Math.random() * 2);
+                }
+
+
+                //Select the random candidate from the array
+                var fighter1 = candidates[rand1];
+                var fighter2 = candidates[rand2];
+
+                var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
+                var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-200, 0, false, onePlayer, 2);
+
+                //Give them health bars!
+                var health = new Health("left", unicorn2);
+                var health2 = new Health("right", unicorn);
+
+                gameEngine.addEntity(unicorn);
+                gameEngine.addEntity(unicorn2);
+                gameEngine.addEntity(health);
+                gameEngine.addEntity(health2);
+
+
             }
-        }
+
+
+
+
+
         var entities = gameEngine.entities;
         for(var i =0; i<entities.length; i++){
             if(entities[i] === title){
