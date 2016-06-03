@@ -182,6 +182,7 @@ ASSET_MANAGER.downloadAll(function () {
     // fightIntroMusic.volume = 0;
     fightIntroMusic.addEventListener("ended", playNext);
     function playNext() {
+        fightIntroMusic.volume = 0;
         fightLoopMusic.play();
     };
     //fight loop
@@ -242,7 +243,6 @@ ASSET_MANAGER.downloadAll(function () {
                 var unicorn2 = new Fighter(gameEngine, fighter1, ASSET_MANAGER, 100, 0, false, false, 1);
                 var unicorn = new Fighter(gameEngine, fighter2, ASSET_MANAGER, canvas.width-250, 0, true, onePlayer, 2);
 
-                unicorn.healthBar = 30;
                 //Give them health bars!
                 var health = new Health("left", unicorn2);
                 var health2 = new Health("right", unicorn);
@@ -291,7 +291,7 @@ function functionVolume() {
     if(mute === 0){
         fightLoopMusic.volume = 1;
         if(!backgroundMusic.paused){
-            fightIntroMusic.volume =1;
+            // fightIntroMusic.volume =1;
             backgroundMusic.volume = 1;
         }
         for(i=0; i<sound_effects.length; i++){
