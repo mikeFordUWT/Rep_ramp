@@ -1271,7 +1271,10 @@ Fighter.prototype.update = function(){
             this.walkRightAnimation.elapsedTime = 0;
             this.walkRight = false;
         }
-        this.x = this.x + 4;
+        if(this.x + this.boundBox.width< 1180){
+            this.x = this.x + 5;
+        }
+
         this.y = this.ground;
 
     }else if (this.walkLeft){
@@ -1281,7 +1284,11 @@ Fighter.prototype.update = function(){
             this.walkLeftAnimation.elapsedTime = 0;
             this.walkLeft = false;
         }
-        this.x = this.x - 4;
+
+        if(this.x>0){
+            this.x = this.x - 5;
+        }
+
         this.y = this.ground;
     }else if (this.blocking){
         if(this.blockingAnimation.isDone()) {
@@ -1827,6 +1834,7 @@ Fighter.prototype.draw = function (ctx) {
         }else if(this.fighter === CRUZ){
             this.victoryDance.drawFrame(this.game.clockTick, ctx, this.x, this.y - 200);
         }
+        setTimeout(TimerReset, 6000);
     } else {
         if (this.facing === true) {
             this.boundBox = this.standLeftBox;
@@ -1870,7 +1878,9 @@ Fighter.prototype.draw = function (ctx) {
 };
 
 
-
+TimerReset = function () {
+    location.reload();
+}
 
 Fighter.prototype.highKick = function (other) {
     if(this.highKicking){
