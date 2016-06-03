@@ -35,15 +35,20 @@
     var canvas = document.getElementById("gameWorld");
     var context = canvas.getContext("2d");
 
-    /*context.strokeStyle="red";
-    context.moveTo(canvas.width/2,0);
-    context.lineTo(canvas.width/2,canvas.height);
-    context.stroke();*/
 
     context.fillStyle = "blue";
     context.font = "bold 50px Arial";
     context.textAlign="center";
     context.fillText("Loading...", canvas.width/2, canvas.height/2);
+</script>
+
+<p><a href="javascript:functionVolume();"><input onclick="return change(this);" type="button" value="Mute" id=mute"></a></p>
+
+<script>
+    function change(value) {
+        if(value.value === "Mute") value.value = "UnMute";
+        else value.value = "Mute";
+    }
 </script>
 
 <h1>The Controls:</h1>
